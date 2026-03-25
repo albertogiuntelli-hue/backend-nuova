@@ -1,0 +1,2946 @@
+[
+  {
+    "codice": "0009529",
+    "descrizione": "FORMAGGIO PRATOMAGNO VECCHIO",
+    "nome": "FORMAGGIO PRATOMAGNO VECCHIO",
+    "prezzo": 12.57,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0136902",
+    "descrizione": "FORMAGGIO STELVIO DOP MILA",
+    "nome": "FORMAGGIO STELVIO DOP MILA",
+    "prezzo": 13.9,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0161292",
+    "descrizione": "MILA FORMAGGIO DOLOMITENKONIG",
+    "nome": "MILA FORMAGGIO DOLOMITENKONIG",
+    "prezzo": 12.9,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0066823",
+    "descrizione": "LEVONI SCHIACCIATA PICCANTE",
+    "nome": "LEVONI SCHIACCIATA PICCANTE",
+    "prezzo": 23.9,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0007031",
+    "descrizione": "PROSCIUTTO CRUDO DI MONTE",
+    "nome": "PROSCIUTTO CRUDO DI MONTE",
+    "prezzo": 15.9,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0270179",
+    "descrizione": "SAL.MERANESE LIONER",
+    "nome": "SAL.MERANESE LIONER",
+    "prezzo": 8.9,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0007142",
+    "descrizione": "SENFTER SPECK A/A S.C. IGP",
+    "nome": "SENFTER SPECK A/A S.C. IGP",
+    "prezzo": 18.73,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0443023",
+    "descrizione": "SPECK COTTO SENZA COTENNA",
+    "nome": "SPECK COTTO SENZA COTENNA",
+    "prezzo": 16.5,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0359849",
+    "descrizione": "T/A CORTESI SALSA CIPOLLE GR.40",
+    "nome": "T/A CORTESI SALSA CIPOLLE GR.40",
+    "prezzo": 1.37,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0350161",
+    "descrizione": "T/A CORTESI SALSA DI ARANCE GR.50",
+    "nome": "T/A CORTESI SALSA DI ARANCE GR.50",
+    "prezzo": 1.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0287895",
+    "descrizione": "T/A CORTESI SALSA FICHI GR.50",
+    "nome": "T/A CORTESI SALSA FICHI GR.50",
+    "prezzo": 1.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0287894",
+    "descrizione": "T/A CORTESI SALSA PERE GR.50",
+    "nome": "T/A CORTESI SALSA PERE GR.50",
+    "prezzo": 1.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0423776",
+    "descrizione": "T/A FICACCI OLIVE SICILIANE G150",
+    "nome": "T/A FICACCI OLIVE SICILIANE G150",
+    "prezzo": 2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0534484",
+    "descrizione": "ALPRO NON E' LATTE CLASSICO LT.1",
+    "nome": "ALPRO NON E' LATTE CLASSICO LT.1",
+    "prezzo": 2.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0257073",
+    "descrizione": "LATTE TN LATTE UHT INT TETRA L1",
+    "nome": "LATTE TN LATTE UHT INT TETRA L1",
+    "prezzo": 1.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0454008",
+    "descrizione": "MILA LATTE S/LATT UHT 500ML",
+    "nome": "MILA LATTE S/LATT UHT 500ML",
+    "prezzo": 0.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0204617",
+    "descrizione": "PARMALAT ZYMIL UHT PS PET L1",
+    "nome": "PARMALAT ZYMIL UHT PS PET L1",
+    "prezzo": 2.02,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0353186",
+    "descrizione": "BUITONI SFOGLIA RETTANG. G230",
+    "nome": "BUITONI SFOGLIA RETTANG. G230",
+    "prezzo": 1.86,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0010753",
+    "descrizione": "BURRO TRENTINO G500",
+    "nome": "BURRO TRENTINO G500",
+    "prezzo": 4.11,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0451224",
+    "descrizione": "LATTE TN BURRO G200",
+    "nome": "LATTE TN BURRO G200",
+    "prezzo": 2.24,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0086098",
+    "descrizione": "MEGGLE BURRO ERBE X5 G100",
+    "nome": "MEGGLE BURRO ERBE X5 G100",
+    "prezzo": 2.17,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0138948",
+    "descrizione": "MILA BURRO ALTO ADIGE G250",
+    "nome": "MILA BURRO ALTO ADIGE G250",
+    "prezzo": 2.35,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0535543",
+    "descrizione": "MERANO YOG. L.FIENO NOCCIOLA GRAN. G150",
+    "nome": "MERANO YOG. L.FIENO NOCCIOLA GRAN. G150",
+    "prezzo": 0.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0535542",
+    "descrizione": "MERANO YOG. LATTE FIENO CARAM.SAL. G150",
+    "nome": "MERANO YOG. LATTE FIENO CARAM.SAL. G150",
+    "prezzo": 0.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0507601",
+    "descrizione": "MERANO YOG.LATTE FIENO CAFFE' 150G",
+    "nome": "MERANO YOG.LATTE FIENO CAFFE' 150G",
+    "prezzo": 0.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0507605",
+    "descrizione": "MERANO YOG.LATTE FIENO FR.BOS.150G",
+    "nome": "MERANO YOG.LATTE FIENO FR.BOS.150G",
+    "prezzo": 0.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0507598",
+    "descrizione": "MERANO YOG.LATTE FIENO FRAGOLA 150G",
+    "nome": "MERANO YOG.LATTE FIENO FRAGOLA 150G",
+    "prezzo": 0.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0507608",
+    "descrizione": "MERANO YOG.LATTE FIENO MANGO G150",
+    "nome": "MERANO YOG.LATTE FIENO MANGO G150",
+    "prezzo": 0.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0527919",
+    "descrizione": "FAGE YOG.GRECO TOTAL 0% G150",
+    "nome": "FAGE YOG.GRECO TOTAL 0% G150",
+    "prezzo": 1.11,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0527918",
+    "descrizione": "FAGE YOGURT GRECO 2% G150",
+    "nome": "FAGE YOGURT GRECO 2% G150",
+    "prezzo": 1.11,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0527920",
+    "descrizione": "FAGE YOGURT GRECO TOTAL 5% G150",
+    "nome": "FAGE YOGURT GRECO TOTAL 5% G150",
+    "prezzo": 1.11,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0552767",
+    "descrizione": "LATTE TRENTO KEFIR BIANCO G500",
+    "nome": "LATTE TRENTO KEFIR BIANCO G500",
+    "prezzo": 1.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0346623",
+    "descrizione": "KINDER PINGUI' COCCO X 4 120",
+    "nome": "KINDER PINGUI' COCCO X 4 120",
+    "prezzo": 2.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0346622",
+    "descrizione": "KINDER PINGUI' X 4 T120",
+    "nome": "KINDER PINGUI' X 4 T120",
+    "prezzo": 2.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549787",
+    "descrizione": "S/G CAMEO MUU MUU CIOCCOLATO G115 X4",
+    "nome": "S/G CAMEO MUU MUU CIOCCOLATO G115 X4",
+    "prezzo": 2.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549788",
+    "descrizione": "S/G CAMEO MUU MUU VANIGLIA G115 X4",
+    "nome": "S/G CAMEO MUU MUU VANIGLIA G115 X4",
+    "prezzo": 2.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0371076",
+    "descrizione": "S/G VALSOIA YOSOI BIANCO G125X2",
+    "nome": "S/G VALSOIA YOSOI BIANCO G125X2",
+    "prezzo": 1.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0518232",
+    "descrizione": "VALSOIA YOSOI VANIGLIA G125X2",
+    "nome": "VALSOIA YOSOI VANIGLIA G125X2",
+    "prezzo": 1.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0439813",
+    "descrizione": "BRIMI RICOTTA S/LATTOSIO G200",
+    "nome": "BRIMI RICOTTA S/LATTOSIO G200",
+    "prezzo": 1.36,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0388837",
+    "descrizione": "JOCCA FIOCCHI DI LATTE G175",
+    "nome": "JOCCA FIOCCHI DI LATTE G175",
+    "prezzo": 1.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0149762",
+    "descrizione": "S/G PHILADELPHIA G250",
+    "nome": "S/G PHILADELPHIA G250",
+    "prezzo": 2.85,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0222903",
+    "descrizione": "S/G PHILADELPHIA PICCOLA 80X2",
+    "nome": "S/G PHILADELPHIA PICCOLA 80X2",
+    "prezzo": 2.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0008230",
+    "descrizione": "BRIMI MOZZARELLA FILONE G400",
+    "nome": "BRIMI MOZZARELLA FILONE G400",
+    "prezzo": 3.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0412818",
+    "descrizione": "BRIMI MOZZARELLA G125X3",
+    "nome": "BRIMI MOZZARELLA G125X3",
+    "prezzo": 3.57,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0515565",
+    "descrizione": "P.REALE MOZZ.BUFALA S/LATT. 125G",
+    "nome": "P.REALE MOZZ.BUFALA S/LATT. 125G",
+    "prezzo": 1.53,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0223412",
+    "descrizione": "S/G PARMIGIANO REGGIANO GRATT.G60",
+    "nome": "S/G PARMIGIANO REGGIANO GRATT.G60",
+    "prezzo": 1.44,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0566531",
+    "descrizione": "TRENTINGRANA GRATTUGIATO 20M G80",
+    "nome": "TRENTINGRANA GRATTUGIATO 20M G80",
+    "prezzo": 1.6,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0565654",
+    "descrizione": "TRENTINGRANA SV G300",
+    "nome": "TRENTINGRANA SV G300",
+    "prezzo": 6.27,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0554657",
+    "descrizione": "KRAFT FETTINE SENZA LATTOSIO 175G",
+    "nome": "KRAFT FETTINE SENZA LATTOSIO 175G",
+    "prezzo": 1.7,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0421629",
+    "descrizione": "\"GOLFETTA \"\"I PETALI\"\" BUSTA G100                                          \"",
+    "nome": "\"GOLFETTA \"\"I PETALI\"\" BUSTA G100                                          \"",
+    "prezzo": 3.01,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0525369",
+    "descrizione": "LEVONI LARDO BT G80",
+    "nome": "LEVONI LARDO BT G80",
+    "prezzo": 3.13,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0343319",
+    "descrizione": "LEVONI SALAME UNGHERESE G80",
+    "nome": "LEVONI SALAME UNGHERESE G80",
+    "prezzo": 2.94,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528724",
+    "descrizione": "S/G BERETTA F/S TACCHINO FORNO G110",
+    "nome": "S/G BERETTA F/S TACCHINO FORNO G110",
+    "prezzo": 2.55,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0510657",
+    "descrizione": "S/G BERETTA PROSCIUTTO CRUDO F/S G100",
+    "nome": "S/G BERETTA PROSCIUTTO CRUDO F/S G100",
+    "prezzo": 3.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0413354",
+    "descrizione": "S/G FERRARINI COTTO A/Q BT G100",
+    "nome": "S/G FERRARINI COTTO A/Q BT G100",
+    "prezzo": 2.86,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0368371",
+    "descrizione": "S/G RECLA SPECK IGP BUSTA G90",
+    "nome": "S/G RECLA SPECK IGP BUSTA G90",
+    "prezzo": 2.62,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0522718",
+    "descrizione": "IL GUSTO CONTAD. SALAME NOSTRANO G500CA",
+    "nome": "IL GUSTO CONTAD. SALAME NOSTRANO G500CA",
+    "prezzo": 15.73,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0006146",
+    "descrizione": "NEGRONI CACCIATORE DOP G170 CA",
+    "nome": "NEGRONI CACCIATORE DOP G170 CA",
+    "prezzo": 19.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0470782",
+    "descrizione": "S/G BERETTA SALAMINI AFFUMICATI G85",
+    "nome": "S/G BERETTA SALAMINI AFFUMICATI G85",
+    "prezzo": 2.31,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0417973",
+    "descrizione": "S/G BERETTA SALAMINI CLASSICI G85",
+    "nome": "S/G BERETTA SALAMINI CLASSICI G85",
+    "prezzo": 2.31,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0470781",
+    "descrizione": "S/G BERETTA SALAMINI PICCANTE G85",
+    "nome": "S/G BERETTA SALAMINI PICCANTE G85",
+    "prezzo": 2.31,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0400003",
+    "descrizione": "S/RENDENA LUGANEGA TIPICA TRENTINA STAG.",
+    "nome": "S/RENDENA LUGANEGA TIPICA TRENTINA STAG.",
+    "prezzo": 17.47,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0534934",
+    "descrizione": "S/G AMADORI WURSTEL POLLO/TACCH.G250",
+    "nome": "S/G AMADORI WURSTEL POLLO/TACCH.G250",
+    "prezzo": 1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0412936",
+    "descrizione": "S/G  RECLA WURSTEL WIENER G180",
+    "nome": "S/G  RECLA WURSTEL WIENER G180",
+    "prezzo": 1.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0006566",
+    "descrizione": "S/G SENFTER WURS.SERVEL.X2 PS G200",
+    "nome": "S/G SENFTER WURS.SERVEL.X2 PS G200",
+    "prezzo": 1.41,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0127634",
+    "descrizione": "S/G C/MODENA TENERONI PROSC. G150",
+    "nome": "S/G C/MODENA TENERONI PROSC. G150",
+    "prezzo": 2.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542456",
+    "descrizione": "RANA PESTO FRESCO ALLA GENOVESE G140",
+    "nome": "RANA PESTO FRESCO ALLA GENOVESE G140",
+    "prezzo": 2.01,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0588143",
+    "descrizione": "RANA PESTO FRESCO BASILICO/LIMONE G130",
+    "nome": "RANA PESTO FRESCO BASILICO/LIMONE G130",
+    "prezzo": 2.01,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542454",
+    "descrizione": "RANA PESTO FRESCO NOCI G140",
+    "nome": "RANA PESTO FRESCO NOCI G140",
+    "prezzo": 2.01,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542455",
+    "descrizione": "RANA PESTO FRESCO SENZ'AGLIO G140",
+    "nome": "RANA PESTO FRESCO SENZ'AGLIO G140",
+    "prezzo": 2.01,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542463",
+    "descrizione": "RANA PESTO POMODORI SECCHI/PECORINO G140",
+    "nome": "RANA PESTO POMODORI SECCHI/PECORINO G140",
+    "prezzo": 2.01,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0497055",
+    "descrizione": "S/G BIFFI PESTO FR.GENOVESE G90",
+    "nome": "S/G BIFFI PESTO FR.GENOVESE G90",
+    "prezzo": 1.17,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0497052",
+    "descrizione": "S/G BIFFI PESTO FRESCO SENZ'AGLIO G90",
+    "nome": "S/G BIFFI PESTO FRESCO SENZ'AGLIO G90",
+    "prezzo": 1.17,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0458462",
+    "descrizione": "IL PASTAIO GNOCCHI RIP.SPECK E BRIE G400",
+    "nome": "IL PASTAIO GNOCCHI RIP.SPECK E BRIE G400",
+    "prezzo": 2.28,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0448961",
+    "descrizione": "RANA DUETTO BURRATA/BASIL.G250",
+    "nome": "RANA DUETTO BURRATA/BASIL.G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0398561",
+    "descrizione": "RANA DUETTO GORGONZ./NOCI G250",
+    "nome": "RANA DUETTO GORGONZ./NOCI G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0253093",
+    "descrizione": "RANA RUSTICI CARNE G250",
+    "nome": "RANA RUSTICI CARNE G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0482484",
+    "descrizione": "RANA RUSTICI CASARECCI G250",
+    "nome": "RANA RUSTICI CASARECCI G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0253091",
+    "descrizione": "RANA RUSTICI CRUDO G250",
+    "nome": "RANA RUSTICI CRUDO G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0253092",
+    "descrizione": "RANA RUSTICI RICOTTA/SPINACI G250",
+    "nome": "RANA RUSTICI RICOTTA/SPINACI G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0416903",
+    "descrizione": "RANA RUSTICI VITELLO G250",
+    "nome": "RANA RUSTICI VITELLO G250",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0295902",
+    "descrizione": "PARMAREGGIO DOP SNACK G20X5",
+    "nome": "PARMAREGGIO DOP SNACK G20X5",
+    "prezzo": 2.61,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0516675",
+    "descrizione": "MAXIBON X 4 GR. 384",
+    "nome": "MAXIBON X 4 GR. 384",
+    "prezzo": 3.03,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0482531",
+    "descrizione": "SADIA SPEEDY POLLO THE ORIGINAL GR.300",
+    "nome": "SADIA SPEEDY POLLO THE ORIGINAL GR.300",
+    "prezzo": 3.15,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0358887",
+    "descrizione": "ARBI MISTO SCOGLIO G300",
+    "nome": "ARBI MISTO SCOGLIO G300",
+    "prezzo": 3.77,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0442521",
+    "descrizione": "FINDUS 4 FIORI DI MERLUZZO GR.300",
+    "nome": "FINDUS 4 FIORI DI MERLUZZO GR.300",
+    "prezzo": 7.15,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573778",
+    "descrizione": "FINDUS TENT GUSTO VONG/CALAM/MAZZAN G400",
+    "nome": "FINDUS TENT GUSTO VONG/CALAM/MAZZAN G400",
+    "prezzo": 4.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0593686",
+    "descrizione": "FINDUS TENT. GUSTO CACCIUCCO G450",
+    "nome": "FINDUS TENT. GUSTO CACCIUCCO G450",
+    "prezzo": 5.67,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573779",
+    "descrizione": "FINDUS TENT. GUSTO COZZ/CALAM/POMOD G400",
+    "nome": "FINDUS TENT. GUSTO COZZ/CALAM/POMOD G400",
+    "prezzo": 4.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573780",
+    "descrizione": "FINDUS TENT. GUSTO VONGOLE C/PREZZ G400",
+    "nome": "FINDUS TENT. GUSTO VONGOLE C/PREZZ G400",
+    "prezzo": 4.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0495510",
+    "descrizione": "FROSTA BISTECCA MERLUZ.GRIGL.RUCOL.G250",
+    "nome": "FROSTA BISTECCA MERLUZ.GRIGL.RUCOL.G250",
+    "prezzo": 4.66,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0482525",
+    "descrizione": "FROSTA MERLUZZO ALASKA CROCCANTE GR.240",
+    "nome": "FROSTA MERLUZZO ALASKA CROCCANTE GR.240",
+    "prezzo": 2.96,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0382933",
+    "descrizione": "MARFRIO FRITTO MISTO T500",
+    "nome": "MARFRIO FRITTO MISTO T500",
+    "prezzo": 4.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0482528",
+    "descrizione": "PANAPESCA MAZZANCOLLE TROP.SGUSC. GR.225",
+    "nome": "PANAPESCA MAZZANCOLLE TROP.SGUSC. GR.225",
+    "prezzo": 5.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573784",
+    "descrizione": "TYSON SPEEDY POLLO GOLDEN FILETS SC G220",
+    "nome": "TYSON SPEEDY POLLO GOLDEN FILETS SC G220",
+    "prezzo": 3.21,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0287332",
+    "descrizione": "BELLANAPOLI BUITONI MINIPIZZE G300",
+    "nome": "BELLANAPOLI BUITONI MINIPIZZE G300",
+    "prezzo": 2.18,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0488111",
+    "descrizione": "BUITONI BELLA NAP. MARGHERITA X 3 G900",
+    "nome": "BUITONI BELLA NAP. MARGHERITA X 3 G900",
+    "prezzo": 5.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0586652",
+    "descrizione": "CAMEO PIZZA REG. G GUSTO MARGHERITA G350",
+    "nome": "CAMEO PIZZA REG. G GUSTO MARGHERITA G350",
+    "prezzo": 2.83,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0586651",
+    "descrizione": "CAMEO PIZZA REG. GRAN GUSTO SALAME G385",
+    "nome": "CAMEO PIZZA REG. GRAN GUSTO SALAME G385",
+    "prezzo": 2.83,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0511110",
+    "descrizione": "CAMEO PIZZA REGINA MARGHERITA ALTA G375",
+    "nome": "CAMEO PIZZA REGINA MARGHERITA ALTA G375",
+    "prezzo": 2.63,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573874",
+    "descrizione": "ITALPIZZA NUMERO 1 BUFALA GR 435",
+    "nome": "ITALPIZZA NUMERO 1 BUFALA GR 435",
+    "prezzo": 4.28,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0552606",
+    "descrizione": "BONDUELLE COCCOLE BROCCOLI/CAROTE G300",
+    "nome": "BONDUELLE COCCOLE BROCCOLI/CAROTE G300",
+    "prezzo": 3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0552605",
+    "descrizione": "BONDUELLE COCCOLE SPIN/FAGIOL/BROC.G300",
+    "nome": "BONDUELLE COCCOLE SPIN/FAGIOL/BROC.G300",
+    "prezzo": 3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0467286",
+    "descrizione": "FINDUS 4SIP PATATE SAPORITE GR.450",
+    "nome": "FINDUS 4SIP PATATE SAPORITE GR.450",
+    "prezzo": 4.7,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0475067",
+    "descrizione": "MC CAIN PATATE FORNO EXPRESS GR.500",
+    "nome": "MC CAIN PATATE FORNO EXPRESS GR.500",
+    "prezzo": 2.21,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0186193",
+    "descrizione": "OROGEL LEGGER.CONT.VERDURE 450",
+    "nome": "OROGEL LEGGER.CONT.VERDURE 450",
+    "prezzo": 2.24,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0366815",
+    "descrizione": "OROGEL SPINACI CUB.FOGLIA+ G900",
+    "nome": "OROGEL SPINACI CUB.FOGLIA+ G900",
+    "prezzo": 2.74,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0108077",
+    "descrizione": "VALSOIA COTOLETTA VEG.SU.2X100",
+    "nome": "VALSOIA COTOLETTA VEG.SU.2X100",
+    "prezzo": 2.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0559447",
+    "descrizione": "LAVAZZA 30 CAPS C&G CLASSIC C/N G171",
+    "nome": "LAVAZZA 30 CAPS C&G CLASSIC C/N G171",
+    "prezzo": 10.73,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0559445",
+    "descrizione": "LAVAZZA 30 CAPS DEK CN G174",
+    "nome": "LAVAZZA 30 CAPS DEK CN G174",
+    "prezzo": 10.68,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0559446",
+    "descrizione": "LAVAZZA 30 CAPS QUALITA ROSSA CN G171",
+    "nome": "LAVAZZA 30 CAPS QUALITA ROSSA CN G171",
+    "prezzo": 10.68,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0021015",
+    "descrizione": "LAVAZZA CAFFE' ROSSA GR250X2",
+    "nome": "LAVAZZA CAFFE' ROSSA GR250X2",
+    "prezzo": 10.04,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0166698",
+    "descrizione": "TWININGS TE' 4 FRUTTI ROSSI 25FF",
+    "nome": "TWININGS TE' 4 FRUTTI ROSSI 25FF",
+    "prezzo": 3.94,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0021759",
+    "descrizione": "TWININGS TE' EARL GREY 25FF",
+    "nome": "TWININGS TE' EARL GREY 25FF",
+    "prezzo": 3.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0021751",
+    "descrizione": "TWININGS TE' ENGLISH BREAKFAST 25FF.",
+    "nome": "TWININGS TE' ENGLISH BREAKFAST 25FF.",
+    "prezzo": 3.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0166697",
+    "descrizione": "TWININGS TE' LEMON SCENTED 25FF",
+    "nome": "TWININGS TE' LEMON SCENTED 25FF",
+    "prezzo": 3.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0417212",
+    "descrizione": "TWININGS TE' NERO AROM.PESCA 25FF",
+    "nome": "TWININGS TE' NERO AROM.PESCA 25FF",
+    "prezzo": 3.94,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0088531",
+    "descrizione": "TWININGS TE' NERO VANIGLIA 25FF",
+    "nome": "TWININGS TE' NERO VANIGLIA 25FF",
+    "prezzo": 3.94,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0546832",
+    "descrizione": "TWININGS TE PRINCE OF WALES 25FF",
+    "nome": "TWININGS TE PRINCE OF WALES 25FF",
+    "prezzo": 3.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0134734",
+    "descrizione": "TWININGS TE' PURE GREEN 25FF",
+    "nome": "TWININGS TE' PURE GREEN 25FF",
+    "prezzo": 3.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0593033",
+    "descrizione": "TWININGS TE VERDE EARL GREY 20FF",
+    "nome": "TWININGS TE VERDE EARL GREY 20FF",
+    "prezzo": 3.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0434574",
+    "descrizione": "MISURA FETTE BISCOTT MULTIGRAIN T320",
+    "nome": "MISURA FETTE BISCOTT MULTIGRAIN T320",
+    "prezzo": 1.55,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0425343",
+    "descrizione": "MISURA FETTE FIBRE EXTRA T320",
+    "nome": "MISURA FETTE FIBRE EXTRA T320",
+    "prezzo": 1.55,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0561365",
+    "descrizione": "MISURA NATURA RICCA FETTE SEGALE GR 320",
+    "nome": "MISURA NATURA RICCA FETTE SEGALE GR 320",
+    "prezzo": 1.55,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0125856",
+    "descrizione": "M/BIANCO BISC CAMPAGNOLE T700",
+    "nome": "M/BIANCO BISC CAMPAGNOLE T700",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0162234",
+    "descrizione": "M/BIANCO BISC GALLETTI T800",
+    "nome": "M/BIANCO BISC GALLETTI T800",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0162195",
+    "descrizione": "M/BIANCO BISC MACINE T800",
+    "nome": "M/BIANCO BISC MACINE T800",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0162233",
+    "descrizione": "M/BIANCO BISC RIGOLI T800",
+    "nome": "M/BIANCO BISC RIGOLI T800",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0529727",
+    "descrizione": "M/BIANCO BISC SCACCHIERI GR 300",
+    "nome": "M/BIANCO BISC SCACCHIERI GR 300",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0513381",
+    "descrizione": "M/BIANCO BISC SCHIACCIANOCI 300G",
+    "nome": "M/BIANCO BISC SCHIACCIANOCI 300G",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0108582",
+    "descrizione": "M/BIANCO BISC TARALLUCCI T800",
+    "nome": "M/BIANCO BISC TARALLUCCI T800",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0408444",
+    "descrizione": "M/BIANCO BISCOTTONE 700G",
+    "nome": "M/BIANCO BISCOTTONE 700G",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0165612",
+    "descrizione": "M/BIANCO G/CEREALE CACAO T230",
+    "nome": "M/BIANCO G/CEREALE CACAO T230",
+    "prezzo": 1.52,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0112841",
+    "descrizione": "M/BIANCO G/CEREALE CROCC.T230",
+    "nome": "M/BIANCO G/CEREALE CROCC.T230",
+    "prezzo": 1.52,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0063511",
+    "descrizione": "M/BIANCO G/CEREALE FRUTTA 250G",
+    "nome": "M/BIANCO G/CEREALE FRUTTA 250G",
+    "prezzo": 1.52,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0379182",
+    "descrizione": "M/BIANCO GIROTONDI T800",
+    "nome": "M/BIANCO GIROTONDI T800",
+    "prezzo": 3.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0456489",
+    "descrizione": "NUTELLA B-READY 6 PZ 132G",
+    "nome": "NUTELLA B-READY 6 PZ 132G",
+    "prezzo": 2.14,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0541810",
+    "descrizione": "TRE MARIE FROLLINO CACAO C/GOCCE G315",
+    "nome": "TRE MARIE FROLLINO CACAO C/GOCCE G315",
+    "prezzo": 1.82,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0541811",
+    "descrizione": "TRE MARIE FROLLINO CARAM SAL/GOCCE G315",
+    "nome": "TRE MARIE FROLLINO CARAM SAL/GOCCE G315",
+    "prezzo": 1.82,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0541808",
+    "descrizione": "TRE MARIE FROLLINO CIOCCOLATO PEZZI G360",
+    "nome": "TRE MARIE FROLLINO CIOCCOLATO PEZZI G360",
+    "prezzo": 1.82,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0541809",
+    "descrizione": "TRE MARIE FROLLINO KRUMIRO C/CIOCC G315",
+    "nome": "TRE MARIE FROLLINO KRUMIRO C/CIOCC G315",
+    "prezzo": 1.82,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0455014",
+    "descrizione": "M/BIANCO BISC BAIOCCHI 260G",
+    "nome": "M/BIANCO BISC BAIOCCHI 260G",
+    "prezzo": 2.53,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0541895",
+    "descrizione": "M/BIANCO BISC. BAIOCCHI PISTACCHIO G240",
+    "nome": "M/BIANCO BISC. BAIOCCHI PISTACCHIO G240",
+    "prezzo": 2.89,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0085632",
+    "descrizione": "PAVESI RINGO FAM CACAO T330",
+    "nome": "PAVESI RINGO FAM CACAO T330",
+    "prezzo": 2.68,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0024807",
+    "descrizione": "PAVESI RINGO FAM.VAN T330",
+    "nome": "PAVESI RINGO FAM.VAN T330",
+    "prezzo": 2.68,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0460443",
+    "descrizione": "KINDER BRIOSS LATTE/CACAO 280G",
+    "nome": "KINDER BRIOSS LATTE/CACAO 280G",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0460399",
+    "descrizione": "KINDER BRIOSS X10 270G",
+    "nome": "KINDER BRIOSS X10 270G",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0570101",
+    "descrizione": "KINDER PLUMCAKE CAROTA G198",
+    "nome": "KINDER PLUMCAKE CAROTA G198",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0511264",
+    "descrizione": "KINDER PLUMCAKE YOGURT GRECO G192",
+    "nome": "KINDER PLUMCAKE YOGURT GRECO G192",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0203187",
+    "descrizione": "M/BIANCO CORNETTI SFOGLIA T240",
+    "nome": "M/BIANCO CORNETTI SFOGLIA T240",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0056537",
+    "descrizione": "M/BIANCO CROSTATINA ALB. T400",
+    "nome": "M/BIANCO CROSTATINA ALB. T400",
+    "prezzo": 2.52,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0094724",
+    "descrizione": "M/BIANCO CROSTATINA CACAO T400",
+    "nome": "M/BIANCO CROSTATINA CACAO T400",
+    "prezzo": 2.52,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0234802",
+    "descrizione": "M/BIANCO MERENDA PAN DI STELLE 280G",
+    "nome": "M/BIANCO MERENDA PAN DI STELLE 280G",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0150935",
+    "descrizione": "LINDOR CORNET ASSORTITO 200G",
+    "nome": "LINDOR CORNET ASSORTITO 200G",
+    "prezzo": 7.29,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0535952",
+    "descrizione": "LINDOR CORNET CARAM SALATO G200",
+    "nome": "LINDOR CORNET CARAM SALATO G200",
+    "prezzo": 7.31,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0222756",
+    "descrizione": "LINDOR CORNET FONDENTE 60% CACAO G200",
+    "nome": "LINDOR CORNET FONDENTE 60% CACAO G200",
+    "prezzo": 7.31,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0112492",
+    "descrizione": "LINDOR CORNET LATTE G200",
+    "nome": "LINDOR CORNET LATTE G200",
+    "prezzo": 7.29,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0588413",
+    "descrizione": "LINDOR CORNET LIMITED EDIT G200",
+    "nome": "LINDOR CORNET LIMITED EDIT G200",
+    "prezzo": 7.31,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0495532",
+    "descrizione": "LINDOR CORNET PISTACCHIO G200",
+    "nome": "LINDOR CORNET PISTACCHIO G200",
+    "prezzo": 7.29,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0428471",
+    "descrizione": "LINDT FONDENTE MANDORLE T100",
+    "nome": "LINDT FONDENTE MANDORLE T100",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0510499",
+    "descrizione": "LINDT TAV CIOCC CUOR DI LATTE G100",
+    "nome": "LINDT TAV CIOCC CUOR DI LATTE G100",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0379734",
+    "descrizione": "LINDT TAV.CIOCC. FOND/NOCC.100G",
+    "nome": "LINDT TAV.CIOCC. FOND/NOCC.100G",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0261883",
+    "descrizione": "LINDT TAV.CIOCCOLATO BIANCO 100G",
+    "nome": "LINDT TAV.CIOCCOLATO BIANCO 100G",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0396197",
+    "descrizione": "LINDT TAV.EXTRA FONDENTE 72% 100G",
+    "nome": "LINDT TAV.EXTRA FONDENTE 72% 100G",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0026047",
+    "descrizione": "LINDT TAV.FONDENTE SURFIN 100G",
+    "nome": "LINDT TAV.FONDENTE SURFIN 100G",
+    "prezzo": 2.17,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0026135",
+    "descrizione": "LINDT TAV.LATTE 100G",
+    "nome": "LINDT TAV.LATTE 100G",
+    "prezzo": 2.17,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0442669",
+    "descrizione": "LINDT TAV.LATTE/NOCCIOLE IGP 100G",
+    "nome": "LINDT TAV.LATTE/NOCCIOLE IGP 100G",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0535950",
+    "descrizione": "LINDT TAVOLETTA LATTE PISTACCHIO G90",
+    "nome": "LINDT TAVOLETTA LATTE PISTACCHIO G90",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0535423",
+    "descrizione": "S/G FERRERO NUTELLA GR 750",
+    "nome": "S/G FERRERO NUTELLA GR 750",
+    "prezzo": 6.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0490887",
+    "descrizione": "S/G RIGONI BIO AGRUMI/ZENZERO 340G",
+    "nome": "S/G RIGONI BIO AGRUMI/ZENZERO 340G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0133065",
+    "descrizione": "S/G RIGONI BIO ALBICOCCA T330",
+    "nome": "S/G RIGONI BIO ALBICOCCA T330",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0133063",
+    "descrizione": "S/G RIGONI BIO ARANCE AMARE T340",
+    "nome": "S/G RIGONI BIO ARANCE AMARE T340",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0133064",
+    "descrizione": "S/G RIGONI BIO FRAGOLE 330G",
+    "nome": "S/G RIGONI BIO FRAGOLE 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0518067",
+    "descrizione": "S/G RIGONI BIO FRAGOLE/MENTA 330G",
+    "nome": "S/G RIGONI BIO FRAGOLE/MENTA 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0188177",
+    "descrizione": "S/G RIGONI BIO FRUTTI BOSCO 330G",
+    "nome": "S/G RIGONI BIO FRUTTI BOSCO 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0404308",
+    "descrizione": "S/G RIGONI BIO LAMPONI T330",
+    "nome": "S/G RIGONI BIO LAMPONI T330",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0133066",
+    "descrizione": "S/G RIGONI BIO MIRTILLI NERI 330G",
+    "nome": "S/G RIGONI BIO MIRTILLI NERI 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0202434",
+    "descrizione": "S/G RIGONI BIO MIRTILLI ROSSI 330G",
+    "nome": "S/G RIGONI BIO MIRTILLI ROSSI 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0411883",
+    "descrizione": "S/G RIGONI BIO MORE T330",
+    "nome": "S/G RIGONI BIO MORE T330",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0265472",
+    "descrizione": "S/G RIGONI BIO PESCA T330",
+    "nome": "S/G RIGONI BIO PESCA T330",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0404310",
+    "descrizione": "S/G RIGONI BIO PRUGNE 330G",
+    "nome": "S/G RIGONI BIO PRUGNE 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0478254",
+    "descrizione": "S/G RIGONI BIO SAMBUCO 330G",
+    "nome": "S/G RIGONI BIO SAMBUCO 330G",
+    "prezzo": 3.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0027951",
+    "descrizione": "CAMEO BUDINO AMARETTO X2",
+    "nome": "CAMEO BUDINO AMARETTO X2",
+    "prezzo": 1.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0057882",
+    "descrizione": "CAMEO BUDINO CIOCC.X2",
+    "nome": "CAMEO BUDINO CIOCC.X2",
+    "prezzo": 1.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0256663",
+    "descrizione": "CAMEO BUDINO CR.CIOC.FOND.T176",
+    "nome": "CAMEO BUDINO CR.CIOC.FOND.T176",
+    "prezzo": 1.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0155042",
+    "descrizione": "CAMEO BUDINO CREMOSO CIOC.T180",
+    "nome": "CAMEO BUDINO CREMOSO CIOC.T180",
+    "prezzo": 1.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0156349",
+    "descrizione": "CAMEO BUDINO CREMOSO VAN.T130",
+    "nome": "CAMEO BUDINO CREMOSO VAN.T130",
+    "prezzo": 1.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0225360",
+    "descrizione": "CAMEO BUDINO PISTACCHIO 122G",
+    "nome": "CAMEO BUDINO PISTACCHIO 122G",
+    "prezzo": 1.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0057885",
+    "descrizione": "CAMEO BUDINO VANIGLIA X2",
+    "nome": "CAMEO BUDINO VANIGLIA X2",
+    "prezzo": 1.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0027927",
+    "descrizione": "CAMEO PREP.CREM CARAMEL X2",
+    "nome": "CAMEO PREP.CREM CARAMEL X2",
+    "prezzo": 1.42,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0282850",
+    "descrizione": "SAIWA CIPSTER MULTIPACK 6 BS X 22 GR",
+    "nome": "SAIWA CIPSTER MULTIPACK 6 BS X 22 GR",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0516338",
+    "descrizione": "BALOCCO UOVO INTER GR. 240",
+    "nome": "BALOCCO UOVO INTER GR. 240",
+    "prezzo": 11.04,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0434219",
+    "descrizione": "BALOCCO UOVO LATTE JUVE G240",
+    "nome": "BALOCCO UOVO LATTE JUVE G240",
+    "prezzo": 11.04,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0503572",
+    "descrizione": "BALOCCO UOVO MILAN GR. 240",
+    "nome": "BALOCCO UOVO MILAN GR. 240",
+    "prezzo": 11.04,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542087",
+    "descrizione": "IL VECCHIO FORNO RAMO PRIMAV CIOCC G750",
+    "nome": "IL VECCHIO FORNO RAMO PRIMAV CIOCC G750",
+    "prezzo": 4.24,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0515927",
+    "descrizione": "LINDT GOLD BUNNY STICK X5 10G",
+    "nome": "LINDT GOLD BUNNY STICK X5 10G",
+    "prezzo": 3.79,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0601478",
+    "descrizione": "PERNIGOTTI BUSTA OVETTI GIANDUIA G140",
+    "nome": "PERNIGOTTI BUSTA OVETTI GIANDUIA G140",
+    "prezzo": 3.51,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0601469",
+    "descrizione": "PERNIGOTTI BUSTA OVETTI LATTE G140",
+    "nome": "PERNIGOTTI BUSTA OVETTI LATTE G140",
+    "prezzo": 3.51,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0601505",
+    "descrizione": "PERNIGOTTI BUSTA OVETTI PISTACCHIO G140",
+    "nome": "PERNIGOTTI BUSTA OVETTI PISTACCHIO G140",
+    "prezzo": 3.51,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0502818",
+    "descrizione": "PREZIOSI OVETTO PRINCIP-SUPERM. G40",
+    "nome": "PREZIOSI OVETTO PRINCIP-SUPERM. G40",
+    "prezzo": 2.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0541662",
+    "descrizione": "ROVELLI BUSTA OVETTI CONFETTATI G130",
+    "nome": "ROVELLI BUSTA OVETTI CONFETTATI G130",
+    "prezzo": 2.68,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0023745",
+    "descrizione": "M/BIANCO PANGRI' GRISSINI CLASS. GR.300",
+    "nome": "M/BIANCO PANGRI' GRISSINI CLASS. GR.300",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0452453",
+    "descrizione": "M/BIANCO PANGRI' INTEGRALI G250",
+    "nome": "M/BIANCO PANGRI' INTEGRALI G250",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0023535",
+    "descrizione": "PAVESI CRACKER N/SALATI 560G",
+    "nome": "PAVESI CRACKER N/SALATI 560G",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0023507",
+    "descrizione": "PAVESI CRACKER SALATI 560G",
+    "nome": "PAVESI CRACKER SALATI 560G",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0513311",
+    "descrizione": "M/BIANCO GRANBAULETTO INTEGR.NOCI G465",
+    "nome": "M/BIANCO GRANBAULETTO INTEGR.NOCI G465",
+    "prezzo": 2.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0419145",
+    "descrizione": "M/BIANCO GRANBAULETTO RUSTICO 500G",
+    "nome": "M/BIANCO GRANBAULETTO RUSTICO 500G",
+    "prezzo": 2.21,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0139302",
+    "descrizione": "M/BIANCO PAGNOTTELLE X6 T360",
+    "nome": "M/BIANCO PAGNOTTELLE X6 T360",
+    "prezzo": 1.89,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0222641",
+    "descrizione": "M/BIANCO PAN CARRE' X24 430G",
+    "nome": "M/BIANCO PAN CARRE' X24 430G",
+    "prezzo": 1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0483666",
+    "descrizione": "M/SPADONI FARINA GR.TEN.00 ANTIGRUMI KG1",
+    "nome": "M/SPADONI FARINA GR.TEN.00 ANTIGRUMI KG1",
+    "prezzo": 1.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0508798",
+    "descrizione": "DE CECCO BUCATINI N.15 GR.500",
+    "nome": "DE CECCO BUCATINI N.15 GR.500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573705",
+    "descrizione": "DE CECCO CONCHIGLIETTE 53 G500",
+    "nome": "DE CECCO CONCHIGLIETTE 53 G500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029209",
+    "descrizione": "DE CECCO FUSILLI 34 T500",
+    "nome": "DE CECCO FUSILLI 34 T500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029087",
+    "descrizione": "DE CECCO LINGUINE 7 G500",
+    "nome": "DE CECCO LINGUINE 7 G500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029111",
+    "descrizione": "DE CECCO MEZZE PENNE RIG. 141 T500",
+    "nome": "DE CECCO MEZZE PENNE RIG. 141 T500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029129",
+    "descrizione": "DE CECCO PENNE RIG. 41 T500",
+    "nome": "DE CECCO PENNE RIG. 41 T500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029041",
+    "descrizione": "DE CECCO SPAGHETTI 12 T500",
+    "nome": "DE CECCO SPAGHETTI 12 T500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029011",
+    "descrizione": "DE CECCO SPAGHETTINI 11 G500",
+    "nome": "DE CECCO SPAGHETTINI 11 G500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0222791",
+    "descrizione": "DE CECCO SPAGHETTONI 412 T500",
+    "nome": "DE CECCO SPAGHETTONI 412 T500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0029161",
+    "descrizione": "DE CECCO TORTIGLIONI 23 G500",
+    "nome": "DE CECCO TORTIGLIONI 23 G500",
+    "prezzo": 1.1,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0028027",
+    "descrizione": "GALLO RISO ARBORIO CHICCHI GROSSI T1",
+    "nome": "GALLO RISO ARBORIO CHICCHI GROSSI T1",
+    "prezzo": 2.52,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0378875",
+    "descrizione": "COLOMBARA OLIO EX/VERGINE 750",
+    "nome": "COLOMBARA OLIO EX/VERGINE 750",
+    "prezzo": 6.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0560202",
+    "descrizione": "BARILLA RAGU BOLOGNESE G300",
+    "nome": "BARILLA RAGU BOLOGNESE G300",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0560200",
+    "descrizione": "BARILLA RAGU CONTADINO G300",
+    "nome": "BARILLA RAGU CONTADINO G300",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0560203",
+    "descrizione": "BARILLA RAGU' MONTANARO G300",
+    "nome": "BARILLA RAGU' MONTANARO G300",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0560201",
+    "descrizione": "BARILLA RAGU SALSICCIA G300",
+    "nome": "BARILLA RAGU SALSICCIA G300",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0560199",
+    "descrizione": "BARILLA SUGO AMATRICIANA G300",
+    "nome": "BARILLA SUGO AMATRICIANA G300",
+    "prezzo": 1.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0441418",
+    "descrizione": "STAR BRODO LIQUIDO CARNE MISTA LT1",
+    "nome": "STAR BRODO LIQUIDO CARNE MISTA LT1",
+    "prezzo": 1.91,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0441417",
+    "descrizione": "STAR BRODO LIQUIDO MANZO LT1",
+    "nome": "STAR BRODO LIQUIDO MANZO LT1",
+    "prezzo": 1.91,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0442285",
+    "descrizione": "STAR BRODO LIQUIDO MANZO-30% SALE 1LT",
+    "nome": "STAR BRODO LIQUIDO MANZO-30% SALE 1LT",
+    "prezzo": 1.91,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0442286",
+    "descrizione": "STAR BRODO LIQUIDO POLLO 1LT",
+    "nome": "STAR BRODO LIQUIDO POLLO 1LT",
+    "prezzo": 1.91,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0441416",
+    "descrizione": "STAR BRODO LIQUIDO VERDURE LT 1",
+    "nome": "STAR BRODO LIQUIDO VERDURE LT 1",
+    "prezzo": 1.91,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0532610",
+    "descrizione": "CALVE' MAIONESE CLASSICA VV G428",
+    "nome": "CALVE' MAIONESE CLASSICA VV G428",
+    "prezzo": 2.41,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0254868",
+    "descrizione": "CIRIO POLPA LA FINISSIMA GR.400X3",
+    "nome": "CIRIO POLPA LA FINISSIMA GR.400X3",
+    "prezzo": 2.38,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0030273",
+    "descrizione": "MUTTI PASSATA POMODORO T700",
+    "nome": "MUTTI PASSATA POMODORO T700",
+    "prezzo": 1.4,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0202427",
+    "descrizione": "VALFRUTTA BORLOTTI 140X3",
+    "nome": "VALFRUTTA BORLOTTI 140X3",
+    "prezzo": 2.27,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0423949",
+    "descrizione": "VALFRUTTA CECI VAPORE 140X3",
+    "nome": "VALFRUTTA CECI VAPORE 140X3",
+    "prezzo": 2.27,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0375415",
+    "descrizione": "VALFRUTTA FARRO VAPORE 140GX3",
+    "nome": "VALFRUTTA FARRO VAPORE 140GX3",
+    "prezzo": 2.27,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0423948",
+    "descrizione": "VALFRUTTA LENTICCHIE AL VAPORE 140GX3",
+    "nome": "VALFRUTTA LENTICCHIE AL VAPORE 140GX3",
+    "prezzo": 2.27,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0202425",
+    "descrizione": "VALFRUTTA PISELLI PICCOLI T140X3",
+    "nome": "VALFRUTTA PISELLI PICCOLI T140X3",
+    "prezzo": 2.55,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0146476",
+    "descrizione": "MARUZZELLA TONNO O/O T80X4",
+    "nome": "MARUZZELLA TONNO O/O T80X4",
+    "prezzo": 4.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0196640",
+    "descrizione": "SANT'ANNA ACQUA NATUR.LT.1,5",
+    "nome": "SANT'ANNA ACQUA NATUR.LT.1,5",
+    "prezzo": 0.37,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0037021",
+    "descrizione": "ULIVETO ACQUA PET LT1,5",
+    "nome": "ULIVETO ACQUA PET LT1,5",
+    "prezzo": 0.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0270365",
+    "descrizione": "PFANNER A+C+E LT.1",
+    "nome": "PFANNER A+C+E LT.1",
+    "prezzo": 1.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0543542",
+    "descrizione": "PFANNER AMARENA LT.1",
+    "nome": "PFANNER AMARENA LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0487356",
+    "descrizione": "PFANNER ANANAS COCCO LT.1",
+    "nome": "PFANNER ANANAS COCCO LT.1",
+    "prezzo": 1.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0543540",
+    "descrizione": "PFANNER ANGURIA LT.1",
+    "nome": "PFANNER ANGURIA LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0356536",
+    "descrizione": "PFANNER FRAGOLA 35% LT1",
+    "nome": "PFANNER FRAGOLA 35% LT1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0364882",
+    "descrizione": "PFANNER LAMPONE LT.1",
+    "nome": "PFANNER LAMPONE LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0487351",
+    "descrizione": "PFANNER MANGO/MARACUJA LT.1",
+    "nome": "PFANNER MANGO/MARACUJA LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0487341",
+    "descrizione": "PFANNER MARACUJA LT.1",
+    "nome": "PFANNER MARACUJA LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0285073",
+    "descrizione": "PFANNER MIRTILLO NERO LT.1",
+    "nome": "PFANNER MIRTILLO NERO LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0270354",
+    "descrizione": "PFANNER MULTIVITAMIN.LT.1",
+    "nome": "PFANNER MULTIVITAMIN.LT.1",
+    "prezzo": 1.72,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0516815",
+    "descrizione": "PFANNER NETTARE DI GUAVA LT.1",
+    "nome": "PFANNER NETTARE DI GUAVA LT.1",
+    "prezzo": 1.8,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0270364",
+    "descrizione": "PFANNER SUCCO MELA 100% 1L",
+    "nome": "PFANNER SUCCO MELA 100% 1L",
+    "prezzo": 1.72,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0134900",
+    "descrizione": "YOGA NETTARE  ALBICOCCA PET LT.1",
+    "nome": "YOGA NETTARE  ALBICOCCA PET LT.1",
+    "prezzo": 1.56,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0280783",
+    "descrizione": "YOGA NETTARE MELA BANANA LT.1",
+    "nome": "YOGA NETTARE MELA BANANA LT.1",
+    "prezzo": 1.56,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0134898",
+    "descrizione": "YOGA NETTARE PERA PET LT1",
+    "nome": "YOGA NETTARE PERA PET LT1",
+    "prezzo": 1.56,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0362705",
+    "descrizione": "YOGA NETTARE PESCA PET VINTAGE LT1",
+    "nome": "YOGA NETTARE PESCA PET VINTAGE LT1",
+    "prezzo": 1.55,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0346107",
+    "descrizione": "ZUEGG NETTARE ALBICOCCA 200X3",
+    "nome": "ZUEGG NETTARE ALBICOCCA 200X3",
+    "prezzo": 1.19,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0346106",
+    "descrizione": "ZUEGG NETTARE PERA 200X3",
+    "nome": "ZUEGG NETTARE PERA 200X3",
+    "prezzo": 1.19,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0346105",
+    "descrizione": "ZUEGG NETTARE PESCA 200X3",
+    "nome": "ZUEGG NETTARE PESCA 200X3",
+    "prezzo": 1.19,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0495555",
+    "descrizione": "PEPSI COLA MAX ZERO PET LT.1,5 X2",
+    "nome": "PEPSI COLA MAX ZERO PET LT.1,5 X2",
+    "prezzo": 2.45,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0495554",
+    "descrizione": "PEPSI COLA REGULAR PET LT.1,5 X2",
+    "nome": "PEPSI COLA REGULAR PET LT.1,5 X2",
+    "prezzo": 2.45,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0096312",
+    "descrizione": "S.BENEDETTO BEV.TE'LIMONE T1,5",
+    "nome": "S.BENEDETTO BEV.TE'LIMONE T1,5",
+    "prezzo": 0.97,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0037492",
+    "descrizione": "S.BENEDETTO BEV.TE'PESCA T1,5",
+    "nome": "S.BENEDETTO BEV.TE'PESCA T1,5",
+    "prezzo": 0.97,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0469278",
+    "descrizione": "BECK'S BIRRA BOTT. CL 33X5+1",
+    "nome": "BECK'S BIRRA BOTT. CL 33X5+1",
+    "prezzo": 5.23,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0097827",
+    "descrizione": "MORETTI BIRRA CL.66",
+    "nome": "MORETTI BIRRA CL.66",
+    "prezzo": 1.34,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0121173",
+    "descrizione": "FORST KRONEN LATT.BIRRA CL33X3",
+    "nome": "FORST KRONEN LATT.BIRRA CL33X3",
+    "prezzo": 1.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0039313",
+    "descrizione": "TAVERNELLO VINO BIANCO BRIK LT.1",
+    "nome": "TAVERNELLO VINO BIANCO BRIK LT.1",
+    "prezzo": 1.59,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0154138",
+    "descrizione": "TAVERNELLO VINO ROSATO BRIK LT.1",
+    "nome": "TAVERNELLO VINO ROSATO BRIK LT.1",
+    "prezzo": 1.59,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0039377",
+    "descrizione": "TAVERNELLO VINO ROSSO BRIK LT.1",
+    "nome": "TAVERNELLO VINO ROSSO BRIK LT.1",
+    "prezzo": 1.59,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0239875",
+    "descrizione": "B/VALLI CHARDONNAY TN  T75",
+    "nome": "B/VALLI CHARDONNAY TN  T75",
+    "prezzo": 4.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0212030",
+    "descrizione": "B/VALLI MARZEMINO  T750",
+    "nome": "B/VALLI MARZEMINO  T750",
+    "prezzo": 4.75,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0212029",
+    "descrizione": "B/VALLI MULLER THURGAU  750",
+    "nome": "B/VALLI MULLER THURGAU  750",
+    "prezzo": 4.76,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0239876",
+    "descrizione": "B/VALLI SCHIAVA  T750",
+    "nome": "B/VALLI SCHIAVA  T750",
+    "prezzo": 3.51,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0212028",
+    "descrizione": "B/VALLI TEROLDEGO T750",
+    "nome": "B/VALLI TEROLDEGO T750",
+    "prezzo": 4.08,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0162327",
+    "descrizione": "CONCILIO MORIVECIO 750",
+    "nome": "CONCILIO MORIVECIO 750",
+    "prezzo": 7.4,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0534209",
+    "descrizione": "MEZZACORONA DELISA P/GRIGIO ROSE'  CL.75",
+    "nome": "MEZZACORONA DELISA P/GRIGIO ROSE'  CL.75",
+    "prezzo": 5.67,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0039743",
+    "descrizione": "MEZZACORONA MULLER THURG.T750",
+    "nome": "MEZZACORONA MULLER THURG.T750",
+    "prezzo": 4.61,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0534212",
+    "descrizione": "MEZZACORONA NOVE P/GRIGIO ROSE' CL.75",
+    "nome": "MEZZACORONA NOVE P/GRIGIO ROSE' CL.75",
+    "prezzo": 5.57,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0039555",
+    "descrizione": "MEZZACORONA TEROLDEGO T750",
+    "nome": "MEZZACORONA TEROLDEGO T750",
+    "prezzo": 3.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0397561",
+    "descrizione": "ALMORANO BARDOLINO CL.75",
+    "nome": "ALMORANO BARDOLINO CL.75",
+    "prezzo": 3.26,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0398732",
+    "descrizione": "ALMORANO CUSTOZA CL.75",
+    "nome": "ALMORANO CUSTOZA CL.75",
+    "prezzo": 3.14,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0398389",
+    "descrizione": "ALMORANO SOAVE CL.75",
+    "nome": "ALMORANO SOAVE CL.75",
+    "prezzo": 2.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0398388",
+    "descrizione": "ALMORANO VALPOLICELLA CL.75",
+    "nome": "ALMORANO VALPOLICELLA CL.75",
+    "prezzo": 4.68,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0073738",
+    "descrizione": "CECCHI CHIANTI T750",
+    "nome": "CECCHI CHIANTI T750",
+    "prezzo": 4.53,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0374210",
+    "descrizione": "FORTENERO LAMBRUSCO DOLCE CL75",
+    "nome": "FORTENERO LAMBRUSCO DOLCE CL75",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0531310",
+    "descrizione": "FORTENERO LAMBRUSCO GRASPAROSSA CL.75",
+    "nome": "FORTENERO LAMBRUSCO GRASPAROSSA CL.75",
+    "prezzo": 3.44,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0374287",
+    "descrizione": "FORTENERO LAMBRUSCO SECCO CL75",
+    "nome": "FORTENERO LAMBRUSCO SECCO CL75",
+    "prezzo": 3.2,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0417130",
+    "descrizione": "PASQUA LUGANA V.B. CL 75",
+    "nome": "PASQUA LUGANA V.B. CL 75",
+    "prezzo": 7.67,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0346951",
+    "descrizione": "SARTORI VALPOLICELLA RIPASSO",
+    "nome": "SARTORI VALPOLICELLA RIPASSO",
+    "prezzo": 7.92,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0416820",
+    "descrizione": "SARTORI VALPOLICELLA SUPERIORE RADOLE 75",
+    "nome": "SARTORI VALPOLICELLA SUPERIORE RADOLE 75",
+    "prezzo": 7.26,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0214738",
+    "descrizione": "CAVIT ACCENTO SPUMANTE BRUT CL.75",
+    "nome": "CAVIT ACCENTO SPUMANTE BRUT CL.75",
+    "prezzo": 4.56,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0054331",
+    "descrizione": "CAVIT SPUM.MULLER THURGAU T750",
+    "nome": "CAVIT SPUM.MULLER THURGAU T750",
+    "prezzo": 4.5,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0248117",
+    "descrizione": "COL SOLIVO PROSECCO  CL75",
+    "nome": "COL SOLIVO PROSECCO  CL75",
+    "prezzo": 4.58,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0538534",
+    "descrizione": "FELIX GHIOTTONERIE CONIGL/AGNELLO G85X4",
+    "nome": "FELIX GHIOTTONERIE CONIGL/AGNELLO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549174",
+    "descrizione": "FELIX GHIOTTONERIE DOUBLY CARNE G85X4",
+    "nome": "FELIX GHIOTTONERIE DOUBLY CARNE G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549175",
+    "descrizione": "FELIX GHIOTTONERIE DOUBLY PESCE G85X4",
+    "nome": "FELIX GHIOTTONERIE DOUBLY PESCE G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528073",
+    "descrizione": "FELIX GHIOTTONERIE JUNIOR G85X4",
+    "nome": "FELIX GHIOTTONERIE JUNIOR G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0538535",
+    "descrizione": "FELIX GHIOTTONERIE MANZ/POLLO/VERD G85X4",
+    "nome": "FELIX GHIOTTONERIE MANZ/POLLO/VERD G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528071",
+    "descrizione": "FELIX GHIOTTONERIE MANZO/POLLO G85X4",
+    "nome": "FELIX GHIOTTONERIE MANZO/POLLO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0538533",
+    "descrizione": "FELIX GHIOTTONERIE SALM/TONNO G85X4",
+    "nome": "FELIX GHIOTTONERIE SALM/TONNO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528072",
+    "descrizione": "FELIX GHIOTTONERIE SALM/TROTA/VERD.G85X4",
+    "nome": "FELIX GHIOTTONERIE SALM/TROTA/VERD.G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0529102",
+    "descrizione": "FELIX SENS.JELLIES ANATRA/AGNELLO G85X4",
+    "nome": "FELIX SENS.JELLIES ANATRA/AGNELLO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528075",
+    "descrizione": "FELIX SENSAT.EXTRAS MANZO/POLLO G85X4",
+    "nome": "FELIX SENSAT.EXTRAS MANZO/POLLO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528076",
+    "descrizione": "FELIX SENSAT.EXTRAS SALMONE/TONNO G85X4",
+    "nome": "FELIX SENSAT.EXTRAS SALMONE/TONNO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528116",
+    "descrizione": "FELIX SENSATIONS JELLY MANZO/POLLO G85X4",
+    "nome": "FELIX SENSATIONS JELLY MANZO/POLLO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0538613",
+    "descrizione": "FELIX SENSATIONS SALMONE/TROTA G85X4",
+    "nome": "FELIX SENSATIONS SALMONE/TROTA G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0528074",
+    "descrizione": "FELIX SENSATIONS SAUCE TACCH/MANZO G85X4",
+    "nome": "FELIX SENSATIONS SAUCE TACCH/MANZO G85X4",
+    "prezzo": 2.3,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549831",
+    "descrizione": "KITEKAT NAT.VITALITY MANZO IN SALSA G85",
+    "nome": "KITEKAT NAT.VITALITY MANZO IN SALSA G85",
+    "prezzo": 0.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549832",
+    "descrizione": "KITEKAT NAT.VITALITY POLLO IN SALSA G85",
+    "nome": "KITEKAT NAT.VITALITY POLLO IN SALSA G85",
+    "prezzo": 0.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549830",
+    "descrizione": "KITEKAT NAT.VITALITY SALMON.IN SALSA G85",
+    "nome": "KITEKAT NAT.VITALITY SALMON.IN SALSA G85",
+    "prezzo": 0.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0551886",
+    "descrizione": "CHANTECLAIR DET.LIQ.BICARBONATO 28 LAV.",
+    "nome": "CHANTECLAIR DET.LIQ.BICARBONATO 28 LAV.",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0555848",
+    "descrizione": "CHANTECLAIR DET.LIQ.PULIT.PROFONDO 28LAV",
+    "nome": "CHANTECLAIR DET.LIQ.PULIT.PROFONDO 28LAV",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0536089",
+    "descrizione": "CHANTECLAIR LAV MUSCHIO BIANCO 28L 1,26L",
+    "nome": "CHANTECLAIR LAV MUSCHIO BIANCO 28L 1,26L",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0537842",
+    "descrizione": "CHANTECLAIR LAV.MARSIGLIA 28L 1,26L",
+    "nome": "CHANTECLAIR LAV.MARSIGLIA 28L 1,26L",
+    "prezzo": 2.99,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0543683",
+    "descrizione": "ACE GENTILE CANDEGG.FRESCO PROFUMO LT2,3",
+    "nome": "ACE GENTILE CANDEGG.FRESCO PROFUMO LT2,3",
+    "prezzo": 3.76,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0543682",
+    "descrizione": "ACE GENTILE CANDEGG.LAVAND/MUSCHIO LT2,3",
+    "nome": "ACE GENTILE CANDEGG.LAVAND/MUSCHIO LT2,3",
+    "prezzo": 3.76,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0505273",
+    "descrizione": "CHANTECLAIR AMM.CON.SAL-LOTO LT1.14LAV57",
+    "nome": "CHANTECLAIR AMM.CON.SAL-LOTO LT1.14LAV57",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0549696",
+    "descrizione": "CHANTECLAIR AMM.CONC.C.MIX LT1.14 LAV.57",
+    "nome": "CHANTECLAIR AMM.CONC.C.MIX LT1.14 LAV.57",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0505270",
+    "descrizione": "CHANTECLAIR AMM.CONC.MUS.BIA LT1.14LAV57",
+    "nome": "CHANTECLAIR AMM.CONC.MUS.BIA LT1.14LAV57",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573895",
+    "descrizione": "LENOR AMM.AMETIST.ROSA MUSCHIO 42 LAV",
+    "nome": "LENOR AMM.AMETIST.ROSA MUSCHIO 42 LAV",
+    "prezzo": 4.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0577274",
+    "descrizione": "LENOR AMM.ESSENZE ITALIA CAPRI 42 LAV",
+    "nome": "LENOR AMM.ESSENZE ITALIA CAPRI 42 LAV",
+    "prezzo": 4.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0574452",
+    "descrizione": "LENOR AMM.ORO FIORI DI VANIGLIA 42 LAV",
+    "nome": "LENOR AMM.ORO FIORI DI VANIGLIA 42 LAV",
+    "prezzo": 4.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0573923",
+    "descrizione": "LENOR AMM.RISVEGLIO PRIMAVERILE 42 LAV",
+    "nome": "LENOR AMM.RISVEGLIO PRIMAVERILE 42 LAV",
+    "prezzo": 4.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0511803",
+    "descrizione": "VANISH OXI ACTION GEL BIANCO 750ML",
+    "nome": "VANISH OXI ACTION GEL BIANCO 750ML",
+    "prezzo": 4.97,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0510162",
+    "descrizione": "VANISH OXI ACTION GEL ROSA 750ML",
+    "nome": "VANISH OXI ACTION GEL ROSA 750ML",
+    "prezzo": 4.97,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0510163",
+    "descrizione": "VANISH OXI ACTION POLV. BIANCO G500",
+    "nome": "VANISH OXI ACTION POLV. BIANCO G500",
+    "prezzo": 4.97,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0510161",
+    "descrizione": "VANISH OXI ACTION POLV. ROSA G500",
+    "nome": "VANISH OXI ACTION POLV. ROSA G500",
+    "prezzo": 4.97,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0244559",
+    "descrizione": "CIF CREMA AMMONIACAL  500 ML.",
+    "nome": "CIF CREMA AMMONIACAL  500 ML.",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0075419",
+    "descrizione": "CIF CREMA CON CANDEGGINA ML.500",
+    "nome": "CIF CREMA CON CANDEGGINA ML.500",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0047103",
+    "descrizione": "CIF CREMA LIMONE ML.500",
+    "nome": "CIF CREMA LIMONE ML.500",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0048478",
+    "descrizione": "SPONTEX SPUGNA DOPPIO USO PZ.2",
+    "nome": "SPONTEX SPUGNA DOPPIO USO PZ.2",
+    "prezzo": 1.45,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0485156",
+    "descrizione": "REGINA ASCIUGONI  2V X2 ROTOLI",
+    "nome": "REGINA ASCIUGONI  2V X2 ROTOLI",
+    "prezzo": 2.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0533638",
+    "descrizione": "FOXY MEGA CARTA IGIENICA 2V X 4",
+    "nome": "FOXY MEGA CARTA IGIENICA 2V X 4",
+    "prezzo": 2.69,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0143723",
+    "descrizione": "REGINA CAMOMILLA IGIENICA 3V X6 ST300",
+    "nome": "REGINA CAMOMILLA IGIENICA 3V X6 ST300",
+    "prezzo": 5.51,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0507752",
+    "descrizione": "SCOTTEX FAZZOLETTI 4V TUTTI I GIORNI X12",
+    "nome": "SCOTTEX FAZZOLETTI 4V TUTTI I GIORNI X12",
+    "prezzo": 2.06,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0466331",
+    "descrizione": "INFASIL DEO SPRAY EXTRA DELICATO ML.150",
+    "nome": "INFASIL DEO SPRAY EXTRA DELICATO ML.150",
+    "prezzo": 2.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0467759",
+    "descrizione": "INFASIL DEO SPRAY FRESCHEZ.NATUR.ML.150",
+    "nome": "INFASIL DEO SPRAY FRESCHEZ.NATUR.ML.150",
+    "prezzo": 2.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0517659",
+    "descrizione": "INFASIL DEO SPRAY SENSAZ.NAT.OLIO ML.150",
+    "nome": "INFASIL DEO SPRAY SENSAZ.NAT.OLIO ML.150",
+    "prezzo": 2.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0469861",
+    "descrizione": "INFASIL DEO SPRAY TRIPL.PROTEZIO.ML.150",
+    "nome": "INFASIL DEO SPRAY TRIPL.PROTEZIO.ML.150",
+    "prezzo": 2.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0469863",
+    "descrizione": "INFASIL DEO SPRAY UOMO FRESH ML.150",
+    "nome": "INFASIL DEO SPRAY UOMO FRESH ML.150",
+    "prezzo": 2.95,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0466333",
+    "descrizione": "INFASIL DEO STICK EXTRA DELICATO ML.50",
+    "nome": "INFASIL DEO STICK EXTRA DELICATO ML.50",
+    "prezzo": 2.49,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0517658",
+    "descrizione": "INFASIL DEO STICK SENSAZ.NATUR.OLIO ML40",
+    "nome": "INFASIL DEO STICK SENSAZ.NATUR.OLIO ML40",
+    "prezzo": 2.67,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0539867",
+    "descrizione": "VIDAL BAGNODOCCIA ACQUA MICELLARE ML600",
+    "nome": "VIDAL BAGNODOCCIA ACQUA MICELLARE ML600",
+    "prezzo": 1.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0538288",
+    "descrizione": "VIDAL BAGNODOCCIA MUSCHIO BIANCO ML.600",
+    "nome": "VIDAL BAGNODOCCIA MUSCHIO BIANCO ML.600",
+    "prezzo": 1.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0539010",
+    "descrizione": "VIDAL BAGNODOCCIA OLIO DI ARGAN ML.600",
+    "nome": "VIDAL BAGNODOCCIA OLIO DI ARGAN ML.600",
+    "prezzo": 1.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0539007",
+    "descrizione": "VIDAL BAGNODOCCIA TALCO LIQUIDO ML.600",
+    "nome": "VIDAL BAGNODOCCIA TALCO LIQUIDO ML.600",
+    "prezzo": 1.98,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0462764",
+    "descrizione": "DOVE SAPONE LIQ.RICARIC.IDRATANTE ML.500",
+    "nome": "DOVE SAPONE LIQ.RICARIC.IDRATANTE ML.500",
+    "prezzo": 1.89,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0529260",
+    "descrizione": "DOVE SAPONE LIQUIDO ORIGINAL ML 250",
+    "nome": "DOVE SAPONE LIQUIDO ORIGINAL ML 250",
+    "prezzo": 1.89,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0534987",
+    "descrizione": "LISTERINE COLLUTORIO TOTAL CARE ML. 600",
+    "nome": "LISTERINE COLLUTORIO TOTAL CARE ML. 600",
+    "prezzo": 4.36,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542150",
+    "descrizione": "SUNSILK SHAMP.2IN1 LISCIO PERFETTO ML250",
+    "nome": "SUNSILK SHAMP.2IN1 LISCIO PERFETTO ML250",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542149",
+    "descrizione": "SUNSILK SHAMP.MORBIDI/LUMINOSI ML.250",
+    "nome": "SUNSILK SHAMP.MORBIDI/LUMINOSI ML.250",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0568629",
+    "descrizione": "SUNSILK SHAMP.ONDE MERAVIGLIOSE ML.250",
+    "nome": "SUNSILK SHAMP.ONDE MERAVIGLIOSE ML.250",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542148",
+    "descrizione": "SUNSILK SHAMP.RICCI DA SOGNO ML.250",
+    "nome": "SUNSILK SHAMP.RICCI DA SOGNO ML.250",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542151",
+    "descrizione": "SUNSILK SHAMP.SCINTILLE DI LUCE ML.250",
+    "nome": "SUNSILK SHAMP.SCINTILLE DI LUCE ML.250",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542160",
+    "descrizione": "SUNSILK BALS.MORBIDI&LUMINOSI ML.200",
+    "nome": "SUNSILK BALS.MORBIDI&LUMINOSI ML.200",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0558504",
+    "descrizione": "SUNSILK BALS.OLIO ARGANE MANDORLE ML.200",
+    "nome": "SUNSILK BALS.OLIO ARGANE MANDORLE ML.200",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542159",
+    "descrizione": "SUNSILK BALS.RICCI DA SOGNO ML.200",
+    "nome": "SUNSILK BALS.RICCI DA SOGNO ML.200",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0542161",
+    "descrizione": "SUNSILK BALS.SCINTILLE DI LUCE ML.200",
+    "nome": "SUNSILK BALS.SCINTILLE DI LUCE ML.200",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0540533",
+    "descrizione": "SUNSILK BALSAMO LISCIO PERFETTO ML.200",
+    "nome": "SUNSILK BALSAMO LISCIO PERFETTO ML.200",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0568630",
+    "descrizione": "SUNSILK BALSAMO ONDE MERAVIGLIOSE ML.200",
+    "nome": "SUNSILK BALSAMO ONDE MERAVIGLIOSE ML.200",
+    "prezzo": 2.84,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0389278",
+    "descrizione": "NIVEA BODY FLUIDA IDRATANTE ML250",
+    "nome": "NIVEA BODY FLUIDA IDRATANTE ML250",
+    "prezzo": 4.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0389277",
+    "descrizione": "NIVEA BODY FLUIDA NUTRIENTE ML250",
+    "nome": "NIVEA BODY FLUIDA NUTRIENTE ML250",
+    "prezzo": 4.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0390320",
+    "descrizione": "NIVEA BODY FLUIDA VELLUTANTE ML250",
+    "nome": "NIVEA BODY FLUIDA VELLUTANTE ML250",
+    "prezzo": 4.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0471736",
+    "descrizione": "NIVEA BODY IDRATANTE ALOE VERA ML.250",
+    "nome": "NIVEA BODY IDRATANTE ALOE VERA ML.250",
+    "prezzo": 4.25,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  },
+  {
+    "codice": "0085793",
+    "descrizione": "CAREFREE SALVASLIP X44",
+    "nome": "CAREFREE SALVASLIP X44",
+    "prezzo": 2.39,
+    "categoria": "Generico",
+    "immagine": "https://plusmarket.it/logo.png"
+  }
+]
