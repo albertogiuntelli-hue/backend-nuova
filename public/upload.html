@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carica CSV Prodotti</title>
+</head>
+
+<body>
+    <h1>Carica CSV Prodotti</h1>
+
+    <form action="/api/upload-csv" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Carica CSV</button>
+    </form>
+
+    <hr>
+
+    <h2>Gestione file caricati</h2>
+    <button onclick="clearUploads()">Elimina file CSV vecchi</button>
+
+    <p id="result"></p>
+
+    <script>
+        function clearUploads() {
+            fetch("/api/clear-uploads", { method: "DELETE" })
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("result").innerText = data.message;
+                })
+                .catch(err => {
+                    document.getElementById("result").innerText = "Errore nella cancellazione";
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,370 @@
+﻿CODICE ARTICOLO   ;DESCRIZIONE ARTICOLO   ;PREZZO          
+;;
+     0009529   ;FORMAGGIO PRATOMAGNO VECCHIO                                            ;12,57                  
+     0136902   ;FORMAGGIO STELVIO DOP MILA                                              ;13,90                  
+     0161292   ;MILA FORMAGGIO DOLOMITENKONIG                                           ;12,90                  
+     0066823   ;LEVONI SCHIACCIATA PICCANTE                                             ;23,90                  
+     0007031   ;PROSCIUTTO CRUDO DI MONTE                                               ;15,90                  
+     0270179   ;SAL.MERANESE LIONER                                                     ;8,90                   
+     0007142   ;SENFTER SPECK A/A S.C. IGP                                              ;18,73                  
+     0443023   ;SPECK COTTO SENZA COTENNA                                               ;16,50                  
+     0359849   ;T/A CORTESI SALSA CIPOLLE GR.40                                         ;1,37                   
+     0350161   ;T/A CORTESI SALSA DI ARANCE GR.50                                       ;1,34                   
+     0287895   ;T/A CORTESI SALSA FICHI GR.50                                           ;1,34                   
+     0287894   ;T/A CORTESI SALSA PERE GR.50                                            ;1,34                   
+     0423776   ;T/A FICACCI OLIVE SICILIANE G150                                        ;2,00                   
+     0534484   ;ALPRO NON E' LATTE CLASSICO LT.1                                        ;2,58                   
+     0257073   ;LATTE TN LATTE UHT INT TETRA L1                                         ;1,42                   
+     0454008   ;MILA LATTE S/LATT UHT 500ML                                             ;0,99                   
+     0204617   ;PARMALAT ZYMIL UHT PS PET L1                                            ;2,02                   
+     0353186   ;BUITONI SFOGLIA RETTANG. G230                                           ;1,86                   
+     0010753   ;BURRO TRENTINO G500                                                     ;4,11                   
+     0451224   ;LATTE TN BURRO G200                                                     ;2,24                   
+     0086098   ;MEGGLE BURRO ERBE X5 G100                                               ;2,17                   
+     0138948   ;MILA BURRO ALTO ADIGE G250                                              ;2.35
+     0535543   ;MERANO YOG. L.FIENO NOCCIOLA GRAN. G150                                 ;0,75                   
+     0535542   ;MERANO YOG. LATTE FIENO CARAM.SAL. G150                                 ;0,75                   
+     0507601   ;MERANO YOG.LATTE FIENO CAFFE' 150G                                      ;0,75                   
+     0507605   ;MERANO YOG.LATTE FIENO FR.BOS.150G                                      ;0,75                   
+     0507598   ;MERANO YOG.LATTE FIENO FRAGOLA 150G                                     ;0,75                   
+     0507608   ;MERANO YOG.LATTE FIENO MANGO G150                                       ;0,75                   
+     0527919   ;FAGE YOG.GRECO TOTAL 0% G150                                            ;1,11                   
+     0527918   ;FAGE YOGURT GRECO 2% G150                                               ;1,11                   
+     0527920   ;FAGE YOGURT GRECO TOTAL 5% G150                                         ;1,11                   
+     0552767   ;LATTE TRENTO KEFIR BIANCO G500                                          ;1,38                   
+     0346623   ;KINDER PINGUI' COCCO X 4 120                                            ;2,10                   
+     0346622   ;KINDER PINGUI' X 4 T120                                                 ;2,10                   
+     0549787   ;S/G CAMEO MUU MUU CIOCCOLATO G115 X4                                    ;2,39                   
+     0549788   ;S/G CAMEO MUU MUU VANIGLIA G115 X4                                      ;2,39                   
+     0371076   ;S/G VALSOIA YOSOI BIANCO G125X2                                         ;1,34                   
+     0518232   ;VALSOIA YOSOI VANIGLIA G125X2                                           ;1,34                   
+     0439813   ;BRIMI RICOTTA S/LATTOSIO G200                                           ;1,36                   
+     0388837   ;JOCCA FIOCCHI DI LATTE G175                                             ;1,98                   
+     0149762   ;S/G PHILADELPHIA G250                                                   ;2,85                   
+     0222903   ;S/G PHILADELPHIA PICCOLA 80X2                                           ;2,42                   
+     0008230   ;BRIMI MOZZARELLA FILONE G400                                            ;3,49                   
+     0412818   ;BRIMI MOZZARELLA G125X3                                                 ;3,57                   
+     0515565   ;P.REALE MOZZ.BUFALA S/LATT. 125G                                        ;1,53                   
+     0223412   ;S/G PARMIGIANO REGGIANO GRATT.G60                                       ;1,44                   
+     0566531   ;TRENTINGRANA GRATTUGIATO 20M G80                                        ;1,60                   
+     0565654   ;TRENTINGRANA SV G300                                                    ;6,27                   
+     0554657   ;KRAFT FETTINE SENZA LATTOSIO 175G                                       ;1,70                   
+     0421629   ;"GOLFETTA ""I PETALI"" BUSTA G100                                          ";3,01                   
+     0525369   ;LEVONI LARDO BT G80                                                     ;3,13                   
+     0343319   ;LEVONI SALAME UNGHERESE G80                                             ;2,94                   
+     0528724   ;S/G BERETTA F/S TACCHINO FORNO G110                                     ;2,55                   
+     0510657   ;S/G BERETTA PROSCIUTTO CRUDO F/S G100                                   ;3,34                   
+     0413354   ;S/G FERRARINI COTTO A/Q BT G100                                         ;2,86                   
+     0368371   ;S/G RECLA SPECK IGP BUSTA G90                                           ;2,62                   
+     0522718   ;IL GUSTO CONTAD. SALAME NOSTRANO G500CA                                 ;15,73                  
+     0006146   ;NEGRONI CACCIATORE DOP G170 CA                                          ;19,06                  
+     0470782   ;S/G BERETTA SALAMINI AFFUMICATI G85                                     ;2,31                   
+     0417973   ;S/G BERETTA SALAMINI CLASSICI G85                                       ;2,31                   
+     0470781   ;S/G BERETTA SALAMINI PICCANTE G85                                       ;2,31                   
+     0400003   ;S/RENDENA LUGANEGA TIPICA TRENTINA STAG.                                ;17,47                  
+     0534934   ;S/G AMADORI WURSTEL POLLO/TACCH.G250                                    ;1,00                   
+     0412936   ;S/G  RECLA WURSTEL WIENER G180                                          ;1,95                   
+     0006566   ;S/G SENFTER WURS.SERVEL.X2 PS G200                                      ;1,41                   
+     0127634   ;S/G C/MODENA TENERONI PROSC. G150                                       ;2,39                   
+     0542456   ;RANA PESTO FRESCO ALLA GENOVESE G140                                    ;2,01                   
+     0588143   ;RANA PESTO FRESCO BASILICO/LIMONE G130                                  ;2,01                   
+     0542454   ;RANA PESTO FRESCO NOCI G140                                             ;2,01                   
+     0542455   ;RANA PESTO FRESCO SENZ'AGLIO G140                                       ;2,01                   
+     0542463   ;RANA PESTO POMODORI SECCHI/PECORINO G140                                ;2,01                   
+     0497055   ;S/G BIFFI PESTO FR.GENOVESE G90                                         ;1,17                   
+     0497052   ;S/G BIFFI PESTO FRESCO SENZ'AGLIO G90                                   ;1,17                   
+     0458462   ;IL PASTAIO GNOCCHI RIP.SPECK E BRIE G400                                ;2,28                   
+     0448961   ;RANA DUETTO BURRATA/BASIL.G250                                          ;2.49
+     0398561   ;RANA DUETTO GORGONZ./NOCI G250                                          ;2.49
+     0253093   ;RANA RUSTICI CARNE G250                                                 ;2.49
+     0482484   ;RANA RUSTICI CASARECCI G250                                             ;2.49
+     0253091   ;RANA RUSTICI CRUDO G250                                                 ;2.49
+     0253092   ;RANA RUSTICI RICOTTA/SPINACI G250                                       ;2.49
+     0416903   ;RANA RUSTICI VITELLO G250                                               ;2.49
+     0295902   ;PARMAREGGIO DOP SNACK G20X5                                             ;2,61                   
+     0516675   ;MAXIBON X 4 GR. 384                                                     ;3,03                   
+     0482531   ;SADIA SPEEDY POLLO THE ORIGINAL GR.300                                  ;3,15                   
+     0358887   ;ARBI MISTO SCOGLIO G300                                                 ;3,77                   
+     0442521   ;FINDUS 4 FIORI DI MERLUZZO GR.300                                       ;7,15                   
+     0573778   ;FINDUS TENT GUSTO VONG/CALAM/MAZZAN G400                                ;4,58                   
+     0593686   ;FINDUS TENT. GUSTO CACCIUCCO G450                                       ;5,67                   
+     0573779   ;FINDUS TENT. GUSTO COZZ/CALAM/POMOD G400                                ;4,58                   
+     0573780   ;FINDUS TENT. GUSTO VONGOLE C/PREZZ G400                                 ;4,58                   
+     0495510   ;FROSTA BISTECCA MERLUZ.GRIGL.RUCOL.G250                                 ;4,66                   
+     0482525   ;FROSTA MERLUZZO ALASKA CROCCANTE GR.240                                 ;2,96                   
+     0382933   ;MARFRIO FRITTO MISTO T500                                               ;4,49                   
+     0482528   ;PANAPESCA MAZZANCOLLE TROP.SGUSC. GR.225                                ;5,58                   
+     0573784   ;TYSON SPEEDY POLLO GOLDEN FILETS SC G220                                ;3,21                   
+     0287332   ;BELLANAPOLI BUITONI MINIPIZZE G300                                      ;2,18                   
+     0488111   ;BUITONI BELLA NAP. MARGHERITA X 3 G900                                  ;5,39                   
+     0586652   ;CAMEO PIZZA REG. G GUSTO MARGHERITA G350                                ;2,83                   
+     0586651   ;CAMEO PIZZA REG. GRAN GUSTO SALAME G385                                 ;2,83                   
+     0511110   ;CAMEO PIZZA REGINA MARGHERITA ALTA G375                                 ;2,63                   
+     0573874   ;ITALPIZZA NUMERO 1 BUFALA GR 435                                        ;4,28                   
+     0552606   ;BONDUELLE COCCOLE BROCCOLI/CAROTE G300                                  ;3,00                   
+     0552605   ;BONDUELLE COCCOLE SPIN/FAGIOL/BROC.G300                                 ;3,00                   
+     0467286   ;FINDUS 4SIP PATATE SAPORITE GR.450                                      ;4,70                   
+     0475067   ;MC CAIN PATATE FORNO EXPRESS GR.500                                     ;2,21                   
+     0186193   ;OROGEL LEGGER.CONT.VERDURE 450                                          ;2,24                   
+     0366815   ;OROGEL SPINACI CUB.FOGLIA+ G900                                         ;2,74                   
+     0108077   ;VALSOIA COTOLETTA VEG.SU.2X100                                          ;2,80                   
+     0559447   ;LAVAZZA 30 CAPS C&G CLASSIC C/N G171                                    ;10,73                  
+     0559445   ;LAVAZZA 30 CAPS DEK CN G174                                             ;10,68                  
+     0559446   ;LAVAZZA 30 CAPS QUALITA ROSSA CN G171                                   ;10,68                  
+     0021015   ;LAVAZZA CAFFE' ROSSA GR250X2                                            ;10,04                  
+     0166698   ;TWININGS TE' 4 FRUTTI ROSSI 25FF                                        ;3,94                   
+     0021759   ;TWININGS TE' EARL GREY 25FF                                             ;3,39                   
+     0021751   ;TWININGS TE' ENGLISH BREAKFAST 25FF.                                    ;3,39                   
+     0166697   ;TWININGS TE' LEMON SCENTED 25FF                                         ;3,39                   
+     0417212   ;TWININGS TE' NERO AROM.PESCA 25FF                                       ;3,94                   
+     0088531   ;TWININGS TE' NERO VANIGLIA 25FF                                         ;3,94                   
+     0546832   ;TWININGS TE PRINCE OF WALES 25FF                                        ;3,39                   
+     0134734   ;TWININGS TE' PURE GREEN 25FF                                            ;3,38                   
+     0593033   ;TWININGS TE VERDE EARL GREY 20FF                                        ;3,38                   
+     0434574   ;MISURA FETTE BISCOTT MULTIGRAIN T320                                    ;1,55                   
+     0425343   ;MISURA FETTE FIBRE EXTRA T320                                           ;1,55                   
+     0561365   ;MISURA NATURA RICCA FETTE SEGALE GR 320                                 ;1,55                   
+     0125856   ;M/BIANCO BISC CAMPAGNOLE T700                                           ;2.99
+     0162234   ;M/BIANCO BISC GALLETTI T800                                             ;2.99
+     0162195   ;M/BIANCO BISC MACINE T800                                               ;2.99
+     0162233   ;M/BIANCO BISC RIGOLI T800                                               ;2.99
+     0529727   ;M/BIANCO BISC SCACCHIERI GR 300                                         ;2,49
+     0513381   ;M/BIANCO BISC SCHIACCIANOCI 300G                                        ;2,49
+     0108582   ;M/BIANCO BISC TARALLUCCI T800                                           ;2.99
+     0408444   ;M/BIANCO BISCOTTONE 700G                                                ;2.99
+     0165612   ;M/BIANCO G/CEREALE CACAO T230                                           ;1,52                   
+     0112841   ;M/BIANCO G/CEREALE CROCC.T230                                           ;1,52                   
+     0063511   ;M/BIANCO G/CEREALE FRUTTA 250G                                          ;1,52                   
+     0379182   ;M/BIANCO GIROTONDI T800                                                 ;3,38                   
+     0456489   ;NUTELLA B-READY 6 PZ 132G                                               ;2,14                   
+     0541810   ;TRE MARIE FROLLINO CACAO C/GOCCE G315                                   ;1,82                   
+     0541811   ;TRE MARIE FROLLINO CARAM SAL/GOCCE G315                                 ;1,82                   
+     0541808   ;TRE MARIE FROLLINO CIOCCOLATO PEZZI G360                                ;1,82                   
+     0541809   ;TRE MARIE FROLLINO KRUMIRO C/CIOCC G315                                 ;1,82                   
+     0455014   ;M/BIANCO BISC BAIOCCHI 260G                                             ;2,53                   
+     0541895   ;M/BIANCO BISC. BAIOCCHI PISTACCHIO G240                                 ;2,89                   
+     0085632   ;PAVESI RINGO FAM CACAO T330                                             ;2,68                   
+     0024807   ;PAVESI RINGO FAM.VAN T330                                               ;2,68                   
+     0460443   ;KINDER BRIOSS LATTE/CACAO 280G                                          ;2,69                   
+     0460399   ;KINDER BRIOSS X10 270G                                                  ;2,69                   
+     0570101   ;KINDER PLUMCAKE CAROTA G198                                             ;1,75                   
+     0511264   ;KINDER PLUMCAKE YOGURT GRECO G192                                       ;1,75                   
+     0203187   ;M/BIANCO CORNETTI SFOGLIA T240                                          ;2,49                   
+     0056537   ;M/BIANCO CROSTATINA ALB. T400                                           ;2,52                   
+     0094724   ;M/BIANCO CROSTATINA CACAO T400                                          ;2,52                   
+     0234802   ;M/BIANCO MERENDA PAN DI STELLE 280G                                     ;2,69                   
+     0150935   ;LINDOR CORNET ASSORTITO 200G                                            ;7,29                   
+     0535952   ;LINDOR CORNET CARAM SALATO G200                                         ;7,31                   
+     0222756   ;LINDOR CORNET FONDENTE 60% CACAO G200                                   ;7,31                   
+     0112492   ;LINDOR CORNET LATTE G200                                                ;7,29                   
+     0588413   ;LINDOR CORNET LIMITED EDIT G200                                         ;7,31                   
+     0495532   ;LINDOR CORNET PISTACCHIO G200                                           ;7,29                   
+     0428471   ;LINDT FONDENTE MANDORLE T100                                            ;3,20                   
+     0510499   ;LINDT TAV CIOCC CUOR DI LATTE G100                                      ;3,20                   
+     0379734   ;LINDT TAV.CIOCC. FOND/NOCC.100G                                         ;3,20                   
+     0261883   ;LINDT TAV.CIOCCOLATO BIANCO 100G                                        ;2,49                   
+     0396197   ;LINDT TAV.EXTRA FONDENTE 72% 100G                                       ;2,49                   
+     0026047   ;LINDT TAV.FONDENTE SURFIN 100G                                          ;2,17                   
+     0026135   ;LINDT TAV.LATTE 100G                                                    ;2,17                   
+     0442669   ;LINDT TAV.LATTE/NOCCIOLE IGP 100G                                       ;3,20                   
+     0535950   ;LINDT TAVOLETTA LATTE PISTACCHIO G90                                    ;3,20                   
+     0535423   ;S/G FERRERO NUTELLA GR 750                                              ;6,34                   
+     0490887   ;S/G RIGONI BIO AGRUMI/ZENZERO 340G                                      ;3,98                   
+     0133065   ;S/G RIGONI BIO ALBICOCCA T330                                           ;3,98                   
+     0133063   ;S/G RIGONI BIO ARANCE AMARE T340                                        ;3,98                   
+     0133064   ;S/G RIGONI BIO FRAGOLE 330G                                             ;3,98                   
+     0518067   ;S/G RIGONI BIO FRAGOLE/MENTA 330G                                       ;3,98                   
+     0188177   ;S/G RIGONI BIO FRUTTI BOSCO 330G                                        ;3,98                   
+     0404308   ;S/G RIGONI BIO LAMPONI T330                                             ;3,98                   
+     0133066   ;S/G RIGONI BIO MIRTILLI NERI 330G                                       ;3,98                   
+     0202434   ;S/G RIGONI BIO MIRTILLI ROSSI 330G                                      ;3,98                   
+     0411883   ;S/G RIGONI BIO MORE T330                                                ;3,98                   
+     0265472   ;S/G RIGONI BIO PESCA T330                                               ;3,98                   
+     0404310   ;S/G RIGONI BIO PRUGNE 330G                                              ;3,98                   
+     0478254   ;S/G RIGONI BIO SAMBUCO 330G                                             ;3,98                   
+     0027951   ;CAMEO BUDINO AMARETTO X2                                                ;1,25                   
+     0057882   ;CAMEO BUDINO CIOCC.X2                                                   ;1,25                   
+     0256663   ;CAMEO BUDINO CR.CIOC.FOND.T176                                          ;1,42                   
+     0155042   ;CAMEO BUDINO CREMOSO CIOC.T180                                          ;1,42                   
+     0156349   ;CAMEO BUDINO CREMOSO VAN.T130                                           ;1,42                   
+     0225360   ;CAMEO BUDINO PISTACCHIO 122G                                            ;1,42                   
+     0057885   ;CAMEO BUDINO VANIGLIA X2                                                ;1,25                   
+     0027927   ;CAMEO PREP.CREM CARAMEL X2                                              ;1,42                   
+     0282850   ;SAIWA CIPSTER MULTIPACK 6 BS X 22 GR                                    ;2,06                   
+     0516338   ;BALOCCO UOVO INTER GR. 240                                              ;11,04                  
+     0434219   ;BALOCCO UOVO LATTE JUVE G240                                            ;11,04                  
+     0503572   ;BALOCCO UOVO MILAN GR. 240                                              ;11,04                  
+     0542087   ;IL VECCHIO FORNO RAMO PRIMAV CIOCC G750                                 ;4,24                   
+     0515927   ;LINDT GOLD BUNNY STICK X5 10G                                           ;3,79                   
+     0601478   ;PERNIGOTTI BUSTA OVETTI GIANDUIA G140                                   ;3,51                   
+     0601469   ;PERNIGOTTI BUSTA OVETTI LATTE G140                                      ;3,51                   
+     0601505   ;PERNIGOTTI BUSTA OVETTI PISTACCHIO G140                                 ;3,51                   
+     0502818   ;PREZIOSI OVETTO PRINCIP-SUPERM. G40                                     ;2,38                   
+     0541662   ;ROVELLI BUSTA OVETTI CONFETTATI G130                                    ;2,68                   
+     0023745   ;M/BIANCO PANGRI' GRISSINI CLASS. GR.300                                 ;1,80                   
+     0452453   ;M/BIANCO PANGRI' INTEGRALI G250                                         ;1,80                   
+     0023535   ;PAVESI CRACKER N/SALATI 560G                                            ;2,06                   
+     0023507   ;PAVESI CRACKER SALATI 560G                                              ;2,06                   
+     0513311   ;M/BIANCO GRANBAULETTO INTEGR.NOCI G465                                  ;2,34                   
+     0419145   ;M/BIANCO GRANBAULETTO RUSTICO 500G                                      ;2,21                   
+     0139302   ;M/BIANCO PAGNOTTELLE X6 T360                                            ;1,89                   
+     0222641   ;M/BIANCO PAN CARRE' X24 430G                                            ;1,00                   
+     0483666   ;M/SPADONI FARINA GR.TEN.00 ANTIGRUMI KG1                                ;1,38                   
+     0508798   ;DE CECCO BUCATINI N.15 GR.500                                           ;1,10                   
+     0573705   ;DE CECCO CONCHIGLIETTE 53 G500                                          ;1,10                   
+     0029209   ;DE CECCO FUSILLI 34 T500                                                ;1,10                   
+     0029087   ;DE CECCO LINGUINE 7 G500                                                ;1,10                   
+     0029111   ;DE CECCO MEZZE PENNE RIG. 141 T500                                      ;1,10                   
+     0029129   ;DE CECCO PENNE RIG. 41 T500                                             ;1,10                   
+     0029041   ;DE CECCO SPAGHETTI 12 T500                                              ;1,10                   
+     0029011   ;DE CECCO SPAGHETTINI 11 G500                                            ;1,10                   
+     0222791   ;DE CECCO SPAGHETTONI 412 T500                                           ;1,10                   
+     0029161   ;DE CECCO TORTIGLIONI 23 G500                                            ;1,10                   
+     0028027   ;GALLO RISO ARBORIO CHICCHI GROSSI T1                                    ;2,52                   
+     0378875   ;COLOMBARA OLIO EX/VERGINE 750                                           ;6,30                   
+     0560202   ;BARILLA RAGU BOLOGNESE G300                                             ;1.75
+     0560200   ;BARILLA RAGU CONTADINO G300                                             ;1.75
+     0560203   ;BARILLA RAGU' MONTANARO G300                                            ;1.75
+     0560201   ;BARILLA RAGU SALSICCIA G300                                             ;1.75
+     0560199   ;BARILLA SUGO AMATRICIANA G300                                           ;1.75
+     0441418   ;STAR BRODO LIQUIDO CARNE MISTA LT1                                      ;1,91                   
+     0441417   ;STAR BRODO LIQUIDO MANZO LT1                                            ;1,91                   
+     0442285   ;STAR BRODO LIQUIDO MANZO-30% SALE 1LT                                   ;1,91                   
+     0442286   ;STAR BRODO LIQUIDO POLLO 1LT                                            ;1,91                   
+     0441416   ;STAR BRODO LIQUIDO VERDURE LT 1                                         ;1,91                   
+     0532610   ;CALVE' MAIONESE CLASSICA VV G428                                        ;2,41                   
+     0254868   ;CIRIO POLPA LA FINISSIMA GR.400X3                                       ;2,38                   
+     0030273   ;MUTTI PASSATA POMODORO T700                                             ;1,40                   
+     0202427   ;VALFRUTTA BORLOTTI 140X3                                                ;2,27                   
+     0423949   ;VALFRUTTA CECI VAPORE 140X3                                             ;2,27                   
+     0375415   ;VALFRUTTA FARRO VAPORE 140GX3                                           ;2,27                   
+     0423948   ;VALFRUTTA LENTICCHIE AL VAPORE 140GX3                                   ;2,27                   
+     0202425   ;VALFRUTTA PISELLI PICCOLI T140X3                                        ;2,55                   
+     0146476   ;MARUZZELLA TONNO O/O T80X4                                              ;4,84                   
+     0196640   ;SANT'ANNA ACQUA NATUR.LT.1,5                                            ;0,37                   
+     0037021   ;ULIVETO ACQUA PET LT1,5                                                 ;0,58                   
+     0270365   ;PFANNER A+C+E LT.1                                                      ;1,49                   
+     0543542   ;PFANNER AMARENA LT.1                                                    ;1,80                   
+     0487356   ;PFANNER ANANAS COCCO LT.1                                               ;1,49                   
+     0543540   ;PFANNER ANGURIA LT.1                                                    ;1,80                   
+     0356536   ;PFANNER FRAGOLA 35% LT1                                                 ;1,80                   
+     0364882   ;PFANNER LAMPONE LT.1                                                    ;1,80                   
+     0487351   ;PFANNER MANGO/MARACUJA LT.1                                             ;1,80                   
+     0487341   ;PFANNER MARACUJA LT.1                                                   ;1,80                   
+     0285073   ;PFANNER MIRTILLO NERO LT.1                                              ;1,80                   
+     0270354   ;PFANNER MULTIVITAMIN.LT.1                                               ;1,72                   
+     0516815   ;PFANNER NETTARE DI GUAVA LT.1                                           ;1,80                   
+     0270364   ;PFANNER SUCCO MELA 100% 1L                                              ;1,72                   
+     0134900   ;YOGA NETTARE  ALBICOCCA PET LT.1                                        ;1,56                   
+     0280783   ;YOGA NETTARE MELA BANANA LT.1                                           ;1,56                   
+     0134898   ;YOGA NETTARE PERA PET LT1                                               ;1,56                   
+     0362705   ;YOGA NETTARE PESCA PET VINTAGE LT1                                      ;1,55                   
+     0346107   ;ZUEGG NETTARE ALBICOCCA 200X3                                           ;1,19                   
+     0346106   ;ZUEGG NETTARE PERA 200X3                                                ;1,19                   
+     0346105   ;ZUEGG NETTARE PESCA 200X3                                               ;1,19                   
+     0495555   ;PEPSI COLA MAX ZERO PET LT.1,5 X2                                       ;2,45                   
+     0495554   ;PEPSI COLA REGULAR PET LT.1,5 X2                                        ;2,45                   
+     0096312   ;S.BENEDETTO BEV.TE'LIMONE T1,5                                          ;0,97                   
+     0037492   ;S.BENEDETTO BEV.TE'PESCA T1,5                                           ;0,97                   
+     0469278   ;BECK'S BIRRA BOTT. CL 33X5+1                                            ;5,23                   
+     0097827   ;MORETTI BIRRA CL.66                                                     ;1,34                   
+     0121173   ;FORST KRONEN LATT.BIRRA CL33X3                                          ;1.99
+     0039313   ;TAVERNELLO VINO BIANCO BRIK LT.1                                        ;1.59
+     0154138   ;TAVERNELLO VINO ROSATO BRIK LT.1                                        ;1.59
+     0039377   ;TAVERNELLO VINO ROSSO BRIK LT.1                                         ;1.59
+     0239875   ;B/VALLI CHARDONNAY TN  T75                                              ;4,75                   
+     0212030   ;B/VALLI MARZEMINO  T750                                                 ;4,75                   
+     0212029   ;B/VALLI MULLER THURGAU  750                                             ;4,76                   
+     0239876   ;B/VALLI SCHIAVA  T750                                                   ;3,51                   
+     0212028   ;B/VALLI TEROLDEGO T750                                                  ;4,08                   
+     0162327   ;CONCILIO MORIVECIO 750                                                  ;7,40                   
+     0534209   ;MEZZACORONA DELISA P/GRIGIO ROSE'  CL.75                                ;5,67                   
+     0039743   ;MEZZACORONA MULLER THURG.T750                                           ;4,61                   
+     0534212   ;MEZZACORONA NOVE P/GRIGIO ROSE' CL.75                                   ;5,57                   
+     0039555   ;MEZZACORONA TEROLDEGO T750                                              ;3.99
+     0397561   ;ALMORANO BARDOLINO CL.75                                                ;3,26                   
+     0398732   ;ALMORANO CUSTOZA CL.75                                                  ;3,14                   
+     0398389   ;ALMORANO SOAVE CL.75                                                    ;2,95                   
+     0398388   ;ALMORANO VALPOLICELLA CL.75                                             ;4,68                   
+     0073738   ;CECCHI CHIANTI T750                                                     ;4,53                   
+     0374210   ;FORTENERO LAMBRUSCO DOLCE CL75                                          ;3,20                   
+     0531310   ;FORTENERO LAMBRUSCO GRASPAROSSA CL.75                                   ;3,44                   
+     0374287   ;FORTENERO LAMBRUSCO SECCO CL75                                          ;3,20                   
+     0417130   ;PASQUA LUGANA V.B. CL 75                                                ;7,67                   
+     0346951   ;SARTORI VALPOLICELLA RIPASSO                                            ;7,92                   
+     0416820   ;SARTORI VALPOLICELLA SUPERIORE RADOLE 75                                ;7,26                   
+     0214738   ;CAVIT ACCENTO SPUMANTE BRUT CL.75                                       ;4,56                   
+     0054331   ;CAVIT SPUM.MULLER THURGAU T750                                          ;4,50                   
+     0248117   ;COL SOLIVO PROSECCO  CL75                                               ;4,58                   
+     0538534   ;FELIX GHIOTTONERIE CONIGL/AGNELLO G85X4                                 ;2,30                   
+     0549174   ;FELIX GHIOTTONERIE DOUBLY CARNE G85X4                                   ;2,30                   
+     0549175   ;FELIX GHIOTTONERIE DOUBLY PESCE G85X4                                   ;2,30                   
+     0528073   ;FELIX GHIOTTONERIE JUNIOR G85X4                                         ;2,30                   
+     0538535   ;FELIX GHIOTTONERIE MANZ/POLLO/VERD G85X4                                ;2,30                   
+     0528071   ;FELIX GHIOTTONERIE MANZO/POLLO G85X4                                    ;2,30                   
+     0538533   ;FELIX GHIOTTONERIE SALM/TONNO G85X4                                     ;2,30                   
+     0528072   ;FELIX GHIOTTONERIE SALM/TROTA/VERD.G85X4                                ;2,30                   
+     0529102   ;FELIX SENS.JELLIES ANATRA/AGNELLO G85X4                                 ;2,30                   
+     0528075   ;FELIX SENSAT.EXTRAS MANZO/POLLO G85X4                                   ;2,30                   
+     0528076   ;FELIX SENSAT.EXTRAS SALMONE/TONNO G85X4                                 ;2,30                   
+     0528116   ;FELIX SENSATIONS JELLY MANZO/POLLO G85X4                                ;2,30                   
+     0538613   ;FELIX SENSATIONS SALMONE/TROTA G85X4                                    ;2,30                   
+     0528074   ;FELIX SENSATIONS SAUCE TACCH/MANZO G85X4                                ;2,30                   
+     0549831   ;KITEKAT NAT.VITALITY MANZO IN SALSA G85                                 ;0.39
+     0549832   ;KITEKAT NAT.VITALITY POLLO IN SALSA G85                                 ;0.39
+     0549830   ;KITEKAT NAT.VITALITY SALMON.IN SALSA G85                                ;0.39
+     0551886   ;CHANTECLAIR DET.LIQ.BICARBONATO 28 LAV.                                 ;2.99
+     0555848   ;CHANTECLAIR DET.LIQ.PULIT.PROFONDO 28LAV                                ;2.99
+     0536089   ;CHANTECLAIR LAV MUSCHIO BIANCO 28L 1,26L                                ;2.99
+     0537842   ;CHANTECLAIR LAV.MARSIGLIA 28L 1,26L                                     ;2.99
+     0543683   ;ACE GENTILE CANDEGG.FRESCO PROFUMO LT2,3                                ;3,76                   
+     0543682   ;ACE GENTILE CANDEGG.LAVAND/MUSCHIO LT2,3                                ;3,76                   
+     0505273   ;CHANTECLAIR AMM.CON.SAL-LOTO LT1.14LAV57                                ;2,69                   
+     0549696   ;CHANTECLAIR AMM.CONC.C.MIX LT1.14 LAV.57                                ;2,69                   
+     0505270   ;CHANTECLAIR AMM.CONC.MUS.BIA LT1.14LAV57                                ;2,69                   
+     0573895   ;LENOR AMM.AMETIST.ROSA MUSCHIO 42 LAV                                   ;4,06                   
+     0577274   ;LENOR AMM.ESSENZE ITALIA CAPRI 42 LAV                                   ;4,06                   
+     0574452   ;LENOR AMM.ORO FIORI DI VANIGLIA 42 LAV                                  ;4,06                   
+     0573923   ;LENOR AMM.RISVEGLIO PRIMAVERILE 42 LAV                                  ;4,06                   
+     0511803   ;VANISH OXI ACTION GEL BIANCO 750ML                                      ;4,97                   
+     0510162   ;VANISH OXI ACTION GEL ROSA 750ML                                        ;4,97                   
+     0510163   ;VANISH OXI ACTION POLV. BIANCO G500                                     ;4,97                   
+     0510161   ;VANISH OXI ACTION POLV. ROSA G500                                       ;4,97                   
+     0244559   ;CIF CREMA AMMONIACAL  500 ML.                                           ;2,06                   
+     0075419   ;CIF CREMA CON CANDEGGINA ML.500                                         ;2,06                   
+     0047103   ;CIF CREMA LIMONE ML.500                                                 ;2,06                   
+     0048478   ;SPONTEX SPUGNA DOPPIO USO PZ.2                                          ;1,45                   
+     0485156   ;REGINA ASCIUGONI  2V X2 ROTOLI                                          ;2,98                   
+     0533638   ;FOXY MEGA CARTA IGIENICA 2V X 4                                         ;2,69                   
+     0143723   ;REGINA CAMOMILLA IGIENICA 3V X6 ST300                                   ;5,51                   
+     0507752   ;SCOTTEX FAZZOLETTI 4V TUTTI I GIORNI X12                                ;2,06                   
+     0466331   ;INFASIL DEO SPRAY EXTRA DELICATO ML.150                                 ;2,95                   
+     0467759   ;INFASIL DEO SPRAY FRESCHEZ.NATUR.ML.150                                 ;2,95                   
+     0517659   ;INFASIL DEO SPRAY SENSAZ.NAT.OLIO ML.150                                ;2,95                   
+     0469861   ;INFASIL DEO SPRAY TRIPL.PROTEZIO.ML.150                                 ;2,95                   
+     0469863   ;INFASIL DEO SPRAY UOMO FRESH ML.150                                     ;2,95                   
+     0466333   ;INFASIL DEO STICK EXTRA DELICATO ML.50                                  ;2,49                   
+     0517658   ;INFASIL DEO STICK SENSAZ.NATUR.OLIO ML40                                ;2,67                   
+     0539867   ;VIDAL BAGNODOCCIA ACQUA MICELLARE ML600                                 ;1,98                   
+     0538288   ;VIDAL BAGNODOCCIA MUSCHIO BIANCO ML.600                                 ;1,98                   
+     0539010   ;VIDAL BAGNODOCCIA OLIO DI ARGAN ML.600                                  ;1,98                   
+     0539007   ;VIDAL BAGNODOCCIA TALCO LIQUIDO ML.600                                  ;1,98                   
+     0462764   ;DOVE SAPONE LIQ.RICARIC.IDRATANTE ML.500                                ;1,89                   
+     0529260   ;DOVE SAPONE LIQUIDO ORIGINAL ML 250                                     ;1,89                   
+     0534987   ;LISTERINE COLLUTORIO TOTAL CARE ML. 600                                 ;4,36                   
+     0542150   ;SUNSILK SHAMP.2IN1 LISCIO PERFETTO ML250                                ;2,84                   
+     0542149   ;SUNSILK SHAMP.MORBIDI/LUMINOSI ML.250                                   ;2,84                   
+     0568629   ;SUNSILK SHAMP.ONDE MERAVIGLIOSE ML.250                                  ;2,84                   
+     0542148   ;SUNSILK SHAMP.RICCI DA SOGNO ML.250                                     ;2,84                   
+     0542151   ;SUNSILK SHAMP.SCINTILLE DI LUCE ML.250                                  ;2,84                   
+     0542160   ;SUNSILK BALS.MORBIDI&LUMINOSI ML.200                                    ;2,84                   
+     0558504   ;SUNSILK BALS.OLIO ARGANE MANDORLE ML.200                                ;2,84                   
+     0542159   ;SUNSILK BALS.RICCI DA SOGNO ML.200                                      ;2,84                   
+     0542161   ;SUNSILK BALS.SCINTILLE DI LUCE ML.200                                   ;2,84                   
+     0540533   ;SUNSILK BALSAMO LISCIO PERFETTO ML.200                                  ;2,84                   
+     0568630   ;SUNSILK BALSAMO ONDE MERAVIGLIOSE ML.200                                ;2,84                   
+     0389278   ;NIVEA BODY FLUIDA IDRATANTE ML250                                       ;4,25                   
+     0389277   ;NIVEA BODY FLUIDA NUTRIENTE ML250                                       ;4,25                   
+     0390320   ;NIVEA BODY FLUIDA VELLUTANTE ML250                                      ;4,25                   
+     0471736   ;NIVEA BODY IDRATANTE ALOE VERA ML.250                                   ;4,25                   
+     0085793   ;CAREFREE SALVASLIP X44                                                  ;2,39                   
