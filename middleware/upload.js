@@ -1,32 +1,26 @@
-import path from "path";
 import multer from "multer";
+import path from "path";
 import fs from "fs";
 
-const productsFolder = path.resolve("uploads/products");
-const promoFolder = path.resolve("uploads/promo");
+// Cartella temporanea compatibile con Railway
+const uploadDir = "/tmp/uploads";
 
-function ensureDir(dir) {
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
+// Assicura che la cartella esista
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
 }
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const url = req.originalUrl;
-
-        let folder;
-        if (url.includes("products")) folder = productsFolder;
-        else if (url.includes("promo")) folder = promoFolder;
-        else folder = path.resolve("uploads");
-
-        ensureDir(folder);
-        cb(null, folder);
+        cb(null, uploadDir);
     },
-
     filename: (req, file, cb) => {
-        cb(null, "latest-" + Date.now() + "-" + file.originalname);
+        const ext = path.extname(file.originalname);
+        const name = Date.now() + ext;
+        cb(null, name);
     }
 });
 
-export default multer({ storage });
+const upload = multer({ storage });
+
+export default upload;
