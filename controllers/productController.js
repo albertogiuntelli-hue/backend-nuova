@@ -1,10 +1,18 @@
+import fs from "fs";
 import path from "path";
 import readCSV from "../utils/readCSV.js";
-import fs from "fs";
 
+// Cartelle
 const productsFolder = path.resolve("uploads/products");
+const promoFolder = path.resolve("uploads/promo");
 
-// GET PRODOTTI
+// Assicura che le cartelle esistano
+if (!fs.existsSync(productsFolder)) fs.mkdirSync(productsFolder, { recursive: true });
+if (!fs.existsSync(promoFolder)) fs.mkdirSync(promoFolder, { recursive: true });
+
+/* ============================================================
+   📌 GET PRODOTTI NORMALI
+   ============================================================ */
 export const getProducts = async (req, res) => {
     try {
         const files = fs.readdirSync(productsFolder);
@@ -13,41 +21,26 @@ export const getProducts = async (req, res) => {
         const latestFile = path.join(productsFolder, files[files.length - 1]);
         const products = await readCSV(latestFile);
 
-        products.forEach(p => {
-            // 1️⃣ Se il CSV ha "immagine", usiamo quello
-            let img = p.immagine || "";
-
-            // 2️⃣ Se contiene testo NON valido (descrizione, nome, ecc.)
-            //    lo ignoriamo
-            if (img.length < 5 || img.includes(" ")) {
-                img = "";
-            }
-
-            // 3️⃣ Se non c’è immagine → logo PlusMarket
-            if (!img) {
-                img = "/images/plusmarket-logo.png";
-            }
-
-            // 4️⃣ Impostiamo il campo corretto che il frontend usa
-            p.image = img;
-        });
-
         res.json(products);
-
     } catch (error) {
         console.error("Errore getProducts:", error);
         res.status(500).json({ error: "Errore nel leggere i prodotti" });
     }
 };
 
-// UPLOAD PRODOTTI
+/* ============================================================
+   📌 UPLOAD PRODOTTI NORMALI
+   ============================================================ */
 export const uploadProducts = async (req, res) => {
     try {
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
         const filePath = req.file.path;
+
+        // Legge il CSV
         const products = await readCSV(filePath);
 
+        // Cancella file vecchi
         const files = fs.readdirSync(productsFolder);
         files.forEach(f => {
             if (f !== req.file.filename) {
@@ -63,7 +56,9 @@ export const uploadProducts = async (req, res) => {
     }
 };
 
-// CANCELLA TUTTI I PRODOTTI
+/* ============================================================
+   📌 DELETE PRODOTTI NORMALI
+   ============================================================ */
 export const deleteProducts = async (req, res) => {
     try {
         const files = fs.readdirSync(productsFolder);
@@ -75,3 +70,57 @@ export const deleteProducts = async (req, res) => {
         res.status(500).json({ error: "Errore nella cancellazione dei prodotti" });
     }
 };
+
+/* ============================================================
+   📌 GET PROMO
+   ============================================================ */
+export const getPromoProducts = async (req, res) => {
+    try {
+        const files = fs.readdirSync(promoFolder);
+        if (files.length === 0) return res.json([]);
+
+        const latestFile = path.join(promoFolder, files[files.length - 1]);
+        const promo = await readCSV(latestFile);
+
+        res.json(promo);
+    } catch (error) {
+        console.error("Errore getPromoProducts:", error);
+        res.status(500).json({ error: "Errore nel leggere le promo" });
+    }
+};
+
+/* ============================================================
+   📌 UPLOAD PROMO
+   ============================================================ */
+export const uploadPromoProducts = async (req, res) => {
+    try {
+        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
+
+        const filePath = req.file.path;
+
+        const promo = await readCSV(filePath);
+
+        // Cancella file vecchi
+        const files = fs.readdirSync(promoFolder);
+        files.forEach(f => {
+            if (f !== req.file.filename) {
+                fs.unlinkSync(path.join(promoFolder, f));
+            }
+        });
+
+        res.json({ message: "Promo caricate con successo", data: promo });
+
+    } catch (error) {
+        console.error("Errore uploadPromoProducts:", error);
+        res.status(500).json({ error: "Errore nel caricamento del file promo" });
+    }
+};
+
+/* ============================================================
+   📌 DELETE PROMO
+   ============================================================ */
+export const deletePromoProducts = async (req, res) => {
+    try {
+        const files = fs.readdirSync(promoFolder);
+        files.forEach(f => fs.unlinkSync(path.join(promoFolder, f)));
+

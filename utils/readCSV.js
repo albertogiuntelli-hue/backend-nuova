@@ -1,29 +1,34 @@
 import fs from "fs";
 import csv from "csv-parser";
 
-// 🔥 Funzione definitiva per gestire virgola, punto, simboli, spazi
+// 🔥 Rimuove BOM, tab, NBSP, spazi e caratteri invisibili
+function cleanValue(value) {
+    if (!value) return "";
+    return value
+        .toString()
+        .replace(/\uFEFF/g, "")   // BOM
+        .replace(/\u00A0/g, "")   // NBSP
+        .replace(/\t/g, "")       // TAB
+        .trim();
+}
+
+// 🔥 Normalizza i prezzi: "13,17 €" → 13.17
 function normalizePrice(value) {
     if (!value) return 0;
 
-    // Converti in stringa e togli spazi
-    value = value.toString().trim();
+    value = cleanValue(value);
 
-    // Sostituisci la virgola con il punto
+    // Sostituisce virgola con punto
     value = value.replace(",", ".");
 
-    // Rimuovi simboli non numerici (€, spazi, ecc.)
+    // Rimuove simboli non numerici
     value = value.replace(/[^0-9.]/g, "");
 
-    // Se inizia con un punto → 0.xx
+    // Gestione casi limite
     if (value.startsWith(".")) value = "0" + value;
-
-    // Se finisce con un punto → rimuovilo
     if (value.endsWith(".")) value = value.slice(0, -1);
 
-    // Converte in numero
     const num = parseFloat(value);
-
-    // Se non è valido, ritorna 0
     return isNaN(num) ? 0 : num;
 }
 
@@ -32,34 +37,42 @@ export default function readCSV(filePath) {
         const results = [];
 
         fs.createReadStream(filePath)
-            .pipe(csv({ separator: ";" }))
+            .pipe(csv({ separator: ";" })) // accetta CSV Excel con ;
             .on("data", (row) => {
                 const normalized = {};
+
+                // 🔥 Normalizza tutte le chiavi e valori
                 for (const key of Object.keys(row)) {
-                    normalized[key.toLowerCase().trim()] = row[key];
+                    const cleanKey = cleanValue(key).toLowerCase();
+                    normalized[cleanKey] = cleanValue(row[key]);
                 }
 
-                // Supporta sia "codice" che "codice articolo"
+                // 🔥 Supporta colonne diverse
                 const codice =
-                    normalized["codice"]?.trim() ||
-                    normalized["codice articolo"]?.trim() ||
+                    normalized["codice"] ||
+                    normalized["codice articolo"] ||
+                    normalized["articolo"] ||
                     "";
 
-                // Supporta sia "nome" che "descrizione articolo"
-                const descrizione =
-                    normalized["nome"]?.trim() ||
-                    normalized["descrizione articolo"]?.trim() ||
+                const nome =
+                    normalized["nome"] ||
+                    normalized["descrizione"] ||
+                    normalized["descrizione articolo"] ||
                     "";
 
-                const prezzoRaw = normalized["prezzo"]?.trim() || "0";
+                const prezzoRaw =
+                    normalized["prezzo"] ||
+                    normalized["prezzo ivato"] ||
+                    normalized["prezzo unitario"] ||
+                    "0";
 
-                if (!codice) return;
+                if (!codice) return; // salta righe vuote
 
                 const prezzo = normalizePrice(prezzoRaw);
 
                 results.push({
                     codice,
-                    nome: descrizione,
+                    nome,
                     prezzo,
                     immagine: "/logo.png",
                     categoria: "",
