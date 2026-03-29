@@ -30,3 +30,7 @@ app.listen(PORT, "0.0.0.0", () => {
     console.log(`Backend attivo sulla porta ${PORT}`);
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 907c50b7af6abd773eacabd75d5d6c0470be3d5b
