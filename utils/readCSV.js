@@ -12,7 +12,7 @@ function cleanValue(value) {
         .trim();
 }
 
-// 🔥 Normalizza i prezzi: "13,17 €" → 13.17
+// 🔥 Normalizza i prezzi: "13,17", "13.17", "13,17 €" → 13.17
 function normalizePrice(value) {
     if (!value) return 0;
 
@@ -24,7 +24,6 @@ function normalizePrice(value) {
     // Rimuove simboli non numerici
     value = value.replace(/[^0-9.]/g, "");
 
-    // Gestione casi limite
     if (value.startsWith(".")) value = "0" + value;
     if (value.endsWith(".")) value = value.slice(0, -1);
 
@@ -36,8 +35,25 @@ export default function readCSV(filePath) {
     return new Promise((resolve, reject) => {
         const results = [];
 
+        // 🔥 Rileva automaticamente il separatore
+        let detectedSeparator = ";";
+
+        try {
+            const firstLine = fs.readFileSync(filePath, "utf8").split("\n")[0];
+
+            if (firstLine.includes("\t")) {
+                detectedSeparator = "\t";
+            } else if (firstLine.includes(",")) {
+                detectedSeparator = ",";
+            } else if (firstLine.includes(";")) {
+                detectedSeparator = ";";
+            }
+        } catch (err) {
+            console.error("Errore lettura prima riga CSV:", err);
+        }
+
         fs.createReadStream(filePath)
-            .pipe(csv({ separator: ";" })) // accetta CSV Excel con ;
+            .pipe(csv({ separator: detectedSeparator }))
             .on("data", (row) => {
                 const normalized = {};
 
