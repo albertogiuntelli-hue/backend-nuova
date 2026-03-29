@@ -37,7 +37,6 @@ export const uploadProducts = async (req, res) => {
 
         const filePath = req.file.path;
 
-        // Legge il CSV
         const products = await readCSV(filePath);
 
         // Cancella file vecchi
@@ -124,3 +123,9 @@ export const deletePromoProducts = async (req, res) => {
         const files = fs.readdirSync(promoFolder);
         files.forEach(f => fs.unlinkSync(path.join(promoFolder, f)));
 
+        res.json({ message: "Tutte le promo sono state cancellate." });
+    } catch (error) {
+        console.error("Errore deletePromoProducts:", error);
+        res.status(500).json({ error: "Errore nella cancellazione delle promo" });
+    }
+};
