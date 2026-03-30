@@ -18,7 +18,18 @@ export const getPromo = async (req, res) => {
         if (files.length === 0) return res.json([]);
 
         const latestFile = path.join(promoFolder, files[files.length - 1]);
-        const promo = await readCSV(latestFile);
+        let promo = await readCSV(latestFile);
+
+        // 🔥 Fallback immagine identico ai prodotti
+        promo = promo.map((p) => {
+            const img = p.immagine || p.img || p.foto || "";
+
+            if (!img || img.trim() === "" || img.toLowerCase() === "null") {
+                return { ...p, immagine: "/plusmarket-logo.png" };
+            }
+
+            return { ...p, immagine: img };
+        });
 
         res.json(promo);
     } catch (error) {
@@ -35,7 +46,18 @@ export const uploadPromo = async (req, res) => {
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
         const filePath = req.file.path;
-        const promo = await readCSV(filePath);
+        let promo = await readCSV(filePath);
+
+        // 🔥 Applichiamo la stessa logica immagine dei prodotti
+        promo = promo.map((p) => {
+            const img = p.immagine || p.img || p.foto || "";
+
+            if (!img || img.trim() === "" || img.toLowerCase() === "null") {
+                return { ...p, immagine: "/plusmarket-logo.png" };
+            }
+
+            return { ...p, immagine: img };
+        });
 
         // Cancella file vecchi in modo sicuro
         const files = fs.readdirSync(promoFolder);
