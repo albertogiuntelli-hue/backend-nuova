@@ -1,10 +1,17 @@
+import fs from "fs";
 import path from "path";
 import readCSV from "../utils/readCSV.js";
-import fs from "fs";
 
-const promoFolder = path.resolve("uploads/promo");
+const promoFolder = "/tmp/uploads/promo";
 
-// GET PROMO
+// Assicura che la cartella esista
+if (!fs.existsSync(promoFolder)) {
+    fs.mkdirSync(promoFolder, { recursive: true });
+}
+
+/* ============================================================
+   GET PROMO
+   ============================================================ */
 export const getPromo = async (req, res) => {
     try {
         const files = fs.readdirSync(promoFolder);
@@ -20,7 +27,9 @@ export const getPromo = async (req, res) => {
     }
 };
 
-// UPLOAD PROMO
+/* ============================================================
+   UPLOAD PROMO
+   ============================================================ */
 export const uploadPromo = async (req, res) => {
     try {
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
@@ -28,13 +37,21 @@ export const uploadPromo = async (req, res) => {
         const filePath = req.file.path;
         const promo = await readCSV(filePath);
 
-        // Mantieni solo l’ultimo file
+        // Cancella file vecchi in modo sicuro
         const files = fs.readdirSync(promoFolder);
-        files.forEach(f => {
-            if (f !== req.file.filename) {
-                fs.unlinkSync(path.join(promoFolder, f));
+        for (const f of files) {
+            try {
+                if (f !== req.file.filename) {
+                    const fullPath = path.join(promoFolder, f);
+                    if (fs.existsSync(fullPath)) fs.unlinkSync(fullPath);
+                }
+            } catch (err) {
+                console.warn("Impossibile cancellare file promo:", f, err.message);
             }
-        });
+        }
+
+        // Sposta il file nella cartella promo
+        fs.renameSync(filePath, path.join(promoFolder, req.file.filename));
 
         res.json({ message: "Promo caricate con successo", data: promo });
 
@@ -44,11 +61,19 @@ export const uploadPromo = async (req, res) => {
     }
 };
 
-// CANCELLA TUTTE LE PROMO
+/* ============================================================
+   DELETE PROMO
+   ============================================================ */
 export const deletePromo = async (req, res) => {
     try {
         const files = fs.readdirSync(promoFolder);
-        files.forEach(f => fs.unlinkSync(path.join(promoFolder, f)));
+        for (const f of files) {
+            try {
+                fs.unlinkSync(path.join(promoFolder, f));
+            } catch (err) {
+                console.warn("Errore cancellazione file promo:", f);
+            }
+        }
 
         res.json({ message: "Tutte le promo sono state cancellate." });
     } catch (error) {
