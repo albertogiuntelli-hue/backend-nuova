@@ -1,6 +1,6 @@
 import express from "express";
 import upload from "../middleware/upload.js";
-import { getPromo, uploadPromo, deletePromo } from "../controllers/productController.js";
+import { getPromo, uploadPromo, deletePromo } from "../controllers/promoController.js";
 
 const router = express.Router();
 
