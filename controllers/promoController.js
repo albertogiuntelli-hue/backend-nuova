@@ -2,8 +2,7 @@ import fs from "fs";
 import path from "path";
 import readCSV from "../utils/readCSV.js";
 
-// 🔥 Usa la STESSA cartella dei prodotti
-const promoFolder = "/tmp/uploads";
+const promoFolder = "/tmp/uploads/promo";
 
 // Assicura che la cartella esista
 if (!fs.existsSync(promoFolder)) {
@@ -21,12 +20,14 @@ export const getPromo = async (req, res) => {
         const latestFile = path.join(promoFolder, files[files.length - 1]);
         let promo = await readCSV(latestFile);
 
+        // 🔥 Adattiamo il CSV prodotti → promo
         promo = promo.map((p) => {
-            const img = p.immagine || p.img || p.foto || "";
-            if (!img || img.trim() === "" || img.toLowerCase() === "null") {
-                return { ...p, immagine: "/plusmarket-logo.png" };
-            }
-            return { ...p, immagine: img };
+            return {
+                codice: p.codice,
+                descrizione: p.nome,       // nome → descrizione promo
+                prezzo: p.prezzo,
+                immagine: "/plusmarket-logo.png" // fallback immagine
+            };
         });
 
         res.json(promo);
@@ -46,12 +47,14 @@ export const uploadPromo = async (req, res) => {
         const filePath = req.file.path;
         let promo = await readCSV(filePath);
 
+        // 🔥 Adattiamo il CSV prodotti → promo
         promo = promo.map((p) => {
-            const img = p.immagine || p.img || p.foto || "";
-            if (!img || img.trim() === "" || img.toLowerCase() === "null") {
-                return { ...p, immagine: "/plusmarket-logo.png" };
-            }
-            return { ...p, immagine: img };
+            return {
+                codice: p.codice,
+                descrizione: p.nome,
+                prezzo: p.prezzo,
+                immagine: "/plusmarket-logo.png"
+            };
         });
 
         // Cancella file vecchi
@@ -61,6 +64,9 @@ export const uploadPromo = async (req, res) => {
                 fs.unlinkSync(path.join(promoFolder, f));
             }
         }
+
+        // Sposta il file nella cartella promo
+        fs.renameSync(filePath, path.join(promoFolder, req.file.filename));
 
         res.json({ message: "Promo caricate con successo", data: promo });
 
