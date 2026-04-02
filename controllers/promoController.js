@@ -14,21 +14,18 @@ if (!fs.existsSync(promoFolder)) {
    ============================================================ */
 export const getPromo = async (req, res) => {
     try {
-        const files = fs.readdirSync(promoFolder).filter(f => f.endsWith(".csv"));
+        const files = fs.readdirSync(promoFolder);
         if (files.length === 0) return res.json([]);
 
         const latestFile = path.join(promoFolder, files[files.length - 1]);
         let promo = await readCSV(latestFile);
 
-        // 🔥 Adattiamo il CSV prodotti → promo
-        promo = promo.map((p) => {
-            return {
-                codice: p.codice,
-                descrizione: p.nome,       // nome → descrizione promo
-                prezzo: p.prezzo,
-                immagine: "/plusmarket-logo.png" // fallback immagine
-            };
-        });
+        promo = promo.map((p) => ({
+            codice: p.codice,
+            descrizione: p.nome,
+            prezzo: p.prezzo,
+            immagine: "/plusmarket-logo.png"
+        }));
 
         res.json(promo);
     } catch (error) {
@@ -38,7 +35,7 @@ export const getPromo = async (req, res) => {
 };
 
 /* ============================================================
-   UPLOAD PROMO
+   UPLOAD PROMO (IDENTICO AI PRODOTTI)
    ============================================================ */
 export const uploadPromo = async (req, res) => {
     try {
@@ -47,25 +44,25 @@ export const uploadPromo = async (req, res) => {
         const filePath = req.file.path;
         let promo = await readCSV(filePath);
 
-        // 🔥 Adattiamo il CSV prodotti → promo
-        promo = promo.map((p) => {
-            return {
-                codice: p.codice,
-                descrizione: p.nome,
-                prezzo: p.prezzo,
-                immagine: "/plusmarket-logo.png"
-            };
-        });
+        promo = promo.map((p) => ({
+            codice: p.codice,
+            descrizione: p.nome,
+            prezzo: p.prezzo,
+            immagine: "/plusmarket-logo.png"
+        }));
 
-        // Cancella file vecchi
         const files = fs.readdirSync(promoFolder);
         for (const f of files) {
-            if (f !== req.file.filename && f.endsWith(".csv")) {
-                fs.unlinkSync(path.join(promoFolder, f));
+            try {
+                if (f !== req.file.filename) {
+                    const fullPath = path.join(promoFolder, f);
+                    if (fs.existsSync(fullPath)) fs.unlinkSync(fullPath);
+                }
+            } catch (err) {
+                console.warn("Impossibile cancellare file promo:", f, err.message);
             }
         }
 
-        // Sposta il file nella cartella promo
         fs.renameSync(filePath, path.join(promoFolder, req.file.filename));
 
         res.json({ message: "Promo caricate con successo", data: promo });
@@ -83,8 +80,10 @@ export const deletePromo = async (req, res) => {
     try {
         const files = fs.readdirSync(promoFolder);
         for (const f of files) {
-            if (f.endsWith(".csv")) {
+            try {
                 fs.unlinkSync(path.join(promoFolder, f));
+            } catch (err) {
+                console.warn("Errore cancellazione file promo:", f);
             }
         }
 
