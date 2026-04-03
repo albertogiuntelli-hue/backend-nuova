@@ -1,35 +1,29 @@
+// backend/controllers/ordersController.js
+
 import fs from "fs";
 import path from "path";
-import readCSV from "../utils/readCSV.js";
+
+const ordersJsonPath = path.resolve("data/orders.json");
 
 export async function getAllOrders() {
     try {
-        const uploadsDir = path.join(process.cwd(), "uploads");
+        if (!fs.existsSync(ordersJsonPath)) {
+            return [];
+        }
 
-        const files = fs.readdirSync(uploadsDir)
-            .filter(f =>
-                f.toLowerCase().includes("order") ||
-                f.toLowerCase().includes("ordini")
-            )
-            .sort((a, b) =>
-                fs.statSync(path.join(uploadsDir, b)).mtime -
-                fs.statSync(path.join(uploadsDir, a)).mtime
-            );
+        const data = fs.readFileSync(ordersJsonPath, "utf8");
+        const orders = JSON.parse(data);
 
-        if (files.length === 0) return [];
-
-        const csvPath = path.join(uploadsDir, files[0]);
-        const rows = await readCSV(csvPath);
-
-        return rows.map(row => ({
-            id: row.id || row.id_ordine || "",
-            cliente: row.cliente || row.nome_cliente || "",
-            totale: parseFloat((row.totale || "0").replace(",", ".")),
-            data: row.data || row.data_ordine || "",
-            stato: (row.stato || "In attesa").trim()
+        // Normalizza formato per la dashboard
+        return orders.map((o, index) => ({
+            id: index + 1,
+            cliente: o.cliente,
+            totale: o.totale,
+            data: o.data,
+            stato: o.stato || "in attesa"
         }));
     } catch (error) {
-        console.error("Errore lettura ordini:", error);
+        console.error("Errore lettura ordini JSON:", error);
         throw error;
     }
 }
