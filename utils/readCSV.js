@@ -82,6 +82,15 @@ export default function readCSV(filePath) {
                     normalized["prezzo unitario"] ||
                     "0";
 
+                // 🔥 NUOVO: colonna "a peso" → S/N
+                const a_peso_raw =
+                    normalized["a peso"] ||
+                    normalized["peso"] ||
+                    normalized["al peso"] ||
+                    "N";
+
+                const a_peso = a_peso_raw.toUpperCase() === "S";
+
                 if (!codice) return; // salta righe vuote
 
                 const prezzo = normalizePrice(prezzoRaw);
@@ -90,6 +99,7 @@ export default function readCSV(filePath) {
                     codice,
                     nome,
                     prezzo,
+                    a_peso, // 🔥 nuovo campo
                     immagine: "/logo.png",
                     categoria: "",
                     disponibile: true

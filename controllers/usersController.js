@@ -1,4 +1,3 @@
-// backend/controllers/usersController.js
 import fs from "fs";
 import path from "path";
 
@@ -22,6 +21,16 @@ export async function getAllUsers() {
 }
 
 /* ============================================================
+   GET USER BY TELEFONO
+============================================================ */
+export async function getUserByTelefono(telefono) {
+    ensureUsersFile();
+
+    const users = JSON.parse(fs.readFileSync(usersFile, "utf8"));
+    return users.find(u => u.telefono === telefono) || null;
+}
+
+/* ============================================================
    REGISTER USER
 ============================================================ */
 export async function registerUser(userData) {
@@ -36,8 +45,10 @@ export async function registerUser(userData) {
     const newUser = {
         id: Date.now().toString(),
         nome: userData.nome || "",
-        email: userData.email || "",
+        cognome: userData.cognome || "",
+        indirizzo: userData.indirizzo || "",
         telefono: userData.telefono || "",
+        note: userData.note || "",
         data_registrazione: new Date().toISOString()
     };
 
