@@ -82,9 +82,10 @@ export default function readCSV(filePath) {
                     normalized["prezzo unitario"] ||
                     "0";
 
-                // 🔥 NUOVO: colonna "a peso" → S/N
+                // 🔥 COLONNA A PESO — AGGIUNTA COMPATIBILITÀ CON a_peso
                 const a_peso_raw =
                     normalized["a peso"] ||
+                    normalized["a_peso"] ||     // ← AGGIUNTO, NON ROMPE NULLA
                     normalized["peso"] ||
                     normalized["al peso"] ||
                     "N";
@@ -99,7 +100,7 @@ export default function readCSV(filePath) {
                     codice,
                     nome,
                     prezzo,
-                    a_peso, // 🔥 nuovo campo
+                    a_peso, // 🔥 campo già esistente, non toccato
                     immagine: "/logo.png",
                     categoria: "",
                     disponibile: true
