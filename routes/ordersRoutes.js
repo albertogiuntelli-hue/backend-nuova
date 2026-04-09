@@ -32,32 +32,31 @@ router.post("/", async (req, res) => {
     try {
         const body = req.body;
 
-        if (!body) {
+        if (!body || !body.cliente || !body.prodotti) {
             return res.status(400).json({ error: "Dati ordine mancanti" });
         }
 
-        const clienteObj = typeof body.cliente === "object" ? body.cliente : {
-            nome: body.cliente,
-            cognome: "",
-            indirizzo: body.indirizzo,
-            telefono: body.telefono
+        // Cliente corretto
+        const clienteObj = {
+            nome: body.cliente.nome || "",
+            telefono: body.cliente.telefono || "",
+            indirizzo: body.cliente.indirizzo || "",
+            note: body.cliente.note || "",
+            email: body.cliente.email || ""
         };
 
-        const clienteString = `${clienteObj.nome} ${clienteObj.cognome}`.trim();
-
-        const prodotti = body.items
-            ? body.items.map((p) => ({
-                codice: p.codice,
-                nome: p.nome,
-                quantita: p.quantita || p.quantity,
-                prezzo: p.prezzoSco > 0 ? p.prezzoSco : p.prezzo,
-            }))
-            : body.prodotti;
+        // Prodotti corretti
+        const prodotti = body.prodotti.map((p) => ({
+            codice: p.codice,
+            nome: p.nome,
+            quantita: p.quantity || p.quantita,
+            prezzo: p.prezzo_scontato > 0 ? p.prezzo_scontato : p.prezzo,
+            tipo: p.productType,
+            peso: p.weight || 0
+        }));
 
         const nuovoOrdine = {
-            cliente: clienteString,
-            indirizzo: clienteObj.indirizzo,
-            telefono: clienteObj.telefono,
+            cliente: clienteObj,
             prodotti,
             totale: body.totale,
             data: new Date().toISOString(),
@@ -74,10 +73,10 @@ router.post("/", async (req, res) => {
 
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
-        // 🔥 REGISTRA AUTOMATICAMENTE L’UTENTE
+        // Registra automaticamente l’utente
         await registerUser({
             nome: clienteObj.nome,
-            email: clienteObj.email || "",
+            email: clienteObj.email,
             telefono: clienteObj.telefono,
         });
 
