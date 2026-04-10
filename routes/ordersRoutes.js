@@ -42,7 +42,6 @@ router.post("/", async (req, res) => {
             telefono: body.cliente.telefono || "",
             indirizzo: body.cliente.indirizzo || "",
             note: body.cliente.note || "",
-            email: body.cliente.email || ""
         };
 
         // Prodotti corretti
@@ -73,11 +72,13 @@ router.post("/", async (req, res) => {
 
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
-        // Registra automaticamente l’utente
+        // 🔥 REGISTRAZIONE CLIENTE COMPLETA
         await registerUser({
             nome: clienteObj.nome,
-            email: clienteObj.email,
+            cognome: "",
+            indirizzo: clienteObj.indirizzo,
             telefono: clienteObj.telefono,
+            note: clienteObj.note || "",
         });
 
         res.status(201).json({ message: "Ordine salvato e utente registrato" });
