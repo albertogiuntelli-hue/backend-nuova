@@ -3,7 +3,8 @@ import cors from "cors";
 
 import productsRoutes from "./routes/productsRoutes.js";
 import promoRoutes from "./routes/promoRoutes.js";
-import ordersRoutes from "./routes/ordersRoutes.js";   // 🔥 AGGIUNTO
+import ordersRoutes from "./routes/ordersRoutes.js";
+import usersRoutes from "./routes/usersRoutes.js";   // 🔥 AGGIUNTO
 
 const app = express();
 
@@ -14,7 +15,8 @@ app.use(express.json());
 // Routes
 app.use("/api/products", productsRoutes);
 app.use("/api/promo", promoRoutes);
-app.use("/api/orders", ordersRoutes);   // 🔥 AGGIUNTO
+app.use("/api/orders", ordersRoutes);
+app.use("/api/users", usersRoutes);   // 🔥 AGGIUNTO
 
 // Porta corretta per Railway
 const PORT = process.env.PORT || 8080;
