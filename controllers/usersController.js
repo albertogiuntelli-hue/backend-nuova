@@ -31,17 +31,28 @@ export async function getUserByTelefono(telefono) {
 }
 
 /* ============================================================
-   REGISTER USER
+   REGISTER OR UPDATE USER
 ============================================================ */
 export async function registerUser(userData) {
     ensureUsersFile();
 
-    const users = JSON.parse(fs.readFileSync(usersFile, "utf8"));
+    let users = JSON.parse(fs.readFileSync(usersFile, "utf8"));
 
-    // Evita duplicati (telefono unico)
-    const exists = users.find(u => u.telefono === userData.telefono);
-    if (exists) return exists;
+    // Cerca cliente esistente
+    const existingUser = users.find(u => u.telefono === userData.telefono);
 
+    if (existingUser) {
+        // Aggiorna i campi se presenti
+        existingUser.nome = userData.nome || existingUser.nome;
+        existingUser.cognome = userData.cognome || existingUser.cognome;
+        existingUser.indirizzo = userData.indirizzo || existingUser.indirizzo;
+        existingUser.note = userData.note || existingUser.note;
+
+        fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+        return existingUser;
+    }
+
+    // Se non esiste → crealo
     const newUser = {
         id: Date.now().toString(),
         nome: userData.nome || "",
@@ -53,7 +64,6 @@ export async function registerUser(userData) {
     };
 
     users.push(newUser);
-
     fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
 
     return newUser;
