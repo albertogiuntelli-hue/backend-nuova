@@ -36,9 +36,10 @@ router.post("/", async (req, res) => {
             return res.status(400).json({ error: "Dati ordine mancanti" });
         }
 
-        // Cliente corretto
+        // Cliente corretto (nome + cognome separati)
         const clienteObj = {
             nome: body.cliente.nome || "",
+            cognome: body.cliente.cognome || "",
             telefono: body.cliente.telefono || "",
             indirizzo: body.cliente.indirizzo || "",
             note: body.cliente.note || "",
@@ -72,10 +73,10 @@ router.post("/", async (req, res) => {
 
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
-        // 🔥 REGISTRAZIONE CLIENTE COMPLETA
+        // 🔥 REGISTRAZIONE CLIENTE COMPLETA (nome + cognome)
         await registerUser({
             nome: clienteObj.nome,
-            cognome: "",
+            cognome: clienteObj.cognome,
             indirizzo: clienteObj.indirizzo,
             telefono: clienteObj.telefono,
             note: clienteObj.note || "",
@@ -120,3 +121,4 @@ router.put("/:index", (req, res) => {
 });
 
 export default router;
+
