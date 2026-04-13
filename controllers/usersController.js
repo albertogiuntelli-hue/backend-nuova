@@ -1,10 +1,16 @@
 import fs from "fs";
 import path from "path";
 
-const usersFile = path.resolve("data/users.json");
+// Percorso assoluto e SICURO per Railway + locale
+const dataDir = path.resolve("./data");
+const usersFile = path.join(dataDir, "users.json");
 
-// Assicura che il file esista
+// Assicura che cartella e file esistano
 function ensureUsersFile() {
+    if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+    }
+
     if (!fs.existsSync(usersFile)) {
         fs.writeFileSync(usersFile, JSON.stringify([], null, 2));
     }
@@ -15,7 +21,6 @@ function ensureUsersFile() {
 ============================================================ */
 export async function getAllUsers() {
     ensureUsersFile();
-
     const data = fs.readFileSync(usersFile, "utf8");
     return JSON.parse(data);
 }
@@ -25,7 +30,6 @@ export async function getAllUsers() {
 ============================================================ */
 export async function getUserByTelefono(telefono) {
     ensureUsersFile();
-
     const users = JSON.parse(fs.readFileSync(usersFile, "utf8"));
     return users.find(u => u.telefono === telefono) || null;
 }
@@ -42,7 +46,6 @@ export async function registerUser(userData) {
     const existingUser = users.find(u => u.telefono === userData.telefono);
 
     if (existingUser) {
-        // Aggiorna i campi se presenti
         existingUser.nome = userData.nome || existingUser.nome;
         existingUser.cognome = userData.cognome || existingUser.cognome;
         existingUser.indirizzo = userData.indirizzo || existingUser.indirizzo;
@@ -52,7 +55,7 @@ export async function registerUser(userData) {
         return existingUser;
     }
 
-    // Se non esiste → crealo
+    // Nuovo utente
     const newUser = {
         id: Date.now().toString(),
         nome: userData.nome || "",
