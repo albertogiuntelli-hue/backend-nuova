@@ -1,4 +1,3 @@
-// backend/routes/ordersRoutes.js
 import express from "express";
 import fs from "fs";
 import path from "path";
@@ -43,7 +42,7 @@ router.post("/", async (req, res) => {
             note: body.cliente.note || "",
         };
 
-        // 🔥 CORREZIONE: usa i campi REALI inviati dal client-mobile
+        // 🔥 CORRETTO: usa i campi REALI inviati dal client-mobile
         const prodotti = body.prodotti.map((p) => ({
             codice: p.codice,
             nome: p.nome,
@@ -53,14 +52,14 @@ router.post("/", async (req, res) => {
 
             tipo: p.tipo,                // "S" o "N"
 
-            prezzo: p.prezzo,            // centesimi già corretti
+            prezzo: p.prezzo,            // centesimi
             prezzo_scontato: p.prezzo_scontato ?? 0
         }));
 
         const nuovoOrdine = {
             cliente: clienteObj,
             prodotti,
-            totale: body.totale, // già in centesimi
+            totale: body.totale, // centesimi
             data: new Date().toISOString(),
             stato: "in attesa",
         };
