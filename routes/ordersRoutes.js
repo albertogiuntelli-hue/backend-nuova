@@ -26,7 +26,6 @@ router.get("/", (req, res) => {
 
 /* ============================================================
    POST /api/orders
-   Salva un nuovo ordine + registra automaticamente l’utente
 ============================================================ */
 router.post("/", async (req, res) => {
     try {
@@ -36,7 +35,6 @@ router.post("/", async (req, res) => {
             return res.status(400).json({ error: "Dati ordine mancanti" });
         }
 
-        // Cliente corretto (nome + cognome separati)
         const clienteObj = {
             nome: body.cliente.nome || "",
             cognome: body.cliente.cognome || "",
@@ -45,20 +43,24 @@ router.post("/", async (req, res) => {
             note: body.cliente.note || "",
         };
 
-        // Prodotti corretti
+        // 🔥 CORREZIONE: usa i campi REALI inviati dal client-mobile
         const prodotti = body.prodotti.map((p) => ({
             codice: p.codice,
             nome: p.nome,
-            quantita: p.quantity || p.quantita,
-            prezzo: p.prezzo_scontato > 0 ? p.prezzo_scontato : p.prezzo,
-            tipo: p.productType,
-            peso: p.weight || 0
+
+            quantita: p.quantita ?? 0,   // pezzi
+            peso: p.peso ?? 0,           // grammi
+
+            tipo: p.tipo,                // "S" o "N"
+
+            prezzo: p.prezzo,            // centesimi già corretti
+            prezzo_scontato: p.prezzo_scontato ?? 0
         }));
 
         const nuovoOrdine = {
             cliente: clienteObj,
             prodotti,
-            totale: body.totale,
+            totale: body.totale, // già in centesimi
             data: new Date().toISOString(),
             stato: "in attesa",
         };
@@ -73,7 +75,6 @@ router.post("/", async (req, res) => {
 
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
-        // 🔥 REGISTRAZIONE CLIENTE COMPLETA (nome + cognome)
         await registerUser({
             nome: clienteObj.nome,
             cognome: clienteObj.cognome,
@@ -91,7 +92,6 @@ router.post("/", async (req, res) => {
 
 /* ============================================================
    PUT /api/orders/:index
-   Aggiorna lo stato dell’ordine
 ============================================================ */
 router.put("/:index", (req, res) => {
     try {
@@ -121,4 +121,3 @@ router.put("/:index", (req, res) => {
 });
 
 export default router;
-
