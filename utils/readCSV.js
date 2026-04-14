@@ -82,15 +82,17 @@ export default function readCSV(filePath) {
                     normalized["prezzo unitario"] ||
                     "0";
 
-                // 🔥 COLONNA A PESO — AGGIUNTA COMPATIBILITÀ CON a_peso
+                // 🔥 COLONNA A PESO — RISPETTA LA LOGICA S/N
                 const a_peso_raw =
+                    normalized["a_peso"] ||
                     normalized["a peso"] ||
-                    normalized["a_peso"] ||     // ← AGGIUNTO, NON ROMPE NULLA
                     normalized["peso"] ||
                     normalized["al peso"] ||
                     "N";
 
-                const a_peso = a_peso_raw.toUpperCase() === "S";
+                // 🔥 CONVERSIONE CORRETTA: S → "S", N → "N"
+                const a_peso =
+                    a_peso_raw.toUpperCase() === "S" ? "S" : "N";
 
                 if (!codice) return; // salta righe vuote
 
@@ -100,7 +102,7 @@ export default function readCSV(filePath) {
                     codice,
                     nome,
                     prezzo,
-                    a_peso, // 🔥 campo già esistente, non toccato
+                    a_peso, // 🔥 ORA È "S" o "N", COME DA TUA LOGICA
                     immagine: "/logo.png",
                     categoria: "",
                     disponibile: true
