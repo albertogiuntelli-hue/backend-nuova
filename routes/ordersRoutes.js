@@ -9,12 +9,22 @@ const router = express.Router();
 const dataDir = path.resolve("./data");
 const ordersFile = path.join(dataDir, "orders.json");
 
+// Assicura che la cartella /data e il file orders.json esistano
+function ensureOrdersFile() {
+    if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+    }
+    if (!fs.existsSync(ordersFile)) {
+        fs.writeFileSync(ordersFile, JSON.stringify([], null, 2));
+    }
+}
+
 /* ============================================================
    GET /api/orders
 ============================================================ */
 router.get("/", (req, res) => {
     try {
-        if (!fs.existsSync(ordersFile)) return res.json([]);
+        ensureOrdersFile();
 
         const data = fs.readFileSync(ordersFile, "utf8");
         const orders = JSON.parse(data);
@@ -31,6 +41,8 @@ router.get("/", (req, res) => {
 ============================================================ */
 router.post("/", async (req, res) => {
     try {
+        ensureOrdersFile();
+
         const body = req.body;
 
         if (!body || !body.cliente || !body.prodotti) {
@@ -64,21 +76,16 @@ router.post("/", async (req, res) => {
             stato: "in attesa",
         };
 
-        // Assicura che la cartella esista
-        if (!fs.existsSync(dataDir)) {
-            fs.mkdirSync(dataDir, { recursive: true });
-        }
+        // Legge ordini esistenti
+        let orders = JSON.parse(fs.readFileSync(ordersFile, "utf8"));
 
-        let orders = [];
-        if (fs.existsSync(ordersFile)) {
-            const data = fs.readFileSync(ordersFile, "utf8");
-            orders = JSON.parse(data);
-        }
-
+        // Aggiunge nuovo ordine
         orders.push(nuovoOrdine);
 
+        // Salva ordini
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
+        // Registra o aggiorna cliente
         await registerUser({
             nome: clienteObj.nome,
             cognome: clienteObj.cognome,
@@ -100,12 +107,10 @@ router.post("/", async (req, res) => {
 ============================================================ */
 router.put("/:index", (req, res) => {
     try {
+        ensureOrdersFile();
+
         const { index } = req.params;
         const { stato } = req.body;
-
-        if (!fs.existsSync(ordersFile)) {
-            return res.status(404).json({ error: "Nessun ordine trovato" });
-        }
 
         const data = fs.readFileSync(ordersFile, "utf8");
         const orders = JSON.parse(data);
