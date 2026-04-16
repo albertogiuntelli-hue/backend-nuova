@@ -72,6 +72,7 @@ router.post("/", async (req, res) => {
             cliente: clienteObj,
             prodotti,
             totale: body.totale,
+            note: clienteObj.note || "",
             data: new Date().toISOString(),
             stato: "in attesa",
         };
