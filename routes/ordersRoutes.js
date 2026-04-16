@@ -38,28 +38,25 @@ router.post("/", async (req, res) => {
             nome: body.cliente.nome || "",
             cognome: body.cliente.cognome || "",
             telefono: body.cliente.telefono || "",
+            email: body.cliente.email || "",     // 🔥 AGGIUNTO
             indirizzo: body.cliente.indirizzo || "",
             note: body.cliente.note || "",
         };
 
-        // 🔥 CORRETTO: usa i campi REALI inviati dal client-mobile
         const prodotti = body.prodotti.map((p) => ({
             codice: p.codice,
             nome: p.nome,
-
-            quantita: p.quantita ?? 0,   // pezzi
-            peso: p.peso ?? 0,           // grammi
-
-            tipo: p.tipo,                // "S" o "N"
-
-            prezzo: p.prezzo,            // centesimi
+            quantita: p.quantita ?? 0,
+            peso: p.peso ?? 0,
+            tipo: p.tipo,
+            prezzo: p.prezzo,
             prezzo_scontato: p.prezzo_scontato ?? 0
         }));
 
         const nuovoOrdine = {
             cliente: clienteObj,
             prodotti,
-            totale: body.totale, // centesimi
+            totale: body.totale,
             data: new Date().toISOString(),
             stato: "in attesa",
         };
@@ -79,6 +76,7 @@ router.post("/", async (req, res) => {
             cognome: clienteObj.cognome,
             indirizzo: clienteObj.indirizzo,
             telefono: clienteObj.telefono,
+            email: clienteObj.email,          // 🔥 AGGIUNTO
             note: clienteObj.note || "",
         });
 
