@@ -4,7 +4,10 @@ import path from "path";
 import { registerUser } from "../controllers/usersController.js";
 
 const router = express.Router();
-const ordersFile = path.resolve("data/orders.json");
+
+// Percorso SICURO e coerente con usersController.js
+const dataDir = path.resolve("./data");
+const ordersFile = path.join(dataDir, "orders.json");
 
 /* ============================================================
    GET /api/orders
@@ -38,7 +41,7 @@ router.post("/", async (req, res) => {
             nome: body.cliente.nome || "",
             cognome: body.cliente.cognome || "",
             telefono: body.cliente.telefono || "",
-            email: body.cliente.email || "",     // 🔥 AGGIUNTO
+            email: body.cliente.email || "",
             indirizzo: body.cliente.indirizzo || "",
             note: body.cliente.note || "",
         };
@@ -61,6 +64,11 @@ router.post("/", async (req, res) => {
             stato: "in attesa",
         };
 
+        // Assicura che la cartella esista
+        if (!fs.existsSync(dataDir)) {
+            fs.mkdirSync(dataDir, { recursive: true });
+        }
+
         let orders = [];
         if (fs.existsSync(ordersFile)) {
             const data = fs.readFileSync(ordersFile, "utf8");
@@ -76,7 +84,7 @@ router.post("/", async (req, res) => {
             cognome: clienteObj.cognome,
             indirizzo: clienteObj.indirizzo,
             telefono: clienteObj.telefono,
-            email: clienteObj.email,          // 🔥 AGGIUNTO
+            email: clienteObj.email,
             note: clienteObj.note || "",
         });
 
