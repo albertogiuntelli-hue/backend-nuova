@@ -42,7 +42,7 @@ export async function registerUser(userData) {
 
     let users = JSON.parse(fs.readFileSync(usersFile, "utf8"));
 
-    // Cerca cliente esistente
+    // Cerca cliente esistente tramite telefono
     const existingUser = users.find(u => u.telefono === userData.telefono);
 
     if (existingUser) {
@@ -50,6 +50,7 @@ export async function registerUser(userData) {
         existingUser.cognome = userData.cognome || existingUser.cognome;
         existingUser.indirizzo = userData.indirizzo || existingUser.indirizzo;
         existingUser.note = userData.note || existingUser.note;
+        existingUser.email = userData.email || existingUser.email;
 
         fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
         return existingUser;
@@ -62,6 +63,7 @@ export async function registerUser(userData) {
         cognome: userData.cognome || "",
         indirizzo: userData.indirizzo || "",
         telefono: userData.telefono || "",
+        email: userData.email || "",
         note: userData.note || "",
         data_registrazione: new Date().toISOString()
     };
