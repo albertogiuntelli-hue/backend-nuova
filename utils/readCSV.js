@@ -1,32 +1,23 @@
 import fs from "fs";
 import csv from "csv-parser";
 
-// 🔥 Rimuove BOM, tab, NBSP, spazi e caratteri invisibili
 function cleanValue(value) {
     if (!value) return "";
     return value
         .toString()
-        .replace(/\uFEFF/g, "")   // BOM
-        .replace(/\u00A0/g, "")   // NBSP
-        .replace(/\t/g, "")       // TAB
+        .replace(/\uFEFF/g, "")
+        .replace(/\u00A0/g, "")
+        .replace(/\t/g, "")
         .trim();
 }
 
-// 🔥 Normalizza i prezzi: "13,17", "13.17", "13,17 €" → 13.17
 function normalizePrice(value) {
     if (!value) return 0;
-
     value = cleanValue(value);
-
-    // Sostituisce virgola con punto
     value = value.replace(",", ".");
-
-    // Rimuove simboli non numerici
     value = value.replace(/[^0-9.]/g, "");
-
     if (value.startsWith(".")) value = "0" + value;
     if (value.endsWith(".")) value = value.slice(0, -1);
-
     const num = parseFloat(value);
     return isNaN(num) ? 0 : num;
 }
@@ -35,19 +26,12 @@ export default function readCSV(filePath) {
     return new Promise((resolve, reject) => {
         const results = [];
 
-        // 🔥 Rileva automaticamente il separatore
         let detectedSeparator = ";";
 
         try {
             const firstLine = fs.readFileSync(filePath, "utf8").split("\n")[0];
-
-            if (firstLine.includes("\t")) {
-                detectedSeparator = "\t";
-            } else if (firstLine.includes(",")) {
-                detectedSeparator = ",";
-            } else if (firstLine.includes(";")) {
-                detectedSeparator = ";";
-            }
+            if (firstLine.includes("\t")) detectedSeparator = "\t";
+            else if (firstLine.includes(",")) detectedSeparator = ",";
         } catch (err) {
             console.error("Errore lettura prima riga CSV:", err);
         }
@@ -57,13 +41,11 @@ export default function readCSV(filePath) {
             .on("data", (row) => {
                 const normalized = {};
 
-                // 🔥 Normalizza tutte le chiavi e valori
                 for (const key of Object.keys(row)) {
                     const cleanKey = cleanValue(key).toLowerCase();
                     normalized[cleanKey] = cleanValue(row[key]);
                 }
 
-                // 🔥 Supporta colonne diverse
                 const codice =
                     normalized["codice"] ||
                     normalized["codice articolo"] ||
@@ -82,7 +64,6 @@ export default function readCSV(filePath) {
                     normalized["prezzo unitario"] ||
                     "0";
 
-                // 🔥 COLONNA A PESO — RISPETTA LA LOGICA S/N
                 const a_peso_raw =
                     normalized["a_peso"] ||
                     normalized["a peso"] ||
@@ -90,20 +71,24 @@ export default function readCSV(filePath) {
                     normalized["al peso"] ||
                     "N";
 
-                // 🔥 CONVERSIONE CORRETTA: S → "S", N → "N"
-                const a_peso =
-                    a_peso_raw.toUpperCase() === "S" ? "S" : "N";
+                const a_peso = a_peso_raw.toUpperCase() === "S" ? "S" : "N";
 
-                if (!codice) return; // salta righe vuote
+                if (!codice) return;
 
                 const prezzo = normalizePrice(prezzoRaw);
+
+                // 🔥 QUI LA CORREZIONE
+                const immagine =
+                    normalized["immagine"] && normalized["immagine"] !== ""
+                        ? normalized["immagine"]
+                        : "/logo.png";
 
                 results.push({
                     codice,
                     nome,
                     prezzo,
-                    a_peso, // 🔥 ORA È "S" o "N", COME DA TUA LOGICA
-                    immagine: "/logo.png",
+                    a_peso,
+                    immagine,
                     categoria: "",
                     disponibile: true
                 });
