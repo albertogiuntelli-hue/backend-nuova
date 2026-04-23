@@ -2,8 +2,8 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// Cartella temporanea compatibile con Railway
-const uploadDir = "/tmp/uploads";
+// Cartella prodotti compatibile con Railway
+const uploadDir = "/tmp/uploads/products";
 
 // Assicura che la cartella esista
 if (!fs.existsSync(uploadDir)) {
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         if (!file.originalname.match(/\.(csv)$/i)) {
             return cb(new Error("Sono accettati solo file CSV"));
