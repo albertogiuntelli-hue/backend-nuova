@@ -5,31 +5,26 @@ import { registerUser } from "../controllers/usersController.js";
 
 const router = express.Router();
 
-// Percorso SICURO e coerente con usersController.js
+// Percorsi file
 const dataDir = path.resolve("./data");
 const ordersFile = path.join(dataDir, "orders.json");
+const archiveFile = path.join(dataDir, "orders_archive.json");
 
-// Assicura che la cartella /data e il file orders.json esistano
-function ensureOrdersFile() {
-    if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir, { recursive: true });
-    }
-    if (!fs.existsSync(ordersFile)) {
-        fs.writeFileSync(ordersFile, JSON.stringify([], null, 2));
-    }
+// Assicura che i file esistano
+function ensureFiles() {
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(ordersFile)) fs.writeFileSync(ordersFile, "[]");
+    if (!fs.existsSync(archiveFile)) fs.writeFileSync(archiveFile, "[]");
 }
 
 /* ============================================================
-   GET /api/orders
+   GET /api/orders  → ORDINI ATTIVI
 ============================================================ */
 router.get("/", (req, res) => {
     try {
-        ensureOrdersFile();
-
+        ensureFiles();
         const data = fs.readFileSync(ordersFile, "utf8");
-        const orders = JSON.parse(data);
-
-        return res.json(orders);
+        return res.json(JSON.parse(data));
     } catch (error) {
         console.error("Errore GET /orders:", error);
         return res.status(500).json({ error: "Errore lettura ordini" });
@@ -37,11 +32,25 @@ router.get("/", (req, res) => {
 });
 
 /* ============================================================
-   POST /api/orders
+   GET /api/orders/archive  → ARCHIVIO ORDINI EVASI
+============================================================ */
+router.get("/archive", (req, res) => {
+    try {
+        ensureFiles();
+        const data = fs.readFileSync(archiveFile, "utf8");
+        return res.json(JSON.parse(data));
+    } catch (error) {
+        console.error("Errore GET /orders/archive:", error);
+        return res.status(500).json({ error: "Errore lettura archivio" });
+    }
+});
+
+/* ============================================================
+   POST /api/orders  → CREA NUOVO ORDINE
 ============================================================ */
 router.post("/", async (req, res) => {
     try {
-        ensureOrdersFile();
+        ensureFiles();
 
         const body = req.body;
 
@@ -73,28 +82,17 @@ router.post("/", async (req, res) => {
             prodotti,
             totale: body.totale,
             note: clienteObj.note || "",
-            data: new Date().toISOString(),
+            createdAt: new Date().toISOString(),   // ✔️ compatibile con dashboard
             stato: "in attesa",
         };
 
-        // Legge ordini esistenti
         let orders = JSON.parse(fs.readFileSync(ordersFile, "utf8"));
-
-        // Aggiunge nuovo ordine
         orders.push(nuovoOrdine);
 
-        // Salva ordini
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
-        // Registra o aggiorna cliente
-        await registerUser({
-            nome: clienteObj.nome,
-            cognome: clienteObj.cognome,
-            indirizzo: clienteObj.indirizzo,
-            telefono: clienteObj.telefono,
-            email: clienteObj.email,
-            note: clienteObj.note || "",
-        });
+        // Registra utente
+        await registerUser(clienteObj);
 
         res.status(201).json({ message: "Ordine salvato e utente registrato" });
     } catch (error) {
@@ -104,24 +102,37 @@ router.post("/", async (req, res) => {
 });
 
 /* ============================================================
-   PUT /api/orders/:index
+   PUT /api/orders/:index  → CAMBIA STATO ORDINE
 ============================================================ */
 router.put("/:index", (req, res) => {
     try {
-        ensureOrdersFile();
+        ensureFiles();
 
         const { index } = req.params;
         const { stato } = req.body;
 
-        const data = fs.readFileSync(ordersFile, "utf8");
-        const orders = JSON.parse(data);
+        let orders = JSON.parse(fs.readFileSync(ordersFile, "utf8"));
+        let archive = JSON.parse(fs.readFileSync(archiveFile, "utf8"));
 
         if (!orders[index]) {
             return res.status(404).json({ error: "Ordine non trovato" });
         }
 
+        // Aggiorna stato
         orders[index].stato = stato;
 
+        // Se evaso → sposta in archivio
+        if (stato === "evaso") {
+            archive.push(orders[index]);
+            orders.splice(index, 1);
+
+            fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
+            fs.writeFileSync(archiveFile, JSON.stringify(archive, null, 2));
+
+            return res.json({ message: "Ordine spostato in archivio" });
+        }
+
+        // Salva solo aggiornamento stato
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
         res.json({ message: "Stato aggiornato" });
