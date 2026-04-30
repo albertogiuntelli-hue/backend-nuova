@@ -82,7 +82,7 @@ router.post("/", async (req, res) => {
             prodotti,
             totale: body.totale,
             note: clienteObj.note || "",
-            createdAt: new Date().toISOString(),   // ✔️ compatibile con dashboard
+            createdAt: new Date().toISOString(),
             stato: "in attesa",
         };
 
@@ -91,7 +91,6 @@ router.post("/", async (req, res) => {
 
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
-        // Registra utente
         await registerUser(clienteObj);
 
         res.status(201).json({ message: "Ordine salvato e utente registrato" });
@@ -102,7 +101,7 @@ router.post("/", async (req, res) => {
 });
 
 /* ============================================================
-   PUT /api/orders/:index  → CAMBIA STATO ORDINE
+   PUT /api/orders/:index  → CAMBIA STATO ORDINE (EVASO)
 ============================================================ */
 router.put("/:index", (req, res) => {
     try {
@@ -118,7 +117,6 @@ router.put("/:index", (req, res) => {
             return res.status(404).json({ error: "Ordine non trovato" });
         }
 
-        // Aggiorna stato
         orders[index].stato = stato;
 
         // Se evaso → sposta in archivio
@@ -132,13 +130,48 @@ router.put("/:index", (req, res) => {
             return res.json({ message: "Ordine spostato in archivio" });
         }
 
-        // Salva solo aggiornamento stato
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
 
         res.json({ message: "Stato aggiornato" });
     } catch (error) {
         console.error("Errore PUT /orders:", error);
         res.status(500).json({ error: "Errore aggiornamento stato ordine" });
+    }
+});
+
+/* ============================================================
+   PUT /api/orders/:index/annulla  → ANNULLA ORDINE + ARCHIVIO
+============================================================ */
+router.put("/:index/annulla", (req, res) => {
+    try {
+        ensureFiles();
+
+        const { index } = req.params;
+
+        let orders = JSON.parse(fs.readFileSync(ordersFile, "utf8"));
+        let archive = JSON.parse(fs.readFileSync(archiveFile, "utf8"));
+
+        if (!orders[index]) {
+            return res.status(404).json({ error: "Ordine non trovato" });
+        }
+
+        // Imposta stato annullato
+        orders[index].stato = "annullato";
+
+        // Sposta in archivio
+        archive.push(orders[index]);
+
+        // Rimuovi dagli ordini attivi
+        orders.splice(index, 1);
+
+        // Salva entrambi i file
+        fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
+        fs.writeFileSync(archiveFile, JSON.stringify(archive, null, 2));
+
+        return res.json({ message: "Ordine annullato e spostato in archivio" });
+    } catch (error) {
+        console.error("Errore PUT /orders/:index/annulla:", error);
+        return res.status(500).json({ error: "Errore annullamento ordine" });
     }
 });
 
