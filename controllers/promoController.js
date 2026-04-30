@@ -24,7 +24,7 @@ export const getPromo = async (req, res) => {
             codice: p.codice,
             descrizione: p.nome,
             prezzo: p.prezzo,
-            immagine: "/plusmarket-logo.png"
+            immagine: p.immagine || "/plusmarket-logo.png"   // ✔ FIX IMMAGINE
         }));
 
         res.json(promo);
@@ -48,7 +48,7 @@ export const uploadPromo = async (req, res) => {
             codice: p.codice,
             descrizione: p.nome,
             prezzo: p.prezzo,
-            immagine: "/plusmarket-logo.png"
+            immagine: p.immagine || "/plusmarket-logo.png"   // ✔ FIX IMMAGINE
         }));
 
         const files = fs.readdirSync(promoFolder);
