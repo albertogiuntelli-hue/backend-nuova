@@ -9,6 +9,26 @@ if (!fs.existsSync(promoFolder)) {
     fs.mkdirSync(promoFolder, { recursive: true });
 }
 
+// 🔥 Funzione robusta per gestire immagini mancanti o sporche
+const normalizeImage = (img) => {
+    if (!img) return "/plusmarket-logo.png";
+
+    const cleaned = img.trim().toLowerCase();
+
+    if (
+        cleaned === "" ||
+        cleaned === "null" ||
+        cleaned === "undefined" ||
+        cleaned === "n/d" ||
+        cleaned === "-" ||
+        cleaned === "immagine promo"
+    ) {
+        return "/plusmarket-logo.png";
+    }
+
+    return img;
+};
+
 /* ============================================================
    GET PROMO
    ============================================================ */
@@ -24,7 +44,7 @@ export const getPromo = async (req, res) => {
             codice: p.codice,
             descrizione: p.nome,
             prezzo: p.prezzo,
-            immagine: p.immagine || "/plusmarket-logo.png"   // ✔ FIX IMMAGINE
+            immagine: normalizeImage(p.immagine)   // ✔ LOGO SE MANCANTE
         }));
 
         res.json(promo);
@@ -48,7 +68,7 @@ export const uploadPromo = async (req, res) => {
             codice: p.codice,
             descrizione: p.nome,
             prezzo: p.prezzo,
-            immagine: p.immagine || "/plusmarket-logo.png"   // ✔ FIX IMMAGINE
+            immagine: normalizeImage(p.immagine)   // ✔ LOGO SE MANCANTE
         }));
 
         const files = fs.readdirSync(promoFolder);
