@@ -44,7 +44,7 @@ export const getPromo = async (req, res) => {
             codice: p.codice,
             descrizione: p.nome,
             prezzo: p.prezzo,
-            immagine: normalizeImage(p.immagine)   // ✔ LOGO SE MANCANTE
+            immagine: normalizeImage(p.immagine)
         }));
 
         res.json(promo);
@@ -55,7 +55,7 @@ export const getPromo = async (req, res) => {
 };
 
 /* ============================================================
-   UPLOAD PROMO (IDENTICO AI PRODOTTI)
+   UPLOAD PROMO
    ============================================================ */
 export const uploadPromo = async (req, res) => {
     try {
@@ -68,7 +68,7 @@ export const uploadPromo = async (req, res) => {
             codice: p.codice,
             descrizione: p.nome,
             prezzo: p.prezzo,
-            immagine: normalizeImage(p.immagine)   // ✔ LOGO SE MANCANTE
+            immagine: normalizeImage(p.immagine)
         }));
 
         const files = fs.readdirSync(promoFolder);
@@ -111,5 +111,30 @@ export const deletePromo = async (req, res) => {
     } catch (error) {
         console.error("Errore deletePromo:", error);
         res.status(500).json({ error: "Errore nella cancellazione delle promo" });
+    }
+};
+
+/* ============================================================
+   SAVE PROMO DATES (NUOVO)
+   ============================================================ */
+export const savePromoDates = async (req, res) => {
+    try {
+        const { data_inizio, data_fine } = req.body;
+
+        if (!data_inizio || !data_fine) {
+            return res.status(400).json({ error: "Date mancanti" });
+        }
+
+        const dateFile = path.join(promoFolder, "date.json");
+
+        fs.writeFileSync(
+            dateFile,
+            JSON.stringify({ data_inizio, data_fine }, null, 2)
+        );
+
+        res.json({ message: "Date promo salvate correttamente" });
+    } catch (error) {
+        console.error("Errore salvataggio date promo:", error);
+        res.status(500).json({ error: "Errore nel salvataggio delle date" });
     }
 };
