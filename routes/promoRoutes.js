@@ -1,19 +1,25 @@
 import express from "express";
-import upload from "../middleware/upload.js";
+import multer from "multer";
 import {
     getPromo,
     uploadPromo,
     deletePromo,
-    savePromoDates
+    getPromoDates
 } from "../controllers/promoController.js";
 
 const router = express.Router();
+const upload = multer({ dest: "/tmp/uploads/promo" });
 
+// GET promo
 router.get("/", getPromo);
-router.post("/upload", upload.single("file"), uploadPromo);
-router.delete("/delete", deletePromo);
 
-// ⭐ NUOVA ROUTE SICURA PER LE DATE
-router.post("/date", savePromoDates);
+// GET promo dates
+router.get("/dates", getPromoDates);
+
+// UPLOAD promo + dates
+router.post("/upload", upload.single("file"), uploadPromo);
+
+// DELETE promo
+router.delete("/delete", deletePromo);
 
 export default router;
