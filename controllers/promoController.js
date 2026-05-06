@@ -3,6 +3,7 @@ import path from "path";
 import readCSV from "../utils/readCSV.js";
 
 const promoFolder = "/tmp/uploads/promo";
+const promoDatesFile = "/tmp/promo-dates.json";
 
 // Assicura che la cartella esista
 if (!fs.existsSync(promoFolder)) {
@@ -55,11 +56,23 @@ export const getPromo = async (req, res) => {
 };
 
 /* ============================================================
-   UPLOAD PROMO
+   UPLOAD PROMO + SALVATAGGIO DATE
    ============================================================ */
 export const uploadPromo = async (req, res) => {
     try {
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
+
+        const { data_inizio, data_fine } = req.body;
+
+        if (!data_inizio || !data_fine) {
+            return res.status(400).json({ error: "Date mancanti" });
+        }
+
+        // 🔥 Salva le date in /tmp/promo-dates.json
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ data_inizio, data_fine }, null, 2)
+        );
 
         const filePath = req.file.path;
         let promo = await readCSV(filePath);
@@ -71,6 +84,7 @@ export const uploadPromo = async (req, res) => {
             immagine: normalizeImage(p.immagine)
         }));
 
+        // Cancella vecchi file promo
         const files = fs.readdirSync(promoFolder);
         for (const f of files) {
             try {
@@ -85,7 +99,11 @@ export const uploadPromo = async (req, res) => {
 
         fs.renameSync(filePath, path.join(promoFolder, req.file.filename));
 
-        res.json({ message: "Promo caricate con successo", data: promo });
+        res.json({
+            message: "Promo caricate con successo",
+            data: promo,
+            date: { data_inizio, data_fine }
+        });
 
     } catch (error) {
         console.error("Errore uploadPromo:", error);
@@ -107,6 +125,11 @@ export const deletePromo = async (req, res) => {
             }
         }
 
+        // 🔥 Cancella anche le date
+        if (fs.existsSync(promoDatesFile)) {
+            fs.unlinkSync(promoDatesFile);
+        }
+
         res.json({ message: "Tutte le promo sono state cancellate." });
     } catch (error) {
         console.error("Errore deletePromo:", error);
@@ -115,26 +138,19 @@ export const deletePromo = async (req, res) => {
 };
 
 /* ============================================================
-   SAVE PROMO DATES (NUOVO)
+   GET PROMO DATES (NUOVO)
    ============================================================ */
-export const savePromoDates = async (req, res) => {
+export const getPromoDates = async (req, res) => {
     try {
-        const { data_inizio, data_fine } = req.body;
-
-        if (!data_inizio || !data_fine) {
-            return res.status(400).json({ error: "Date mancanti" });
+        if (!fs.existsSync(promoDatesFile)) {
+            return res.json({ data_inizio: null, data_fine: null });
         }
 
-        const dateFile = path.join(promoFolder, "date.json");
+        const data = fs.readFileSync(promoDatesFile, "utf8");
+        res.json(JSON.parse(data));
 
-        fs.writeFileSync(
-            dateFile,
-            JSON.stringify({ data_inizio, data_fine }, null, 2)
-        );
-
-        res.json({ message: "Date promo salvate correttamente" });
     } catch (error) {
-        console.error("Errore salvataggio date promo:", error);
-        res.status(500).json({ error: "Errore nel salvataggio delle date" });
+        console.error("Errore lettura date promo:", error);
+        res.status(500).json({ error: "Errore nel leggere le date promo" });
     }
 };
