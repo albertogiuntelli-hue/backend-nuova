@@ -5,8 +5,8 @@ import { registerUser } from "../controllers/usersController.js";
 
 const router = express.Router();
 
-// Percorsi file
-const dataDir = path.resolve("./data");
+// Cartella persistente Railway
+const dataDir = "/mnt/data";
 const ordersFile = path.join(dataDir, "orders.json");
 const archiveFile = path.join(dataDir, "orders_archive.json");
 

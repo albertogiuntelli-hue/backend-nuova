@@ -1,35 +1,38 @@
 import multer from "multer";
-import path from "path";
 import fs from "fs";
 
-// Cartella prodotti compatibile con Railway
-const uploadDir = "/tmp/uploads/products";
+// Percorsi persistenti Railway
+const uploadDirProducts = "/mnt/data/uploads/products";
+const uploadDirPromo = "/mnt/data/uploads/promo";
 
-// Assicura che la cartella esista
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
+// Assicura che le cartelle esistano
+function ensureUploadDirs() {
+    if (!fs.existsSync(uploadDirProducts)) {
+        fs.mkdirSync(uploadDirProducts, { recursive: true });
+    }
+    if (!fs.existsSync(uploadDirPromo)) {
+        fs.mkdirSync(uploadDirPromo, { recursive: true });
+    }
 }
 
+ensureUploadDirs();
+
+// Storage dinamico in base alla route
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, uploadDir);
+    destination: function (req, file, cb) {
+        if (req.baseUrl.includes("products")) {
+            cb(null, uploadDirProducts);
+        } else if (req.baseUrl.includes("promo")) {
+            cb(null, uploadDirPromo);
+        } else {
+            cb(null, "/mnt/data/uploads");
+        }
     },
-    filename: (req, file, cb) => {
-        const ext = path.extname(file.originalname);
-        const name = Date.now() + ext;
-        cb(null, name);
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname);
     }
 });
 
-const upload = multer({
-    storage,
-    limits: { fileSize: 5 * 1024 * 1024 },
-    fileFilter: (req, file, cb) => {
-        if (!file.originalname.match(/\.(csv)$/i)) {
-            return cb(new Error("Sono accettati solo file CSV"));
-        }
-        cb(null, true);
-    }
-});
+const upload = multer({ storage });
 
 export default upload;

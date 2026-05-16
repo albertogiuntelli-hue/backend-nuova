@@ -1,5 +1,5 @@
 import express from "express";
-import multer from "multer";
+import upload from "../middleware/upload.js";
 import {
     getPromo,
     uploadPromo,
@@ -8,7 +8,6 @@ import {
 } from "../controllers/promoController.js";
 
 const router = express.Router();
-const upload = multer({ dest: "/tmp/uploads/promo" });
 
 // GET promo
 router.get("/", getPromo);

@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-// Percorso assoluto e SICURO per Railway + locale
-const dataDir = path.resolve("./data");
+// Percorso persistente Railway
+const dataDir = "/mnt/data";
 const usersFile = path.join(dataDir, "users.json");
 
 // Assicura che cartella e file esistano
