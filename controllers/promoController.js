@@ -42,7 +42,7 @@ export function getPromo(req, res) {
             .map(r => r.trim())
             .filter(r => r !== "");
 
-        // 🔥 salta la prima riga (intestazione)
+        // 🔥 SALTA LA PRIMA RIGA (intestazione)
         const dataRows = rows.slice(1);
 
         const promo = dataRows.map(row => {
