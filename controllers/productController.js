@@ -29,18 +29,33 @@ export function getProducts(req, res) {
             return res.json([]);
         }
 
-        const rows = csv.split("\n").filter(r => r.trim() !== "");
-        const products = rows.map(row => {
-            const [codice, nome, prezzo, categoria, immagine] = row.split(";");
+        const rows = csv
+            .split("\n")
+            .map(r => r.trim())
+            .filter(r => r !== "");
+
+        // 🔥 salta la prima riga (intestazione)
+        const dataRows = rows.slice(1);
+
+        const products = dataRows.map(row => {
+            const [codiceRaw, nomeRaw, prezzoRaw, categoriaRaw, immagineRaw] = row.split(";");
+
+            const codice = (codiceRaw || "").trim();
+            const nome = (nomeRaw || "").trim();
+            const prezzo = Number((prezzoRaw || "").replace(",", "."));
+            const categoria = (categoriaRaw || "").trim().toUpperCase();
+            const immagine = (immagineRaw || "").trim();
+
+            if (!codice || !nome) return null;
 
             return {
                 codice,
                 nome,
-                prezzo: Number(prezzo),
+                prezzo: isNaN(prezzo) ? 0 : prezzo,
                 categoria,
                 immagine
             };
-        });
+        }).filter(p => p !== null);
 
         return res.json(products);
     } catch (error) {

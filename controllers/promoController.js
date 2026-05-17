@@ -17,7 +17,10 @@ function ensurePromoFiles() {
     }
 
     if (!fs.existsSync(promoDatesFile)) {
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start: "", end: "" }, null, 2)
+        );
     }
 }
 
@@ -34,19 +37,42 @@ export function getPromo(req, res) {
             return res.json([]);
         }
 
-        const rows = csv.split("\n").filter(r => r.trim() !== "");
-        const promo = rows.map(row => {
-            const [codice, nome, prezzo, prezzo_scontato, categoria, immagine] = row.split(";");
+        const rows = csv
+            .split("\n")
+            .map(r => r.trim())
+            .filter(r => r !== "");
+
+        // 🔥 salta la prima riga (intestazione)
+        const dataRows = rows.slice(1);
+
+        const promo = dataRows.map(row => {
+            const [
+                codiceRaw,
+                nomeRaw,
+                prezzoRaw,
+                prezzoScontatoRaw,
+                categoriaRaw,
+                immagineRaw
+            ] = row.split(";");
+
+            const codice = (codiceRaw || "").trim();
+            const nome = (nomeRaw || "").trim();
+            const prezzo = Number((prezzoRaw || "").replace(",", "."));
+            const prezzo_scontato = Number((prezzoScontatoRaw || "").replace(",", "."));
+            const categoria = (categoriaRaw || "").trim().toUpperCase();
+            const immagine = (immagineRaw || "").trim();
+
+            if (!codice || !nome) return null;
 
             return {
                 codice,
                 nome,
-                prezzo: Number(prezzo),
-                prezzo_scontato: Number(prezzo_scontato),
+                prezzo: isNaN(prezzo) ? 0 : prezzo,
+                prezzo_scontato: isNaN(prezzo_scontato) ? 0 : prezzo_scontato,
                 categoria,
                 immagine
             };
-        });
+        }).filter(p => p !== null);
 
         return res.json(promo);
     } catch (error) {
@@ -86,7 +112,6 @@ export function uploadPromo(req, res) {
 
         fs.writeFileSync(promoFile, csv);
 
-        // Se ci sono date nel body, aggiornale
         if (req.body.start || req.body.end) {
             const dates = {
                 start: req.body.start || "",
@@ -112,7 +137,10 @@ export function deletePromo(req, res) {
         ensurePromoFiles();
 
         fs.writeFileSync(promoFile, "");
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start: "", end: "" }, null, 2)
+        );
 
         return res.json({ message: "Promo eliminate" });
     } catch (error) {
