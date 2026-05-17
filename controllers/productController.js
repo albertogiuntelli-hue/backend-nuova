@@ -1,106 +1,79 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella persistente Railway
 const dataDir = "/mnt/data";
 const productsFile = path.join(dataDir, "products.csv");
 
-// Assicura che cartella e file esistano
 function ensureProductsFile() {
-    if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir, { recursive: true });
-    }
-
-    if (!fs.existsSync(productsFile)) {
-        fs.writeFileSync(productsFile, "");
-    }
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
 }
 
-/* ============================================================
-   GET /api/products
-============================================================ */
+// Funzione che capisce automaticamente se usare virgola o punto e virgola
+function smartSplit(row) {
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
+}
+
 export function getProducts(req, res) {
     try {
         ensureProductsFile();
 
         const csv = fs.readFileSync(productsFile, "utf8");
+        if (!csv.trim()) return res.json([]);
 
-        if (!csv.trim()) {
-            return res.json([]);
-        }
+        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
 
-        const rows = csv
-            .split("\n")
-            .map(r => r.trim())
-            .filter(r => r !== "");
-
-        // 🔥 SALTA LA PRIMA RIGA (intestazione)
+        // Salta intestazione
         const dataRows = rows.slice(1);
 
         const products = dataRows.map(row => {
-            const [codiceRaw, nomeRaw, prezzoRaw, categoriaRaw, immagineRaw] = row.split(";");
+            const [codiceRaw, nomeRaw, prezzoRaw, categoriaRaw, immagineRaw] = smartSplit(row);
 
-            const codice = (codiceRaw || "").trim();
-            const nome = (nomeRaw || "").trim();
-            const prezzo = Number((prezzoRaw || "").replace(",", "."));
-            const categoria = (categoriaRaw || "").trim().toUpperCase();
-            const immagine = (immagineRaw || "").trim();
-
-            if (!codice || !nome) return null;
+            if (!codiceRaw || !nomeRaw) return null;
 
             return {
-                codice,
-                nome,
-                prezzo: isNaN(prezzo) ? 0 : prezzo,
-                categoria,
-                immagine
+                codice: codiceRaw.trim(),
+                nome: nomeRaw.trim(),
+                prezzo: Number((prezzoRaw || "").replace(",", ".")),
+                categoria: (categoriaRaw || "").trim(),
+                immagine: (immagineRaw || "").trim()
             };
-        }).filter(p => p !== null);
+        }).filter(Boolean);
 
         return res.json(products);
-    } catch (error) {
-        console.error("Errore GET /products:", error);
+
+    } catch (err) {
+        console.error("Errore GET /products:", err);
         return res.status(500).json({ error: "Errore lettura prodotti" });
     }
 }
 
-/* ============================================================
-   POST /api/products/upload
-============================================================ */
 export function uploadProducts(req, res) {
     try {
         ensureProductsFile();
 
-        if (!req.file) {
-            return res.status(400).json({ error: "Nessun file caricato" });
-        }
+        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
-        const tempPath = req.file.path;
-        const csv = fs.readFileSync(tempPath, "utf8");
-
+        const csv = fs.readFileSync(req.file.path, "utf8");
         fs.writeFileSync(productsFile, csv);
-
-        fs.unlinkSync(tempPath);
+        fs.unlinkSync(req.file.path);
 
         return res.json({ message: "Prodotti caricati correttamente" });
-    } catch (error) {
-        console.error("Errore UPLOAD /products:", error);
+
+    } catch (err) {
+        console.error("Errore UPLOAD /products:", err);
         return res.status(500).json({ error: "Errore caricamento prodotti" });
     }
 }
 
-/* ============================================================
-   DELETE /api/products/delete
-============================================================ */
 export function deleteProducts(req, res) {
     try {
         ensureProductsFile();
-
         fs.writeFileSync(productsFile, "");
-
         return res.json({ message: "Prodotti eliminati" });
-    } catch (error) {
-        console.error("Errore DELETE /products:", error);
+    } catch (err) {
+        console.error("Errore DELETE /products:", err);
         return res.status(500).json({ error: "Errore eliminazione prodotti" });
     }
 }
