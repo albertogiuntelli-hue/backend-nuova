@@ -28,7 +28,14 @@ export function getProducts(req, res) {
         const dataRows = rows.slice(1);
 
         const products = dataRows.map(row => {
-            const [codiceRaw, nomeRaw, prezzoRaw, categoriaRaw, immagineRaw] = smartSplit(row);
+            const [
+                codiceRaw,
+                nomeRaw,
+                prezzoRaw,
+                prezzoScontatoRaw,
+                categoriaRaw,
+                immagineRaw
+            ] = smartSplit(row);
 
             if (!codiceRaw || !nomeRaw) return null;
 
@@ -36,6 +43,7 @@ export function getProducts(req, res) {
                 codice: codiceRaw.trim(),
                 nome: nomeRaw.trim(),
                 prezzo: Number((prezzoRaw || "").replace(",", ".")),
+                prezzo_scontato: Number((prezzoScontatoRaw || "").replace(",", ".")),
                 categoria: (categoriaRaw || "").trim(),
                 immagine: (immagineRaw || "").trim()
             };
