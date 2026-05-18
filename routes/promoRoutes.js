@@ -4,19 +4,25 @@ import multer from "multer";
 import {
     getPromo,
     uploadPromo,
-    deletePromo
+    deletePromo,
+    getPromoDates,
+    savePromoDates
 } from "../controllers/promoController.js";
 
 const router = express.Router();
 const upload = multer({ dest: "/tmp" });
 
-// GET promo
+// LISTA PROMO
 router.get("/", getPromo);
 
-// UPLOAD promo CSV
+// UPLOAD PROMO (CSV)
 router.post("/", upload.single("file"), uploadPromo);
 
-// DELETE promo
+// DELETE PROMO
 router.delete("/", deletePromo);
+
+// DATE PROMO
+router.get("/dates", getPromoDates);
+router.post("/dates", savePromoDates);
 
 export default router;
