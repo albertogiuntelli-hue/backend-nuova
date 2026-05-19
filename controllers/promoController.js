@@ -56,8 +56,7 @@ export function getPromo(req, res) {
                     codiceRaw,
                     nomeRaw,
                     prezzoRaw,
-                    prezzoScontatoRaw,
-                    categoriaRaw,
+                    aPesoRaw,
                     immagineRaw
                 ] = smartSplit(row);
 
@@ -67,8 +66,7 @@ export function getPromo(req, res) {
                     codice: codiceRaw.trim(),
                     nome: nomeRaw.trim(),
                     prezzo: Number((prezzoRaw || "").replace(",", ".")),
-                    prezzo_scontato: Number((prezzoScontatoRaw || "").replace(",", ".")),
-                    categoria: (categoriaRaw || "").trim(),
+                    a_peso: (aPesoRaw || "").trim(),
                     immagine: normalizeImage(immagineRaw)
                 };
             })
