@@ -1,21 +1,29 @@
 import fs from "fs";
 import path from "path";
 
-const ordersJsonPath = path.resolve("data/orders.json");
+const dataDir = "/mnt/data";
+const ordersJsonPath = path.join(dataDir, "orders.json");
+
+// Assicura che la cartella persistente esista
+function ensureOrdersFile() {
+    if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+    }
+    if (!fs.existsSync(ordersJsonPath)) {
+        fs.writeFileSync(ordersJsonPath, "[]");
+    }
+}
 
 /* ============================================================
    GET /api/orders — restituisce TUTTI i dati dell’ordine
 ============================================================ */
 export async function getAllOrders() {
     try {
-        if (!fs.existsSync(ordersJsonPath)) {
-            return [];
-        }
+        ensureOrdersFile();
 
         const data = fs.readFileSync(ordersJsonPath, "utf8");
         const orders = JSON.parse(data);
 
-        // 🔥 RESTITUISCE TUTTI I CAMPI REALI SALVATI
         return orders.map((o, index) => ({
             id: index + 1,
 
@@ -36,9 +44,5 @@ export async function getAllOrders() {
     } catch (error) {
         console.error("Errore lettura ordini JSON:", error);
         throw error;
-    }
-}
-console.error("Errore lettura ordini JSON:", error);
-throw error;
     }
 }
