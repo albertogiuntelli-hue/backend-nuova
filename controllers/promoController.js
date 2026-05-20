@@ -1,50 +1,39 @@
-// backend/controllers/promoController.js
 import fs from "fs";
 import path from "path";
 import csvParser from "../utils/csvParser.js";
 
+// Assicura che /mnt/data esista SEMPRE
 const dataDir = "/mnt/data";
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+}
+
 const promoFile = path.join(dataDir, "promo.csv");
 const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
-// Fallback immagine
 const FALLBACK_IMAGE = "/plusmarket-logo.png";
 
-function ensurePromoFiles() {
-    if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir, { recursive: true });
-    }
-    if (!fs.existsSync(promoFile)) {
-        fs.writeFileSync(promoFile, "");
-    }
-    if (!fs.existsSync(promoDatesFile)) {
-        fs.writeFileSync(
-            promoDatesFile,
-            JSON.stringify({ start: "", end: "" }, null, 2)
-        );
-    }
+// Normalizza contenuto CSV per confronto
+function normalizeCsv(str) {
+    return (str || "").replace(/\r\n/g, "\n").trim();
 }
 
-// 🔍 Confronta due stringhe CSV: se identiche, non serve riscrivere
 function isSameContent(oldContent, newContent) {
-    const normalize = (s) =>
-        (s || "")
-            .replace(/\r\n/g, "\n")
-            .trim();
-    return normalize(oldContent) === normalize(newContent);
+    return normalizeCsv(oldContent) === normalizeCsv(newContent);
 }
 
 // GET /promo
 export async function getPromo(req, res) {
     try {
-        ensurePromoFiles();
-
-        const csvStat = fs.statSync(promoFile);
-        if (!csvStat.size) {
+        if (!fs.existsSync(promoFile)) {
             return res.json([]);
         }
 
-        // Usa lo stesso parser del client-mobile
+        const stats = fs.statSync(promoFile);
+        if (!stats.size) {
+            return res.json([]);
+        }
+
         const promo = await csvParser(promoFile);
 
         const normalized = promo.map((p) => ({
@@ -65,8 +54,6 @@ export async function getPromo(req, res) {
 // POST /promo/upload
 export function uploadPromo(req, res) {
     try {
-        ensurePromoFiles();
-
         if (!req.file) {
             return res.status(400).json({ error: "Nessun file caricato" });
         }
@@ -101,7 +88,10 @@ export function uploadPromo(req, res) {
 // GET /promo/date
 export function getPromoDates(req, res) {
     try {
-        ensurePromoFiles();
+        if (!fs.existsSync(promoDatesFile)) {
+            return res.json({ start: "", end: "" });
+        }
+
         const data = JSON.parse(fs.readFileSync(promoDatesFile, "utf8"));
         return res.json(data);
     } catch (err) {
@@ -113,8 +103,6 @@ export function getPromoDates(req, res) {
 // POST /promo/date
 export function savePromoDates(req, res) {
     try {
-        ensurePromoFiles();
-
         const { start, end } = req.body;
 
         fs.writeFileSync(
@@ -132,12 +120,12 @@ export function savePromoDates(req, res) {
 // DELETE /promo/delete
 export function deletePromo(req, res) {
     try {
-        ensurePromoFiles();
         fs.writeFileSync(promoFile, "");
         fs.writeFileSync(
             promoDatesFile,
             JSON.stringify({ start: "", end: "" }, null, 2)
         );
+
         return res.json({ message: "Promo eliminate" });
     } catch (err) {
         console.error("Errore DELETE /promo:", err);

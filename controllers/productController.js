@@ -1,87 +1,85 @@
 import fs from "fs";
 import path from "path";
+import csvParser from "../utils/csvParser.js";
 
+// Assicura che /mnt/data esista SEMPRE
 const dataDir = "/mnt/data";
-const productsFile = path.join(dataDir, "products.csv");
-
-function ensureProductsFile() {
-    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-    if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
 }
 
-// Funzione che capisce automaticamente se usare virgola o punto e virgola
-function smartSplit(row) {
-    if (row.includes(";")) return row.split(";");
-    return row.split(",");
+const prodottiFile = path.join(dataDir, "prodotti.csv");
+
+// Normalizza contenuto CSV per confronto
+function normalizeCsv(str) {
+    return (str || "").replace(/\r\n/g, "\n").trim();
 }
 
-export function getProducts(req, res) {
+function isSameContent(oldContent, newContent) {
+    return normalizeCsv(oldContent) === normalizeCsv(newContent);
+}
+
+// GET /prodotti
+export async function getProdotti(req, res) {
     try {
-        ensureProductsFile();
+        if (!fs.existsSync(prodottiFile)) {
+            return res.json([]);
+        }
 
-        const csv = fs.readFileSync(productsFile, "utf8");
-        if (!csv.trim()) return res.json([]);
+        const stats = fs.statSync(prodottiFile);
+        if (!stats.size) {
+            return res.json([]);
+        }
 
-        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
-
-        // Salta intestazione
-        const dataRows = rows.slice(1);
-
-        const products = dataRows.map(row => {
-            const [
-                codiceRaw,
-                nomeRaw,
-                prezzoRaw,
-                prezzoScontatoRaw,
-                categoriaRaw,
-                immagineRaw
-            ] = smartSplit(row);
-
-            if (!codiceRaw || !nomeRaw) return null;
-
-            return {
-                codice: codiceRaw.trim(),
-                nome: nomeRaw.trim(),
-                prezzo: Number((prezzoRaw || "").replace(",", ".")),
-                prezzo_scontato: Number((prezzoScontatoRaw || "").replace(",", ".")),
-                categoria: (categoriaRaw || "").trim(),
-                immagine: (immagineRaw || "").trim()
-            };
-        }).filter(Boolean);
-
-        return res.json(products);
-
+        const prodotti = await csvParser(prodottiFile);
+        return res.json(prodotti);
     } catch (err) {
-        console.error("Errore GET /products:", err);
+        console.error("Errore GET /prodotti:", err);
         return res.status(500).json({ error: "Errore lettura prodotti" });
     }
 }
 
-export function uploadProducts(req, res) {
+// POST /prodotti/upload
+export function uploadProdotti(req, res) {
     try {
-        ensureProductsFile();
+        if (!req.file) {
+            return res.status(400).json({ error: "Nessun file caricato" });
+        }
 
-        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
+        const newCsv = fs.readFileSync(req.file.path, "utf8");
+        let shouldWrite = true;
 
-        const csv = fs.readFileSync(req.file.path, "utf8");
-        fs.writeFileSync(productsFile, csv);
+        if (fs.existsSync(prodottiFile)) {
+            const oldCsv = fs.readFileSync(prodottiFile, "utf8");
+            if (isSameContent(oldCsv, newCsv)) {
+                shouldWrite = false;
+            }
+        }
+
+        if (shouldWrite) {
+            fs.writeFileSync(prodottiFile, newCsv);
+        }
+
         fs.unlinkSync(req.file.path);
 
-        return res.json({ message: "Prodotti caricati correttamente" });
-
+        return res.json({
+            message: shouldWrite
+                ? "Prodotti aggiornati correttamente"
+                : "File identico a quello già presente, nessuna modifica applicata",
+        });
     } catch (err) {
-        console.error("Errore UPLOAD /products:", err);
+        console.error("Errore UPLOAD /prodotti:", err);
         return res.status(500).json({ error: "Errore caricamento prodotti" });
     }
 }
 
-export function deleteProducts(req, res) {
+// DELETE /prodotti/delete
+export function deleteProdotti(req, res) {
     try {
-        ensureProductsFile();
-        fs.writeFileSync(productsFile, "");
+        fs.writeFileSync(prodottiFile, "");
         return res.json({ message: "Prodotti eliminati" });
     } catch (err) {
-        console.error("Errore DELETE /products:", err);
+        console.error("Errore DELETE /prodotti:", err);
         return res.status(500).json({ error: "Errore eliminazione prodotti" });
     }
 }
