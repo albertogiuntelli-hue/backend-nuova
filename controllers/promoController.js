@@ -1,97 +1,108 @@
 import fs from "fs";
 import path from "path";
-import csvParser from "../utils/csvParser.js";
 
-// Usa /tmp perché Railway non permette più di scrivere in /mnt/data
+// Directory sicura e scrivibile su Railway
 const dataDir = "/tmp";
-if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-}
-
 const promoFile = path.join(dataDir, "promo.csv");
 const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
+// Fallback immagine
 const FALLBACK_IMAGE = "/plusmarket-logo.png";
 
-// Normalizza contenuto CSV per confronto
-function normalizeCsv(str) {
-    return (str || "").replace(/\r\n/g, "\n").trim();
+// Normalizzazione immagine
+function normalizeImage(img) {
+    if (!img) return FALLBACK_IMAGE;
+
+    const cleaned = img.trim().toLowerCase();
+
+    if (
+        cleaned === "" ||
+        cleaned === "null" ||
+        cleaned === "undefined" ||
+        cleaned === "-" ||
+        cleaned === "n/d" ||
+        cleaned === "immagine promo"
+    ) {
+        return FALLBACK_IMAGE;
+    }
+
+    return img.trim();
 }
 
-function isSameContent(oldContent, newContent) {
-    return normalizeCsv(oldContent) === normalizeCsv(newContent);
+function ensurePromoFiles() {
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(promoFile)) fs.writeFileSync(promoFile, "");
+    if (!fs.existsSync(promoDatesFile))
+        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
 }
 
-// GET /promo
-export async function getPromo(req, res) {
+function smartSplit(row) {
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
+}
+
+export function getPromo(req, res) {
     try {
-        if (!fs.existsSync(promoFile)) {
-            return res.json([]);
-        }
+        ensurePromoFiles();
 
-        const stats = fs.statSync(promoFile);
-        if (!stats.size) {
-            return res.json([]);
-        }
+        const csv = fs.readFileSync(promoFile, "utf8");
+        if (!csv.trim()) return res.json([]);
 
-        const promo = await csvParser(promoFile);
+        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
+        const dataRows = rows.slice(1);
 
-        const normalized = promo.map((p) => ({
-            ...p,
-            immagine:
-                p.immagine && p.immagine.trim() !== ""
-                    ? p.immagine.trim()
-                    : FALLBACK_IMAGE,
-        }));
+        const promo = dataRows
+            .map(row => {
+                const [
+                    codiceRaw,
+                    nomeRaw,
+                    prezzoRaw,
+                    aPesoRaw,
+                    immagineRaw
+                ] = smartSplit(row);
 
-        return res.json(normalized);
+                if (!codiceRaw || !nomeRaw) return null;
+
+                return {
+                    codice: codiceRaw.trim(),
+                    descrizione: nomeRaw.trim(),   // <-- QUI LA CHIAVE GIUSTA PER DASHBOARD E MOBILE
+                    prezzo: Number((prezzoRaw || "").replace(",", ".")),
+                    a_peso: (aPesoRaw || "").trim(),
+                    immagine: normalizeImage(immagineRaw)
+                };
+            })
+            .filter(Boolean);
+
+        return res.json(promo);
+
     } catch (err) {
         console.error("Errore GET /promo:", err);
         return res.status(500).json({ error: "Errore lettura promo" });
     }
 }
 
-// POST /promo/upload
 export function uploadPromo(req, res) {
     try {
-        if (!req.file) {
-            return res.status(400).json({ error: "Nessun file caricato" });
-        }
+        ensurePromoFiles();
 
-        const newCsv = fs.readFileSync(req.file.path, "utf8");
-        let shouldWrite = true;
+        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
-        if (fs.existsSync(promoFile)) {
-            const oldCsv = fs.readFileSync(promoFile, "utf8");
-            if (isSameContent(oldCsv, newCsv)) {
-                shouldWrite = false;
-            }
-        }
-
-        if (shouldWrite) {
-            fs.writeFileSync(promoFile, newCsv);
-        }
+        const csv = fs.readFileSync(req.file.path, "utf8");
+        fs.writeFileSync(promoFile, csv);
 
         fs.unlinkSync(req.file.path);
 
-        return res.json({
-            message: shouldWrite
-                ? "Promo aggiornate correttamente"
-                : "File identico a quello già presente, nessuna modifica applicata",
-        });
+        return res.json({ message: "Promo caricate correttamente" });
+
     } catch (err) {
         console.error("Errore UPLOAD /promo:", err);
         return res.status(500).json({ error: "Errore caricamento promo" });
     }
 }
 
-// GET /promo/date
 export function getPromoDates(req, res) {
     try {
-        if (!fs.existsSync(promoDatesFile)) {
-            return res.json({ start: "", end: "" });
-        }
-
+        ensurePromoFiles();
         const data = JSON.parse(fs.readFileSync(promoDatesFile, "utf8"));
         return res.json(data);
     } catch (err) {
@@ -100,9 +111,10 @@ export function getPromoDates(req, res) {
     }
 }
 
-// POST /promo/date
 export function savePromoDates(req, res) {
     try {
+        ensurePromoFiles();
+
         const { start, end } = req.body;
 
         fs.writeFileSync(
@@ -111,21 +123,18 @@ export function savePromoDates(req, res) {
         );
 
         return res.json({ message: "Date promo salvate" });
+
     } catch (err) {
         console.error("Errore POST /promo/dates:", err);
         return res.status(500).json({ error: "Errore salvataggio date promo" });
     }
 }
 
-// DELETE /promo/delete
 export function deletePromo(req, res) {
     try {
+        ensurePromoFiles();
         fs.writeFileSync(promoFile, "");
-        fs.writeFileSync(
-            promoDatesFile,
-            JSON.stringify({ start: "", end: "" }, null, 2)
-        );
-
+        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
         return res.json({ message: "Promo eliminate" });
     } catch (err) {
         console.error("Errore DELETE /promo:", err);
