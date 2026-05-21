@@ -1,85 +1,53 @@
 import fs from "fs";
 import path from "path";
-import csvParser from "../utils/csvParser.js";
 
-// Usa /tmp perché Railway non permette più di scrivere in /mnt/data
 const dataDir = "/tmp";
-if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+const productsFile = path.join(dataDir, "prodotti.csv");
+
+function normalizePrice(value) {
+    if (!value) return 0;
+    return Number(value.replace(",", "."));
 }
 
-const prodottiFile = path.join(dataDir, "prodotti.csv");
-
-// Normalizza contenuto CSV per confronto
-function normalizeCsv(str) {
-    return (str || "").replace(/\r\n/g, "\n").trim();
+function smartSplit(row) {
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
 }
 
-function isSameContent(oldContent, newContent) {
-    return normalizeCsv(oldContent) === normalizeCsv(newContent);
+function ensureProductsFile() {
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
 }
 
-// GET /prodotti
-export async function getProdotti(req, res) {
+export function getProducts(req, res) {
     try {
-        if (!fs.existsSync(prodottiFile)) {
-            return res.json([]);
-        }
+        ensureProductsFile();
 
-        const stats = fs.statSync(prodottiFile);
-        if (!stats.size) {
-            return res.json([]);
-        }
+        const csv = fs.readFileSync(productsFile, "utf8");
+        if (!csv.trim()) return res.json([]);
 
-        const prodotti = await csvParser(prodottiFile);
-        return res.json(prodotti);
+        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
+        const dataRows = rows.slice(1);
+
+        const products = dataRows
+            .map(row => {
+                const [codice, descrizione, prezzo] = smartSplit(row);
+
+                if (!codice || !descrizione) return null;
+
+                return {
+                    codice: codice.trim(),
+                    descrizione: descrizione.trim(),
+                    prezzo: normalizePrice(prezzo),
+                    a_peso: "N" // i prodotti non hanno peso
+                };
+            })
+            .filter(Boolean);
+
+        return res.json(products);
+
     } catch (err) {
         console.error("Errore GET /prodotti:", err);
         return res.status(500).json({ error: "Errore lettura prodotti" });
-    }
-}
-
-// POST /prodotti/upload
-export function uploadProdotti(req, res) {
-    try {
-        if (!req.file) {
-            return res.status(400).json({ error: "Nessun file caricato" });
-        }
-
-        const newCsv = fs.readFileSync(req.file.path, "utf8");
-        let shouldWrite = true;
-
-        if (fs.existsSync(prodottiFile)) {
-            const oldCsv = fs.readFileSync(prodottiFile, "utf8");
-            if (isSameContent(oldCsv, newCsv)) {
-                shouldWrite = false;
-            }
-        }
-
-        if (shouldWrite) {
-            fs.writeFileSync(prodottiFile, newCsv);
-        }
-
-        fs.unlinkSync(req.file.path);
-
-        return res.json({
-            message: shouldWrite
-                ? "Prodotti aggiornati correttamente"
-                : "File identico a quello già presente, nessuna modifica applicata",
-        });
-    } catch (err) {
-        console.error("Errore UPLOAD /prodotti:", err);
-        return res.status(500).json({ error: "Errore caricamento prodotti" });
-    }
-}
-
-// DELETE /prodotti/delete
-export function deleteProdotti(req, res) {
-    try {
-        fs.writeFileSync(prodottiFile, "");
-        return res.json({ message: "Prodotti eliminati" });
-    } catch (err) {
-        console.error("Errore DELETE /prodotti:", err);
-        return res.status(500).json({ error: "Errore eliminazione prodotti" });
     }
 }

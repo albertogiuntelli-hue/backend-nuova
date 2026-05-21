@@ -1,27 +1,23 @@
 import fs from "fs";
 import path from "path";
 
-// Directory sicura e scrivibile su Railway
 const dataDir = "/tmp";
 const promoFile = path.join(dataDir, "promo.csv");
 const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
-// Fallback immagine
 const FALLBACK_IMAGE = "/plusmarket-logo.png";
 
-// Normalizzazione immagine
+// Normalizza immagine
 function normalizeImage(img) {
     if (!img) return FALLBACK_IMAGE;
 
     const cleaned = img.trim().toLowerCase();
-
     if (
         cleaned === "" ||
         cleaned === "null" ||
         cleaned === "undefined" ||
         cleaned === "-" ||
-        cleaned === "n/d" ||
-        cleaned === "immagine promo"
+        cleaned === "n/d"
     ) {
         return FALLBACK_IMAGE;
     }
@@ -29,6 +25,19 @@ function normalizeImage(img) {
     return img.trim();
 }
 
+// Normalizza prezzo
+function normalizePrice(value) {
+    if (!value) return 0;
+    return Number(value.replace(",", "."));
+}
+
+// Split universale , o ;
+function smartSplit(row) {
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
+}
+
+// Garantisce che i file esistano
 function ensurePromoFiles() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(promoFile)) fs.writeFileSync(promoFile, "");
@@ -36,11 +45,7 @@ function ensurePromoFiles() {
         fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
 }
 
-function smartSplit(row) {
-    if (row.includes(";")) return row.split(";");
-    return row.split(",");
-}
-
+// GET /promo
 export function getPromo(req, res) {
     try {
         ensurePromoFiles();
@@ -49,26 +54,20 @@ export function getPromo(req, res) {
         if (!csv.trim()) return res.json([]);
 
         const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
-        const dataRows = rows.slice(1);
+        const dataRows = rows.slice(1); // salta intestazione
 
         const promo = dataRows
             .map(row => {
-                const [
-                    codiceRaw,
-                    nomeRaw,
-                    prezzoRaw,
-                    aPesoRaw,
-                    immagineRaw
-                ] = smartSplit(row);
+                const [codice, descrizione, prezzo, a_peso, immagine] = smartSplit(row);
 
-                if (!codiceRaw || !nomeRaw) return null;
+                if (!codice || !descrizione) return null;
 
                 return {
-                    codice: codiceRaw.trim(),
-                    descrizione: nomeRaw.trim(),   // <-- QUI LA CHIAVE GIUSTA PER DASHBOARD E MOBILE
-                    prezzo: Number((prezzoRaw || "").replace(",", ".")),
-                    a_peso: (aPesoRaw || "").trim(),
-                    immagine: normalizeImage(immagineRaw)
+                    codice: codice.trim(),
+                    descrizione: descrizione.trim(),
+                    prezzo: normalizePrice(prezzo),
+                    a_peso: (a_peso || "").trim().toUpperCase() === "S" ? "S" : "N",
+                    immagine: normalizeImage(immagine)
                 };
             })
             .filter(Boolean);
@@ -81,6 +80,7 @@ export function getPromo(req, res) {
     }
 }
 
+// UPLOAD /promo
 export function uploadPromo(req, res) {
     try {
         ensurePromoFiles();
@@ -100,6 +100,7 @@ export function uploadPromo(req, res) {
     }
 }
 
+// GET /promo/dates
 export function getPromoDates(req, res) {
     try {
         ensurePromoFiles();
@@ -111,6 +112,7 @@ export function getPromoDates(req, res) {
     }
 }
 
+// POST /promo/dates
 export function savePromoDates(req, res) {
     try {
         ensurePromoFiles();
@@ -130,6 +132,7 @@ export function savePromoDates(req, res) {
     }
 }
 
+// DELETE /promo
 export function deletePromo(req, res) {
     try {
         ensurePromoFiles();
