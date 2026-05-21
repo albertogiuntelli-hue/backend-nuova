@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import csvParser from "../utils/csvParser.js";
 
-// Assicura che /mnt/data esista SEMPRE
-const dataDir = "/mnt/data";
+// Usa /tmp perché Railway non permette più di scrivere in /mnt/data
+const dataDir = "/tmp";
 if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
 }
