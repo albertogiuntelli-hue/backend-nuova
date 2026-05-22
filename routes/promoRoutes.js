@@ -10,19 +10,23 @@ import {
 } from "../controllers/promoController.js";
 
 const router = express.Router();
+
+// multer salva i file temporanei in /tmp
 const upload = multer({ dest: "/tmp" });
 
-// LISTA PROMO
+// GET /promo
 router.get("/", getPromo);
 
-// UPLOAD PROMO (CSV)
-router.post("/", upload.single("file"), uploadPromo);
+// POST /promo/upload
+router.post("/upload", upload.single("file"), uploadPromo);
 
-// DELETE PROMO
-router.delete("/", deletePromo);
+// DELETE /promo/delete
+router.delete("/delete", deletePromo);
 
-// DATE PROMO
+// GET /promo/dates
 router.get("/dates", getPromoDates);
+
+// POST /promo/dates
 router.post("/dates", savePromoDates);
 
 export default router;
