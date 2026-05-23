@@ -28,13 +28,17 @@ function normalizeImage(img) {
 // Normalizza prezzo
 function normalizePrice(value) {
     if (!value) return 0;
-    return Number(value.replace(",", "."));
+
+    // Rimuove eventuali virgolette
+    const cleaned = value.replace(/"/g, "").trim();
+
+    return Number(cleaned.replace(",", "."));
 }
 
 // Split universale , o ;
 function smartSplit(row) {
-    if (row.includes(";")) return row.split(";");
-    return row.split(",");
+    if (row.includes(";")) return row.split(";").map(x => x.trim());
+    return row.split(",").map(x => x.trim());
 }
 
 // Garantisce che i file esistano
@@ -54,17 +58,22 @@ export function getPromo(req, res) {
         if (!csv.trim()) return res.json([]);
 
         const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
-        const dataRows = rows.slice(1); // salta intestazione
+
+        // Salta intestazione
+        const dataRows = rows.slice(1);
 
         const promo = dataRows
             .map(row => {
-                const [codice, descrizione, prezzo, a_peso, immagine] = smartSplit(row);
+                const [codice, nome, prezzo, a_peso, immagine] = smartSplit(row);
 
-                if (!codice || !descrizione) return null;
+                if (!codice) return null;
+
+                // Se nome è vuoto → usa codice
+                const nomeFinale = (nome && nome.trim()) || codice.trim();
 
                 return {
                     codice: codice.trim(),
-                    descrizione: descrizione.trim(),
+                    descrizione: nomeFinale,
                     prezzo: normalizePrice(prezzo),
                     a_peso: (a_peso || "").trim().toUpperCase() === "S" ? "S" : "N",
                     immagine: normalizeImage(immagine)
