@@ -7,7 +7,7 @@ const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
 const FALLBACK_IMAGE = "/plusmarket-logo.png";
 
-// Normalizza immagine
+// Normalizza immagine (usa logo se mancante o invalida)
 function normalizeImage(img) {
     if (!img) return FALLBACK_IMAGE;
 
@@ -25,13 +25,11 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// Normalizza prezzo
+// Normalizza prezzo (gestisce virgolette e virgola decimale)
 function normalizePrice(value) {
     if (!value) return 0;
 
-    // Rimuove eventuali virgolette
-    const cleaned = value.replace(/"/g, "").trim();
-
+    const cleaned = String(value).replace(/"/g, "").trim();
     return Number(cleaned.replace(",", "."));
 }
 
@@ -46,7 +44,10 @@ function ensurePromoFiles() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(promoFile)) fs.writeFileSync(promoFile, "");
     if (!fs.existsSync(promoDatesFile))
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start: "", end: "" }, null, 2)
+        );
 }
 
 // GET /promo
@@ -57,9 +58,12 @@ export function getPromo(req, res) {
         const csv = fs.readFileSync(promoFile, "utf8");
         if (!csv.trim()) return res.json([]);
 
-        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
+        const rows = csv
+            .split("\n")
+            .map(r => r.trim())
+            .filter(r => r !== "");
 
-        // Salta intestazione
+        // salta intestazione
         const dataRows = rows.slice(1);
 
         const promo = dataRows
@@ -68,21 +72,20 @@ export function getPromo(req, res) {
 
                 if (!codice) return null;
 
-                // Se nome è vuoto → usa codice
                 const nomeFinale = (nome && nome.trim()) || codice.trim();
 
                 return {
                     codice: codice.trim(),
-                    descrizione: nomeFinale,
+                    descrizione: nomeFinale, // la dashboard usa "descrizione"
                     prezzo: normalizePrice(prezzo),
-                    a_peso: (a_peso || "").trim().toUpperCase() === "S" ? "S" : "N",
+                    a_peso:
+                        (a_peso || "").trim().toUpperCase() === "S" ? "S" : "N",
                     immagine: normalizeImage(immagine)
                 };
             })
             .filter(Boolean);
 
         return res.json(promo);
-
     } catch (err) {
         console.error("Errore GET /promo:", err);
         return res.status(500).json({ error: "Errore lettura promo" });
@@ -94,7 +97,8 @@ export function uploadPromo(req, res) {
     try {
         ensurePromoFiles();
 
-        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
+        if (!req.file)
+            return res.status(400).json({ error: "Nessun file caricato" });
 
         const csv = fs.readFileSync(req.file.path, "utf8");
         fs.writeFileSync(promoFile, csv);
@@ -102,10 +106,11 @@ export function uploadPromo(req, res) {
         fs.unlinkSync(req.file.path);
 
         return res.json({ message: "Promo caricate correttamente" });
-
     } catch (err) {
         console.error("Errore UPLOAD /promo:", err);
-        return res.status(500).json({ error: "Errore caricamento promo" });
+        return res
+            .status(500)
+            .json({ error: "Errore caricamento promo" });
     }
 }
 
@@ -117,7 +122,9 @@ export function getPromoDates(req, res) {
         return res.json(data);
     } catch (err) {
         console.error("Errore GET /promo/dates:", err);
-        return res.status(500).json({ error: "Errore lettura date promo" });
+        return res
+            .status(500)
+            .json({ error: "Errore lettura date promo" });
     }
 }
 
@@ -134,10 +141,11 @@ export function savePromoDates(req, res) {
         );
 
         return res.json({ message: "Date promo salvate" });
-
     } catch (err) {
         console.error("Errore POST /promo/dates:", err);
-        return res.status(500).json({ error: "Errore salvataggio date promo" });
+        return res
+            .status(500)
+            .json({ error: "Errore salvataggio date promo" });
     }
 }
 
@@ -146,10 +154,15 @@ export function deletePromo(req, res) {
     try {
         ensurePromoFiles();
         fs.writeFileSync(promoFile, "");
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start: "", end: "" }, null, 2)
+        );
         return res.json({ message: "Promo eliminate" });
     } catch (err) {
         console.error("Errore DELETE /promo:", err);
-        return res.status(500).json({ error: "Errore eliminazione promo" });
+        return res
+            .status(500)
+            .json({ error: "Errore eliminazione promo" });
     }
 }
