@@ -29,7 +29,11 @@ function normalizeImage(img) {
 function normalizePrice(value) {
     if (!value) return 0;
 
-    const cleaned = String(value).replace(/"/g, "").trim();
+    const cleaned = String(value)
+        .replace(/"/g, "")   // rimuove virgolette
+        .replace(/\s+/g, "") // rimuove spazi
+        .trim();
+
     return Number(cleaned.replace(",", "."));
 }
 
@@ -76,7 +80,7 @@ export function getPromo(req, res) {
 
                 return {
                     codice: codice.trim(),
-                    descrizione: nomeFinale, // la dashboard usa "descrizione"
+                    descrizione: nomeFinale,
                     prezzo: normalizePrice(prezzo),
                     a_peso:
                         (a_peso || "").trim().toUpperCase() === "S" ? "S" : "N",
