@@ -5,7 +5,8 @@ import {
     getPromo,
     uploadPromo,
     deletePromo,
-    getPromoDates
+    getPromoDates,
+    savePromoDates
 } from "../controllers/promoController.js";
 
 const router = express.Router();
@@ -24,5 +25,8 @@ router.delete("/delete", deletePromo);
 
 // GET /promo/dates
 router.get("/dates", getPromoDates);
+
+// POST /promo/date  (salvataggio date promo)
+router.post("/date", savePromoDates);
 
 export default router;

@@ -1,18 +1,17 @@
 import fs from "fs";
 import path from "path";
-import readCSV from "../utils/readCSV.js";
 
-const promoFolder = "/tmp/uploads/promo";
-const promoDatesFile = "/tmp/promo-dates.json";
+// Percorsi compatibili con Railway
+const dataDir = "/tmp";
+const promoFile = path.join(dataDir, "promo.csv");
+const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
-// Assicura che la cartella esista
-if (!fs.existsSync(promoFolder)) {
-    fs.mkdirSync(promoFolder, { recursive: true });
-}
+// Fallback immagine
+const FALLBACK_IMAGE = "/plusmarket-logo.png";
 
 // Normalizza immagine
-const normalizeImage = (img) => {
-    if (!img) return "/plusmarket-logo.png";
+function normalizeImage(img) {
+    if (!img) return FALLBACK_IMAGE;
 
     const cleaned = img.trim().toLowerCase();
 
@@ -20,18 +19,18 @@ const normalizeImage = (img) => {
         cleaned === "" ||
         cleaned === "null" ||
         cleaned === "undefined" ||
-        cleaned === "n/d" ||
         cleaned === "-" ||
+        cleaned === "n/d" ||
         cleaned === "immagine promo"
     ) {
-        return "/plusmarket-logo.png";
+        return FALLBACK_IMAGE;
     }
 
     return img.trim();
-};
+}
 
 // Normalizza prezzo
-const normalizePrice = (value) => {
+function normalizePrice(value) {
     if (!value) return 0;
 
     const cleaned = String(value)
@@ -40,130 +39,126 @@ const normalizePrice = (value) => {
         .trim();
 
     return Number(cleaned.replace(",", "."));
-};
+}
+
+// Assicura che i file esistano
+function ensurePromoFiles() {
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(promoFile)) fs.writeFileSync(promoFile, "");
+    if (!fs.existsSync(promoDatesFile))
+        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+}
 
 /* ============================================================
    GET PROMO
    ============================================================ */
-export const getPromo = async (req, res) => {
+export const getPromo = (req, res) => {
     try {
-        const files = fs.readdirSync(promoFolder);
-        if (files.length === 0) return res.json([]);
+        ensurePromoFiles();
 
-        const latestFile = path.join(promoFolder, files[files.length - 1]);
-        let promo = await readCSV(latestFile);
+        const csv = fs.readFileSync(promoFile, "utf8");
+        if (!csv.trim()) return res.json([]);
 
-        promo = promo.map((p) => ({
-            codice: p.codice,
-            descrizione: p.nome,
-            prezzo: normalizePrice(p.prezzo),
-            immagine: normalizeImage(p.immagine)
-        }));
+        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
+        const dataRows = rows.slice(1);
 
-        res.json(promo);
-    } catch (error) {
-        console.error("Errore getPromo:", error);
-        res.status(500).json({ error: "Errore nel leggere le promo" });
+        const promo = dataRows
+            .map(row => {
+                const parts = row.includes(";") ? row.split(";") : row.split(",");
+
+                const codice = parts[0]?.trim();
+                const descrizione = parts[1]?.trim();
+                const prezzo = normalizePrice(parts[2]);
+                const immagine = normalizeImage(parts[4]);
+
+                if (!codice || !descrizione) return null;
+
+                return {
+                    codice,
+                    descrizione,
+                    prezzo,
+                    immagine
+                };
+            })
+            .filter(Boolean);
+
+        return res.json(promo);
+
+    } catch (err) {
+        console.error("Errore GET /promo:", err);
+        return res.status(500).json({ error: "Errore lettura promo" });
     }
 };
 
 /* ============================================================
-   UPLOAD PROMO + SALVATAGGIO DATE
+   UPLOAD PROMO
    ============================================================ */
-export const uploadPromo = async (req, res) => {
+export const uploadPromo = (req, res) => {
     try {
+        ensurePromoFiles();
+
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
-        const { data_inizio, data_fine } = req.body;
+        const csv = fs.readFileSync(req.file.path, "utf8");
+        fs.writeFileSync(promoFile, csv);
 
-        if (!data_inizio || !data_fine) {
-            return res.status(400).json({ error: "Date mancanti" });
-        }
+        fs.unlinkSync(req.file.path);
 
-        // Salva le date
-        fs.writeFileSync(
-            promoDatesFile,
-            JSON.stringify({ data_inizio, data_fine }, null, 2)
-        );
+        return res.json({ message: "Promo caricate correttamente" });
 
-        const filePath = req.file.path;
-        let promo = await readCSV(filePath);
-
-        promo = promo.map((p) => ({
-            codice: p.codice,
-            descrizione: p.nome,
-            prezzo: normalizePrice(p.prezzo),
-            immagine: normalizeImage(p.immagine)
-        }));
-
-        // Cancella vecchi file promo
-        const files = fs.readdirSync(promoFolder);
-        for (const f of files) {
-            try {
-                if (f !== req.file.filename) {
-                    const fullPath = path.join(promoFolder, f);
-                    if (fs.existsSync(fullPath)) fs.unlinkSync(fullPath);
-                }
-            } catch (err) {
-                console.warn("Impossibile cancellare file promo:", f, err.message);
-            }
-        }
-
-        // Sposta il nuovo file nella cartella promo
-        fs.renameSync(filePath, path.join(promoFolder, req.file.filename));
-
-        res.json({
-            message: "Promo caricate con successo",
-            data: promo,
-            date: { data_inizio, data_fine }
-        });
-
-    } catch (error) {
-        console.error("Errore uploadPromo:", error);
-        res.status(500).json({ error: "Errore nel caricamento del file promo" });
-    }
-};
-
-/* ============================================================
-   DELETE PROMO
-   ============================================================ */
-export const deletePromo = async (req, res) => {
-    try {
-        const files = fs.readdirSync(promoFolder);
-        for (const f of files) {
-            try {
-                fs.unlinkSync(path.join(promoFolder, f));
-            } catch (err) {
-                console.warn("Errore cancellazione file promo:", f);
-            }
-        }
-
-        // Cancella anche le date
-        if (fs.existsSync(promoDatesFile)) {
-            fs.unlinkSync(promoDatesFile);
-        }
-
-        res.json({ message: "Tutte le promo sono state cancellate." });
-    } catch (error) {
-        console.error("Errore deletePromo:", error);
-        res.status(500).json({ error: "Errore nella cancellazione delle promo" });
+    } catch (err) {
+        console.error("Errore UPLOAD /promo:", err);
+        return res.status(500).json({ error: "Errore caricamento promo" });
     }
 };
 
 /* ============================================================
    GET PROMO DATES
    ============================================================ */
-export const getPromoDates = async (req, res) => {
+export const getPromoDates = (req, res) => {
     try {
-        if (!fs.existsSync(promoDatesFile)) {
-            return res.json({ data_inizio: null, data_fine: null });
-        }
+        ensurePromoFiles();
+        const data = JSON.parse(fs.readFileSync(promoDatesFile, "utf8"));
+        return res.json(data);
+    } catch (err) {
+        console.error("Errore GET /promo/dates:", err);
+        return res.status(500).json({ error: "Errore lettura date promo" });
+    }
+};
 
-        const data = fs.readFileSync(promoDatesFile, "utf8");
-        res.json(JSON.parse(data));
+/* ============================================================
+   SAVE PROMO DATES
+   ============================================================ */
+export const savePromoDates = (req, res) => {
+    try {
+        ensurePromoFiles();
 
-    } catch (error) {
-        console.error("Errore lettura date promo:", error);
-        res.status(500).json({ error: "Errore nel leggere le date promo" });
+        const { start, end } = req.body;
+
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start, end }, null, 2)
+        );
+
+        return res.json({ message: "Date promo salvate" });
+
+    } catch (err) {
+        console.error("Errore POST /promo/date:", err);
+        return res.status(500).json({ error: "Errore salvataggio date promo" });
+    }
+};
+
+/* ============================================================
+   DELETE PROMO
+   ============================================================ */
+export const deletePromo = (req, res) => {
+    try {
+        ensurePromoFiles();
+        fs.writeFileSync(promoFile, "");
+        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+        return res.json({ message: "Promo eliminate" });
+    } catch (err) {
+        console.error("Errore DELETE /promo:", err);
+        return res.status(500).json({ error: "Errore eliminazione promo" });
     }
 };

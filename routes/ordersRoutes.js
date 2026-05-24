@@ -80,7 +80,7 @@ router.post("/", async (req, res) => {
         const nuovoOrdine = {
             cliente: clienteObj,
             prodotti,
-            totale: body.totale,
+            totale: Number(body.totale) || 0,
             note: clienteObj.note || "",
             createdAt: new Date().toISOString(),
             stato: "in attesa",
@@ -119,7 +119,6 @@ router.put("/:index", (req, res) => {
 
         orders[index].stato = stato;
 
-        // Se evaso → sposta in archivio
         if (stato === "evaso") {
             archive.push(orders[index]);
             orders.splice(index, 1);
@@ -155,16 +154,12 @@ router.put("/:index/annulla", (req, res) => {
             return res.status(404).json({ error: "Ordine non trovato" });
         }
 
-        // Imposta stato annullato
         orders[index].stato = "annullato";
 
-        // Sposta in archivio
         archive.push(orders[index]);
 
-        // Rimuovi dagli ordini attivi
         orders.splice(index, 1);
 
-        // Salva entrambi i file
         fs.writeFileSync(ordersFile, JSON.stringify(orders, null, 2));
         fs.writeFileSync(archiveFile, JSON.stringify(archive, null, 2));
 

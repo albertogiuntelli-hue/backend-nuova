@@ -4,22 +4,52 @@ import path from "path";
 const dataDir = "/tmp";
 const productsFile = path.join(dataDir, "prodotti.csv");
 
+// Normalizza prezzo
 function normalizePrice(value) {
     if (!value) return 0;
-    return Number(value.replace(",", "."));
+
+    const cleaned = String(value)
+        .replace(/"/g, "")
+        .replace(/\s+/g, "")
+        .trim();
+
+    return Number(cleaned.replace(",", "."));
 }
 
+// Normalizza immagine
+function normalizeImage(img) {
+    if (!img) return "/plusmarket-logo.png";
+
+    const cleaned = img.trim().toLowerCase();
+
+    if (
+        cleaned === "" ||
+        cleaned === "null" ||
+        cleaned === "undefined" ||
+        cleaned === "-" ||
+        cleaned === "n/d"
+    ) {
+        return "/plusmarket-logo.png";
+    }
+
+    return img.trim();
+}
+
+// Split intelligente (CSV ; oppure ,)
 function smartSplit(row) {
     if (row.includes(";")) return row.split(";");
     return row.split(",");
 }
 
+// Assicura che il file esista
 function ensureProductsFile() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
 }
 
-// GET /products
+/* ============================================================
+   GET /products
+   ============================================================ */
 export function getProducts(req, res) {
     try {
         ensureProductsFile();
@@ -32,15 +62,22 @@ export function getProducts(req, res) {
 
         const products = dataRows
             .map(row => {
-                const [codice, descrizione, prezzo] = smartSplit(row);
+                const parts = smartSplit(row);
+
+                const codice = parts[0]?.trim();
+                const descrizione = parts[1]?.trim();
+                const prezzo = normalizePrice(parts[2]);
+                const a_peso = parts[3]?.trim() || "N";
+                const immagine = normalizeImage(parts[4]);
 
                 if (!codice || !descrizione) return null;
 
                 return {
-                    codice: codice.trim(),
-                    descrizione: descrizione.trim(),
-                    prezzo: normalizePrice(prezzo),
-                    a_peso: "N" // i prodotti non hanno peso
+                    codice,
+                    descrizione,
+                    prezzo,
+                    a_peso,
+                    immagine
                 };
             })
             .filter(Boolean);
@@ -53,7 +90,9 @@ export function getProducts(req, res) {
     }
 }
 
-// POST /products/upload
+/* ============================================================
+   POST /products/upload
+   ============================================================ */
 export function uploadProducts(req, res) {
     try {
         ensureProductsFile();
@@ -76,7 +115,9 @@ export function uploadProducts(req, res) {
     }
 }
 
-// DELETE /products/delete
+/* ============================================================
+   DELETE /products/delete
+   ============================================================ */
 export function deleteProducts(req, res) {
     try {
         ensureProductsFile();

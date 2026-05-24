@@ -17,14 +17,14 @@ function ensureOrdersFile() {
 /* ============================================================
    GET /api/orders — restituisce TUTTI i dati dell’ordine
 ============================================================ */
-export async function getAllOrders() {
+export async function getAllOrders(req, res) {
     try {
         ensureOrdersFile();
 
         const data = fs.readFileSync(ordersJsonPath, "utf8");
         const orders = JSON.parse(data);
 
-        return orders.map((o, index) => ({
+        const normalized = orders.map((o, index) => ({
             id: index + 1,
 
             cliente: {
@@ -35,14 +35,17 @@ export async function getAllOrders() {
                 note: o.cliente?.note || "",
             },
 
-            prodotti: o.prodotti || [],
+            prodotti: Array.isArray(o.prodotti) ? o.prodotti : [],
 
-            totale: o.totale || 0,
+            totale: Number(o.totale) || 0,
             data: o.data || "",
             stato: o.stato || "in attesa",
         }));
+
+        return res.json(normalized);
+
     } catch (error) {
         console.error("Errore lettura ordini JSON:", error);
-        throw error;
+        return res.status(500).json({ error: "Errore lettura ordini" });
     }
 }
