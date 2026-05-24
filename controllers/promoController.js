@@ -29,7 +29,7 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// Normalizza prezzo → EURO → CENTESIMI
+// 🔁 Normalizza prezzo → SEMPRE IN EURO (NO *100)
 function normalizePrice(value) {
     if (!value) return 0;
 
@@ -41,7 +41,7 @@ function normalizePrice(value) {
     const euro = Number(cleaned.replace(",", "."));
     if (isNaN(euro)) return 0;
 
-    return Math.round(euro * 100); // 🔥 CONVERSIONE CORRETTA
+    return euro; // 🔥 RESTITUISCE EURO, NON CENTESIMI
 }
 
 // Assicura che i file esistano
@@ -71,7 +71,7 @@ export const getPromo = (req, res) => {
 
                 const codice = parts[0]?.trim();
                 const descrizione = parts[1]?.trim();
-                const prezzo = normalizePrice(parts[2]); // 🔥 ORA IN CENTESIMI
+                const prezzo = normalizePrice(parts[2]); // 🔥 EURO
                 const immagine = normalizeImage(parts[4]);
 
                 if (!codice || !descrizione) return null;
