@@ -5,15 +5,15 @@ import path from "path";
 
 const router = express.Router();
 
-// cartella uploads
-const uploadDir = path.join(process.cwd(), "backend", "uploads");
+// Cartella compatibile con Railway
+const uploadDir = "/tmp/uploads";
 
-// assicura che la cartella esista
+// Assicura che la cartella esista
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-// multer: salva file temporanei
+// Multer salva i file temporanei in /tmp/uploads
 const upload = multer({ dest: uploadDir });
 
 // POST /api/upload
@@ -24,10 +24,9 @@ router.post("/", upload.single("csv"), (req, res) => {
         }
 
         const original = req.file.originalname.toLowerCase();
-
         let targetName = null;
 
-        // riconoscimento intelligente
+        // Riconoscimento intelligente del tipo di CSV
         if (original.includes("product") || original.includes("prodotti")) {
             targetName = "products-latest.csv";
         } else if (original.includes("promo") || original.includes("offerte")) {
@@ -46,7 +45,7 @@ router.post("/", upload.single("csv"), (req, res) => {
 
         const finalPath = path.join(uploadDir, targetName);
 
-        // sovrascrive il file precedente
+        // Sovrascrive il file precedente
         fs.renameSync(req.file.path, finalPath);
 
         return res.json({

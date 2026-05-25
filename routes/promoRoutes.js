@@ -11,22 +11,22 @@ import {
 
 const router = express.Router();
 
-// multer salva i file temporanei in /tmp
+// Multer salva i file temporanei in /tmp (compatibile con Railway)
 const upload = multer({ dest: "/tmp" });
 
-// GET /promo
+// GET /api/promo → restituisce tutte le promo
 router.get("/", getPromo);
 
-// POST /promo/upload
+// POST /api/promo/upload → carica CSV promo
 router.post("/upload", upload.single("file"), uploadPromo);
 
-// DELETE /promo/delete
+// DELETE /api/promo/delete → elimina tutte le promo
 router.delete("/delete", deletePromo);
 
-// GET /promo/dates
+// GET /api/promo/dates → restituisce date promo
 router.get("/dates", getPromoDates);
 
-// POST /promo/date  (salvataggio date promo)
+// POST /api/promo/date → salva date promo
 router.post("/date", savePromoDates);
 
 export default router;
