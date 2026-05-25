@@ -13,7 +13,8 @@ function normalizePrice(value) {
         .replace(/\s+/g, "")
         .trim();
 
-    return Number(cleaned.replace(",", "."));
+    const num = Number(cleaned.replace(",", "."));
+    return isNaN(num) ? 0 : num;
 }
 
 // Normalizza immagine
@@ -35,10 +36,11 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// Split intelligente (CSV ; oppure ,)
+// Split intelligente (TAB, ; oppure ,)
 function smartSplit(row) {
-    if (row.includes(";")) return row.split(";");
-    return row.split(",");
+    if (row.includes("\t")) return row.split("\t"); // CSV con TAB
+    if (row.includes(";")) return row.split(";");   // CSV con ;
+    return row.split(",");                          // CSV con ,
 }
 
 // Assicura che il file esista
@@ -57,7 +59,11 @@ export function getProducts(req, res) {
         const csv = fs.readFileSync(productsFile, "utf8");
         if (!csv.trim()) return res.json([]);
 
-        const rows = csv.split("\n").map(r => r.trim()).filter(r => r !== "");
+        const rows = csv
+            .split("\n")
+            .map(r => r.trim())
+            .filter(r => r !== "");
+
         const dataRows = rows.slice(1); // salta intestazione
 
         const products = dataRows
@@ -65,12 +71,13 @@ export function getProducts(req, res) {
                 const parts = smartSplit(row);
 
                 const codice = parts[0]?.trim();
-                const descrizione = parts[1]?.trim();
+                const descrizione = (parts[1] || "").trim();
                 const prezzo = normalizePrice(parts[2]);
-                const a_peso = parts[3]?.trim() || "N";
+                const a_peso = (parts[3] || "N").trim() || "N";
                 const immagine = normalizeImage(parts[4]);
 
-                if (!codice || !descrizione) return null;
+                // ❗ ORA BASTA IL CODICE, NON BUTTIAMO VIA LA RIGA SE LA DESCRIZIONE È VUOTA
+                if (!codice) return null;
 
                 return {
                     codice,

@@ -15,13 +15,15 @@ function normalizeImage(img) {
         cleaned === "null" ||
         cleaned === "undefined" ||
         cleaned === "-" ||
-        cleaned === "n/d"
+        cleaned === "n/d" ||
+        cleaned === "immagine promo"
     ) {
         return FALLBACK_IMAGE;
     }
     return img.trim();
 }
 
+// 🔥 PREZZO PROMO = EURO (NO CENTESIMI)
 function normalizePrice(value) {
     if (!value) return 0;
     const cleaned = String(value).replace(/"/g, "").replace(/\s+/g, "").trim();
@@ -36,11 +38,17 @@ function ensurePromoFiles() {
         fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
 }
 
+// Split intelligente (TAB, ; oppure ,)
+function smartSplit(row) {
+    if (row.includes("\t")) return row.split("\t"); // CSV con TAB
+    if (row.includes(";")) return row.split(";");   // CSV con ;
+    return row.split(",");                          // CSV con ,
+}
+
 export const getPromo = (req, res) => {
     try {
         ensurePromoFiles();
         const csv = fs.readFileSync(promoFile, "utf8");
-
         if (!csv.trim()) return res.json([]);
 
         const rows = csv
@@ -52,14 +60,15 @@ export const getPromo = (req, res) => {
 
         const promo = dataRows
             .map(row => {
-                const parts = row.split(/;|,/).map(p => p.trim());
+                const parts = smartSplit(row);
 
-                const codice = parts[0] || "";
-                const descrizione = parts[1] || "";
+                const codice = (parts[0] || "").trim();
+                const descrizione = (parts[1] || "").trim();
                 const prezzo = normalizePrice(parts[2] || "0");
                 const immagine = normalizeImage(parts[3] || parts[4] || "");
 
-                if (!codice || !descrizione) return null;
+                // ❗ ANCHE QUI: NON BUTTIAMO VIA LA RIGA SE LA DESCRIZIONE È VUOTA
+                if (!codice) return null;
 
                 return { codice, descrizione, prezzo, immagine };
             })
@@ -78,11 +87,6 @@ export const uploadPromo = (req, res) => {
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
         const csv = fs.readFileSync(req.file.path, "utf8");
-
-        if (!csv.trim()) {
-            return res.status(400).json({ error: "CSV vuoto" });
-        }
-
         fs.writeFileSync(promoFile, csv);
         fs.unlinkSync(req.file.path);
 
