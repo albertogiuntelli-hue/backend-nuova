@@ -38,9 +38,9 @@ function normalizeImage(img) {
 
 // Split intelligente (TAB, ; oppure ,)
 function smartSplit(row) {
-    if (row.includes("\t")) return row.split("\t"); // CSV con TAB
-    if (row.includes(";")) return row.split(";");   // CSV con ;
-    return row.split(",");                          // CSV con ,
+    if (row.includes("\t")) return row.split("\t");
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
 }
 
 // Assicura che il file esista
@@ -71,17 +71,16 @@ export function getProducts(req, res) {
                 const parts = smartSplit(row);
 
                 const codice = parts[0]?.trim();
-                const descrizione = (parts[1] || "").trim();
+                const nome = (parts[1] || "").trim();   // 🔥 FIX QUI
                 const prezzo = normalizePrice(parts[2]);
                 const a_peso = (parts[3] || "N").trim() || "N";
                 const immagine = normalizeImage(parts[4]);
 
-                // ❗ ORA BASTA IL CODICE, NON BUTTIAMO VIA LA RIGA SE LA DESCRIZIONE È VUOTA
                 if (!codice) return null;
 
                 return {
                     codice,
-                    descrizione,
+                    nome,        // 🔥 FIX QUI
                     prezzo,
                     a_peso,
                     immagine
@@ -111,7 +110,6 @@ export function uploadProducts(req, res) {
         const csv = fs.readFileSync(req.file.path, "utf8");
         fs.writeFileSync(productsFile, csv);
 
-        // elimina il file temporaneo
         fs.unlinkSync(req.file.path);
 
         return res.json({ message: "Prodotti caricati correttamente" });
