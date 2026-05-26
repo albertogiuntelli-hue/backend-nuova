@@ -25,7 +25,7 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// 🔥 PREZZO PROMO = CENTESIMI (COME I PRODOTTI)
+// 🔥 PREZZO PROMO = GIÀ IN CENTESIMI → NON MOLTIPLICARE
 function normalizePrice(value) {
     if (!value) return 0;
 
@@ -34,10 +34,8 @@ function normalizePrice(value) {
         .replace(/\s+/g, "")
         .trim();
 
-    const euro = Number(cleaned.replace(",", "."));
-    if (isNaN(euro)) return 0;
-
-    return Math.round(euro * 100); // 🔥 CENTESIMI
+    const num = Number(cleaned.replace(",", "."));
+    return isNaN(num) ? 0 : num; // 🔥 NON moltiplichiamo
 }
 
 function ensurePromoFiles() {
@@ -65,7 +63,7 @@ export const getPromo = (req, res) => {
             .map(r => r.trim())
             .filter(r => r !== "");
 
-        const dataRows = rows.slice(1); // salta intestazione
+        const dataRows = rows.slice(1);
 
         const promo = dataRows
             .map(row => {
@@ -74,7 +72,7 @@ export const getPromo = (req, res) => {
                 const codice = (parts[0] || "").trim();
                 const descrizione = (parts[1] || "").trim();
                 const prezzo = normalizePrice(parts[2] || "0");
-                const immagine = normalizeImage(parts[4] || ""); // 🔥 FIX IMMAGINE
+                const immagine = normalizeImage(parts[4] || "");
 
                 if (!codice) return null;
 
@@ -92,59 +90,5 @@ export const getPromo = (req, res) => {
     } catch (err) {
         console.error("Errore GET /promo:", err);
         return res.status(500).json({ error: "Errore lettura promo" });
-    }
-};
-
-export const uploadPromo = (req, res) => {
-    try {
-        ensurePromoFiles();
-
-        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
-
-        const csv = fs.readFileSync(req.file.path, "utf8");
-        fs.writeFileSync(promoFile, csv);
-
-        fs.unlinkSync(req.file.path);
-
-        return res.json({ message: "Promo caricate correttamente" });
-
-    } catch (err) {
-        console.error("Errore UPLOAD /promo:", err);
-        return res.status(500).json({ error: "Errore caricamento promo" });
-    }
-};
-
-export const getPromoDates = (req, res) => {
-    try {
-        ensurePromoFiles();
-        const data = JSON.parse(fs.readFileSync(promoDatesFile, "utf8"));
-        return res.json(data);
-    } catch (err) {
-        console.error("Errore GET /promo/dates:", err);
-        return res.status(500).json({ error: "Errore lettura date promo" });
-    }
-};
-
-export const savePromoDates = (req, res) => {
-    try {
-        ensurePromoFiles();
-        const { start, end } = req.body;
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start, end }, null, 2));
-        return res.json({ message: "Date promo salvate" });
-    } catch (err) {
-        console.error("Errore POST /promo/date:", err);
-        return res.status(500).json({ error: "Errore salvataggio date promo" });
-    }
-};
-
-export const deletePromo = (req, res) => {
-    try {
-        ensurePromoFiles();
-        fs.writeFileSync(promoFile, "");
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
-        return res.json({ message: "Promo eliminate" });
-    } catch (err) {
-        console.error("Errore DELETE /promo:", err);
-        return res.status(500).json({ error: "Errore eliminazione promo" });
     }
 };
