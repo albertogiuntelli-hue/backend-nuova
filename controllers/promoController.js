@@ -9,6 +9,7 @@ const FALLBACK_IMAGE = "/plusmarket-logo.png";
 
 function normalizeImage(img) {
     if (!img) return FALLBACK_IMAGE;
+
     const cleaned = img.trim().toLowerCase();
     if (
         cleaned === "" ||
@@ -20,15 +21,23 @@ function normalizeImage(img) {
     ) {
         return FALLBACK_IMAGE;
     }
+
     return img.trim();
 }
 
-// 🔥 PREZZO PROMO = EURO (NO CENTESIMI)
+// 🔥 PREZZO PROMO = CENTESIMI (COME I PRODOTTI)
 function normalizePrice(value) {
     if (!value) return 0;
-    const cleaned = String(value).replace(/"/g, "").replace(/\s+/g, "").trim();
+
+    const cleaned = String(value)
+        .replace(/"/g, "")
+        .replace(/\s+/g, "")
+        .trim();
+
     const euro = Number(cleaned.replace(",", "."));
-    return isNaN(euro) ? 0 : euro;
+    if (isNaN(euro)) return 0;
+
+    return Math.round(euro * 100); // 🔥 CENTESIMI
 }
 
 function ensurePromoFiles() {
@@ -38,16 +47,16 @@ function ensurePromoFiles() {
         fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
 }
 
-// Split intelligente (TAB, ; oppure ,)
 function smartSplit(row) {
-    if (row.includes("\t")) return row.split("\t"); // CSV con TAB
-    if (row.includes(";")) return row.split(";");   // CSV con ;
-    return row.split(",");                          // CSV con ,
+    if (row.includes("\t")) return row.split("\t");
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
 }
 
 export const getPromo = (req, res) => {
     try {
         ensurePromoFiles();
+
         const csv = fs.readFileSync(promoFile, "utf8");
         if (!csv.trim()) return res.json([]);
 
@@ -56,7 +65,7 @@ export const getPromo = (req, res) => {
             .map(r => r.trim())
             .filter(r => r !== "");
 
-        const dataRows = rows.slice(1);
+        const dataRows = rows.slice(1); // salta intestazione
 
         const promo = dataRows
             .map(row => {
@@ -65,16 +74,21 @@ export const getPromo = (req, res) => {
                 const codice = (parts[0] || "").trim();
                 const descrizione = (parts[1] || "").trim();
                 const prezzo = normalizePrice(parts[2] || "0");
-                const immagine = normalizeImage(parts[3] || parts[4] || "");
+                const immagine = normalizeImage(parts[4] || ""); // 🔥 FIX IMMAGINE
 
-                // ❗ ANCHE QUI: NON BUTTIAMO VIA LA RIGA SE LA DESCRIZIONE È VUOTA
                 if (!codice) return null;
 
-                return { codice, descrizione, prezzo, immagine };
+                return {
+                    codice,
+                    descrizione,
+                    prezzo,
+                    immagine
+                };
             })
             .filter(Boolean);
 
         return res.json(promo);
+
     } catch (err) {
         console.error("Errore GET /promo:", err);
         return res.status(500).json({ error: "Errore lettura promo" });
@@ -84,13 +98,16 @@ export const getPromo = (req, res) => {
 export const uploadPromo = (req, res) => {
     try {
         ensurePromoFiles();
+
         if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
 
         const csv = fs.readFileSync(req.file.path, "utf8");
         fs.writeFileSync(promoFile, csv);
+
         fs.unlinkSync(req.file.path);
 
         return res.json({ message: "Promo caricate correttamente" });
+
     } catch (err) {
         console.error("Errore UPLOAD /promo:", err);
         return res.status(500).json({ error: "Errore caricamento promo" });
