@@ -25,7 +25,7 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// 🔥 PREZZO PROMO = GIÀ IN CENTESIMI → NON MOLTIPLICARE
+// 🔥 PREZZO PROMO = CSV IN CENTESIMI → DIVIDIAMO PER 100
 function normalizePrice(value) {
     if (!value) return 0;
 
@@ -35,7 +35,9 @@ function normalizePrice(value) {
         .trim();
 
     const num = Number(cleaned.replace(",", "."));
-    return isNaN(num) ? 0 : num; // 🔥 NON moltiplichiamo
+    if (isNaN(num)) return 0;
+
+    return num / 100; // 🔥 DIVISIONE PER 100 — SOLUZIONE DEFINITIVA
 }
 
 function ensurePromoFiles() {
@@ -71,8 +73,8 @@ export const getPromo = (req, res) => {
 
                 const codice = (parts[0] || "").trim();
                 const descrizione = (parts[1] || "").trim();
-                const prezzo = normalizePrice(parts[2] || "0");
-                const immagine = normalizeImage(parts[4] || ""); // 🔥 FIX IMMAGINE
+                const prezzo = normalizePrice(parts[2] || "0"); // 🔥 PREZZO CORRETTO
+                const immagine = normalizeImage(parts[4] || ""); // 🔥 IMMAGINE CORRETTA
 
                 if (!codice) return null;
 
