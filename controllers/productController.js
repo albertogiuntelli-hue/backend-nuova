@@ -1,8 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-const dataDir = "/tmp";
-const productsFile = path.join(dataDir, "prodotti.csv");
+// Cartella corretta e persistente su Railway
+const dataDir = "/tmp/uploads/products";
+const productsFile = path.join(dataDir, "products.csv");
 
 // Normalizza prezzo
 function normalizePrice(value) {
@@ -19,7 +20,7 @@ function normalizePrice(value) {
 
 // Normalizza immagine
 function normalizeImage(img) {
-    if (!img) return "/plusmarket-logo.png";
+    if (!img) return "/images/plusmarket-logo.png";
 
     const cleaned = img.trim().toLowerCase();
 
@@ -30,7 +31,7 @@ function normalizeImage(img) {
         cleaned === "-" ||
         cleaned === "n/d"
     ) {
-        return "/plusmarket-logo.png";
+        return "/images/plusmarket-logo.png";
     }
 
     return img.trim();
@@ -43,14 +44,14 @@ function smartSplit(row) {
     return row.split(",");
 }
 
-// Assicura che il file esista
+// Assicura che la cartella esista
 function ensureProductsFile() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
 }
 
 /* ============================================================
-   GET /products
+   GET /api/products
    ============================================================ */
 export function getProducts(req, res) {
     try {
@@ -71,16 +72,16 @@ export function getProducts(req, res) {
                 const parts = smartSplit(row);
 
                 const codice = parts[0]?.trim();
-                const nome = (parts[1] || "").trim();   // 🔥 FIX QUI
+                const nome = (parts[1] || "").trim();
                 const prezzo = normalizePrice(parts[2]);
-                const a_peso = (parts[3] || "N").trim() || "N";
+                const a_peso = (parts[3] || "N").trim();
                 const immagine = normalizeImage(parts[4]);
 
                 if (!codice) return null;
 
                 return {
                     codice,
-                    nome,        // 🔥 FIX QUI
+                    nome,
                     prezzo,
                     a_peso,
                     immagine
@@ -97,7 +98,7 @@ export function getProducts(req, res) {
 }
 
 /* ============================================================
-   POST /products/upload
+   POST /api/products/upload
    ============================================================ */
 export function uploadProducts(req, res) {
     try {
@@ -121,7 +122,7 @@ export function uploadProducts(req, res) {
 }
 
 /* ============================================================
-   DELETE /products/delete
+   DELETE /api/products/delete
    ============================================================ */
 export function deleteProducts(req, res) {
     try {

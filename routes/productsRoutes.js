@@ -12,13 +12,13 @@ const router = express.Router();
 // multer salva i file temporanei in /tmp
 const upload = multer({ dest: "/tmp" });
 
-// GET /products
+// GET /api/products
 router.get("/", getProducts);
 
-// POST /products/upload
+// POST /api/products/upload
 router.post("/upload", upload.single("file"), uploadProducts);
 
-// DELETE /products/delete
+// DELETE /api/products/delete
 router.delete("/delete", deleteProducts);
 
 export default router;
