@@ -5,16 +5,26 @@ import path from "path";
 const dataDir = "/tmp/uploads/products";
 const productsFile = path.join(dataDir, "products.csv");
 
-// Normalizza prezzo
+// Normalizza prezzo (accetta 1,99 – 1.99 – 199 – " 1,99 ")
 function normalizePrice(value) {
     if (!value) return 0;
 
-    const cleaned = String(value)
+    let cleaned = String(value)
         .replace(/"/g, "")
         .replace(/\s+/g, "")
         .trim();
 
-    const num = Number(cleaned.replace(",", "."));
+    // Se contiene virgola → sostituisci con punto
+    cleaned = cleaned.replace(",", ".");
+
+    // Se è un numero con decimali → converti in centesimi
+    if (cleaned.includes(".")) {
+        const euro = parseFloat(cleaned);
+        return Math.round(euro * 100);
+    }
+
+    // Se è già un numero intero → centesimi
+    const num = parseInt(cleaned, 10);
     return isNaN(num) ? 0 : num;
 }
 
@@ -65,23 +75,46 @@ export function getProducts(req, res) {
             .map(r => r.trim())
             .filter(r => r !== "");
 
-        const dataRows = rows.slice(1); // salta intestazione
+        const header = smartSplit(rows[0]).map(h => h.toLowerCase());
+        const dataRows = rows.slice(1);
 
         const products = dataRows
             .map(row => {
                 const parts = smartSplit(row);
 
                 const codice = parts[0]?.trim();
-                const nome = (parts[1] || "").trim();
-                const prezzo = normalizePrice(parts[2]);
-                const a_peso = (parts[3] || "N").trim();
-                const immagine = normalizeImage(parts[4]);
-
                 if (!codice) return null;
+
+                // Colonna descrizione (nome o descrizione)
+                const descrizione =
+                    parts[1]?.trim() ||
+                    parts[header.indexOf("nome")] ||
+                    parts[header.indexOf("descrizione")] ||
+                    "";
+
+                // Colonna prezzo
+                const prezzoRaw =
+                    parts[2] ||
+                    parts[header.indexOf("prezzo")] ||
+                    parts[header.indexOf("a prezzo")] ||
+                    "0";
+
+                const prezzo = normalizePrice(prezzoRaw);
+
+                // Colonna a_peso
+                let a_peso =
+                    parts[3] ||
+                    parts[header.indexOf("a_peso")] ||
+                    "N";
+
+                a_peso = a_peso.trim().toUpperCase() === "S" ? "S" : "N";
+
+                // Colonna immagine
+                const immagine = normalizeImage(parts[4]);
 
                 return {
                     codice,
-                    nome,
+                    descrizione,
                     prezzo,
                     a_peso,
                     immagine
