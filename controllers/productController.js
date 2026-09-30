@@ -47,11 +47,37 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// Split intelligente (TAB, ; oppure ,)
+/* ============================================================
+   SPLIT INTELLIGENTE — FUNZIONA CON VIRGOLA, ;, TAB
+   ============================================================ */
 function smartSplit(row) {
-    if (row.includes("\t")) return row.split("\t");
-    if (row.includes(";")) return row.split(";");
-    return row.split(",");
+    const separators = [";", "\t", ","];
+
+    let bestSeparator = ",";
+    let bestCount = 0;
+
+    for (const sep of separators) {
+        const count = row.split(sep).length;
+        if (count > bestCount) {
+            bestCount = count;
+            bestSeparator = sep;
+        }
+    }
+
+    let parts = row.split(bestSeparator).map(p => p.trim());
+
+    // Caso CSV con virgola e prezzo tipo "2,75"
+    if (bestSeparator === "," && parts.length > 5) {
+        const codice = parts[0];
+        const descrizione = parts[1];
+        const prezzo = parts[2] + "," + parts[3];
+        const a_peso = parts[4] || "N";
+        const immagine = parts[5] || "";
+
+        return [codice, descrizione, prezzo, a_peso, immagine];
+    }
+
+    return parts;
 }
 
 // Assicura che la cartella esista
