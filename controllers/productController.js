@@ -1,38 +1,67 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella corretta e persistente su Railway
-const dataDir = "/tmp/uploads/products";
+// Cartella persistente (NON /tmp)
+const dataDir = "/app/data/products";
 const productsFile = path.join(dataDir, "products.csv");
 
-// Normalizza prezzo (accetta 1,99 – 1.99 – 199 – " 1,99 ")
+/* ============================================================
+   PULIZIA CAMPI — RIMUOVE VIRGOLETTE E SPAZI
+   ============================================================ */
+function cleanField(value) {
+    if (!value) return "";
+    return String(value)
+        .replace(/^"+|"+$/g, "")   // rimuove virgolette inizio/fine
+        .replace(/"/g, "")         // rimuove virgolette interne
+        .trim();
+}
+
+/* ============================================================
+   SPLIT CORRETTO — PRIORITÀ AL TAB
+   ============================================================ */
+function smartSplit(row) {
+    // 1. CSV del tuo programma → usa TAB
+    if (row.includes("\t")) {
+        return row.split("\t").map(p => cleanField(p));
+    }
+
+    // 2. Punto e virgola
+    if (row.includes(";")) {
+        return row.split(";").map(p => cleanField(p));
+    }
+
+    // 3. Virgola → MA attenzione al prezzo "2,75"
+    const parts = row.split(",");
+    if (parts.length === 2) {
+        // caso prezzo
+        return [cleanField(parts[0] + "," + parts[1])];
+    }
+
+    return parts.map(p => cleanField(p));
+}
+
+/* ============================================================
+   NORMALIZZA PREZZO
+   ============================================================ */
 function normalizePrice(value) {
     if (!value) return 0;
 
-    let cleaned = String(value)
-        .replace(/"/g, "")
-        .replace(/\s+/g, "")
-        .trim();
+    let cleaned = cleanField(value).replace(",", ".");
 
-    // Se contiene virgola → sostituisci con punto
-    cleaned = cleaned.replace(",", ".");
-
-    // Se è un numero con decimali → converti in centesimi
     if (cleaned.includes(".")) {
         const euro = parseFloat(cleaned);
         return Math.round(euro * 100);
     }
 
-    // Se è già un numero intero → centesimi
     const num = parseInt(cleaned, 10);
     return isNaN(num) ? 0 : num;
 }
 
-// Normalizza immagine
+/* ============================================================
+   NORMALIZZA IMMAGINE
+   ============================================================ */
 function normalizeImage(img) {
-    if (!img) return "/images/plusmarket-logo.png";
-
-    const cleaned = img.trim().toLowerCase();
+    const cleaned = cleanField(img);
 
     if (
         cleaned === "" ||
@@ -44,43 +73,12 @@ function normalizeImage(img) {
         return "/images/plusmarket-logo.png";
     }
 
-    return img.trim();
+    return cleaned;
 }
 
 /* ============================================================
-   SPLIT INTELLIGENTE — FUNZIONA CON VIRGOLA, ;, TAB
+   ASSICURA CARTELLA
    ============================================================ */
-function smartSplit(row) {
-    const separators = [";", "\t", ","];
-
-    let bestSeparator = ",";
-    let bestCount = 0;
-
-    for (const sep of separators) {
-        const count = row.split(sep).length;
-        if (count > bestCount) {
-            bestCount = count;
-            bestSeparator = sep;
-        }
-    }
-
-    let parts = row.split(bestSeparator).map(p => p.trim());
-
-    // Caso CSV con virgola e prezzo tipo "2,75"
-    if (bestSeparator === "," && parts.length > 5) {
-        const codice = parts[0];
-        const descrizione = parts[1];
-        const prezzo = parts[2] + "," + parts[3];
-        const a_peso = parts[4] || "N";
-        const immagine = parts[5] || "";
-
-        return [codice, descrizione, prezzo, a_peso, immagine];
-    }
-
-    return parts;
-}
-
-// Assicura che la cartella esista
 function ensureProductsFile() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
@@ -108,34 +106,28 @@ export function getProducts(req, res) {
             .map(row => {
                 const parts = smartSplit(row);
 
-                const codice = parts[0]?.trim();
+                const codice = cleanField(parts[0]);
                 if (!codice) return null;
 
-                // Colonna descrizione (nome o descrizione)
                 const descrizione =
-                    parts[1]?.trim() ||
-                    parts[header.indexOf("nome")] ||
-                    parts[header.indexOf("descrizione")] ||
+                    cleanField(parts[1]) ||
+                    cleanField(parts[header.indexOf("descrizione")]) ||
                     "";
 
-                // Colonna prezzo
                 const prezzoRaw =
-                    parts[2] ||
-                    parts[header.indexOf("prezzo")] ||
-                    parts[header.indexOf("a prezzo")] ||
+                    cleanField(parts[2]) ||
+                    cleanField(parts[header.indexOf("prezzo")]) ||
                     "0";
 
                 const prezzo = normalizePrice(prezzoRaw);
 
-                // Colonna a_peso
                 let a_peso =
-                    parts[3] ||
-                    parts[header.indexOf("a_peso")] ||
+                    cleanField(parts[3]) ||
+                    cleanField(parts[header.indexOf("a_peso")]) ||
                     "N";
 
-                a_peso = a_peso.trim().toUpperCase() === "S" ? "S" : "N";
+                a_peso = a_peso.toUpperCase() === "S" ? "S" : "N";
 
-                // Colonna immagine
                 const immagine = normalizeImage(parts[4]);
 
                 return {
