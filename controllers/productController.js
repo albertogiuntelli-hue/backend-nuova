@@ -1,67 +1,38 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella persistente (NON /tmp)
-const dataDir = "/app/data/products";
+// Cartella corretta e persistente su Railway
+const dataDir = "/tmp/uploads/products";
 const productsFile = path.join(dataDir, "products.csv");
 
-/* ============================================================
-   PULIZIA CAMPI — RIMUOVE VIRGOLETTE E SPAZI
-   ============================================================ */
-function cleanField(value) {
-    if (!value) return "";
-    return String(value)
-        .replace(/^"+|"+$/g, "")   // rimuove virgolette inizio/fine
-        .replace(/"/g, "")         // rimuove virgolette interne
-        .trim();
-}
-
-/* ============================================================
-   SPLIT CORRETTO — PRIORITÀ AL TAB
-   ============================================================ */
-function smartSplit(row) {
-    // 1. CSV del tuo programma → usa TAB
-    if (row.includes("\t")) {
-        return row.split("\t").map(p => cleanField(p));
-    }
-
-    // 2. Punto e virgola
-    if (row.includes(";")) {
-        return row.split(";").map(p => cleanField(p));
-    }
-
-    // 3. Virgola → MA attenzione al prezzo "2,75"
-    const parts = row.split(",");
-    if (parts.length === 2) {
-        // caso prezzo
-        return [cleanField(parts[0] + "," + parts[1])];
-    }
-
-    return parts.map(p => cleanField(p));
-}
-
-/* ============================================================
-   NORMALIZZA PREZZO
-   ============================================================ */
+// Normalizza prezzo (accetta 1,99 – 1.99 – 199 – " 1,99 ")
 function normalizePrice(value) {
     if (!value) return 0;
 
-    let cleaned = cleanField(value).replace(",", ".");
+    let cleaned = String(value)
+        .replace(/"/g, "")
+        .replace(/\s+/g, "")
+        .trim();
 
+    // Se contiene virgola → sostituisci con punto
+    cleaned = cleaned.replace(",", ".");
+
+    // Se è un numero con decimali → converti in centesimi
     if (cleaned.includes(".")) {
         const euro = parseFloat(cleaned);
         return Math.round(euro * 100);
     }
 
+    // Se è già un numero intero → centesimi
     const num = parseInt(cleaned, 10);
     return isNaN(num) ? 0 : num;
 }
 
-/* ============================================================
-   NORMALIZZA IMMAGINE
-   ============================================================ */
+// Normalizza immagine
 function normalizeImage(img) {
-    const cleaned = cleanField(img);
+    if (!img) return "/images/plusmarket-logo.png";
+
+    const cleaned = img.trim().toLowerCase();
 
     if (
         cleaned === "" ||
@@ -73,12 +44,17 @@ function normalizeImage(img) {
         return "/images/plusmarket-logo.png";
     }
 
-    return cleaned;
+    return img.trim();
 }
 
-/* ============================================================
-   ASSICURA CARTELLA
-   ============================================================ */
+// Split intelligente (TAB, ; oppure ,)
+function smartSplit(row) {
+    if (row.includes("\t")) return row.split("\t");
+    if (row.includes(";")) return row.split(";");
+    return row.split(",");
+}
+
+// Assicura che la cartella esista
 function ensureProductsFile() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
@@ -106,28 +82,34 @@ export function getProducts(req, res) {
             .map(row => {
                 const parts = smartSplit(row);
 
-                const codice = cleanField(parts[0]);
+                const codice = parts[0]?.trim();
                 if (!codice) return null;
 
+                // Colonna descrizione (nome o descrizione)
                 const descrizione =
-                    cleanField(parts[1]) ||
-                    cleanField(parts[header.indexOf("descrizione")]) ||
+                    parts[1]?.trim() ||
+                    parts[header.indexOf("nome")] ||
+                    parts[header.indexOf("descrizione")] ||
                     "";
 
+                // Colonna prezzo
                 const prezzoRaw =
-                    cleanField(parts[2]) ||
-                    cleanField(parts[header.indexOf("prezzo")]) ||
+                    parts[2] ||
+                    parts[header.indexOf("prezzo")] ||
+                    parts[header.indexOf("a prezzo")] ||
                     "0";
 
                 const prezzo = normalizePrice(prezzoRaw);
 
+                // Colonna a_peso
                 let a_peso =
-                    cleanField(parts[3]) ||
-                    cleanField(parts[header.indexOf("a_peso")]) ||
+                    parts[3] ||
+                    parts[header.indexOf("a_peso")] ||
                     "N";
 
-                a_peso = a_peso.toUpperCase() === "S" ? "S" : "N";
+                a_peso = a_peso.trim().toUpperCase() === "S" ? "S" : "N";
 
+                // Colonna immagine
                 const immagine = normalizeImage(parts[4]);
 
                 return {
