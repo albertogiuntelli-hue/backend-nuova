@@ -1,7 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-const dataDir = "/tmp";
+// 🔥 Cartella persistente su Railway (UNICA modifica)
+const dataDir = "/mnt/data";
+
 const promoFile = path.join(dataDir, "promo.csv");
 const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
