@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella corretta e persistente su Railway
-const dataDir = "/tmp/uploads/products";
+// Cartella persistente su Railway
+const dataDir = "/mnt/data/products";
 const productsFile = path.join(dataDir, "products.csv");
 
 // Normalizza prezzo (accetta 1,99 – 1.99 – 199 – " 1,99 ")
@@ -14,16 +14,13 @@ function normalizePrice(value) {
         .replace(/\s+/g, "")
         .trim();
 
-    // Se contiene virgola → sostituisci con punto
     cleaned = cleaned.replace(",", ".");
 
-    // Se è un numero con decimali → converti in centesimi
     if (cleaned.includes(".")) {
         const euro = parseFloat(cleaned);
         return Math.round(euro * 100);
     }
 
-    // Se è già un numero intero → centesimi
     const num = parseInt(cleaned, 10);
     return isNaN(num) ? 0 : num;
 }
@@ -85,14 +82,12 @@ export function getProducts(req, res) {
                 const codice = parts[0]?.trim();
                 if (!codice) return null;
 
-                // Colonna descrizione (nome o descrizione)
                 const descrizione =
                     parts[1]?.trim() ||
                     parts[header.indexOf("nome")] ||
                     parts[header.indexOf("descrizione")] ||
                     "";
 
-                // Colonna prezzo
                 const prezzoRaw =
                     parts[2] ||
                     parts[header.indexOf("prezzo")] ||
@@ -101,7 +96,6 @@ export function getProducts(req, res) {
 
                 const prezzo = normalizePrice(prezzoRaw);
 
-                // Colonna a_peso
                 let a_peso =
                     parts[3] ||
                     parts[header.indexOf("a_peso")] ||
@@ -109,7 +103,6 @@ export function getProducts(req, res) {
 
                 a_peso = a_peso.trim().toUpperCase() === "S" ? "S" : "N";
 
-                // Colonna immagine
                 const immagine = normalizeImage(parts[4]);
 
                 return {
