@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella persistente su Railway
-const dataDir = "/mnt/data/products";
+// Cartella sicura che Railway crea automaticamente
+const dataDir = "/tmp/uploads/products";
 const productsFile = path.join(dataDir, "products.csv");
 
-// Normalizza prezzo (accetta 1,99 – 1.99 – 199 – " 1,99 ")
+// Normalizza prezzo
 function normalizePrice(value) {
     if (!value) return 0;
 
@@ -44,7 +44,7 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// Split intelligente (TAB, ; oppure ,)
+// Split intelligente
 function smartSplit(row) {
     if (row.includes("\t")) return row.split("\t");
     if (row.includes(";")) return row.split(";");
@@ -57,9 +57,7 @@ function ensureProductsFile() {
     if (!fs.existsSync(productsFile)) fs.writeFileSync(productsFile, "");
 }
 
-/* ============================================================
-   GET /api/products
-   ============================================================ */
+/* GET /api/products */
 export function getProducts(req, res) {
     try {
         ensureProductsFile();
@@ -123,9 +121,7 @@ export function getProducts(req, res) {
     }
 }
 
-/* ============================================================
-   POST /api/products/upload
-   ============================================================ */
+/* POST /api/products/upload */
 export function uploadProducts(req, res) {
     try {
         ensureProductsFile();
@@ -147,9 +143,7 @@ export function uploadProducts(req, res) {
     }
 }
 
-/* ============================================================
-   DELETE /api/products/delete
-   ============================================================ */
+/* DELETE /api/products/delete */
 export function deleteProducts(req, res) {
     try {
         ensureProductsFile();

@@ -1,9 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-// 🔥 Cartella persistente su Railway (UNICA modifica)
-const dataDir = "/mnt/data";
-
+// Cartella sicura che Railway crea automaticamente
+const dataDir = "/tmp/uploads/promo";
 const promoFile = path.join(dataDir, "promo.csv");
 const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
@@ -27,7 +26,6 @@ function normalizeImage(img) {
     return img.trim();
 }
 
-// CSV PREZZO IN CENTESIMI → EURO
 function normalizePrice(value) {
     if (!value) return 0;
 
