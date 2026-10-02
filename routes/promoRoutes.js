@@ -11,8 +11,8 @@ import {
 
 const router = express.Router();
 
-// Multer salva i file temporanei in /tmp (compatibile con Railway)
-const upload = multer({ dest: "/tmp" });
+// Multer salva i file temporanei in una cartella PERSISTENTE su Railway
+const upload = multer({ dest: "/mnt/data/promo" });
 
 // GET /api/promo → restituisce tutte le promo
 router.get("/", getPromo);
