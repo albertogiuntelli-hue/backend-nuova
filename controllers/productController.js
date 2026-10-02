@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella sicura che Railway crea automaticamente
-const dataDir = "/tmp/uploads/products";
+// Cartella PERSISTENTE su Railway
+const dataDir = "/mnt/data/products";
 const productsFile = path.join(dataDir, "products.csv");
 
-// Normalizza prezzo
+// Normalizza prezzo (prodotti: vogliamo centesimi interi)
 function normalizePrice(value) {
     if (!value) return 0;
 
@@ -25,7 +25,7 @@ function normalizePrice(value) {
     return isNaN(num) ? 0 : num;
 }
 
-// Normalizza immagine
+// Normalizza immagine (per prodotti: logo di default)
 function normalizeImage(img) {
     if (!img) return "/images/plusmarket-logo.png";
 
@@ -80,6 +80,7 @@ export function getProducts(req, res) {
                 const codice = parts[0]?.trim();
                 if (!codice) return null;
 
+                // prodotti: 3 colonne base → codice;descrizione;prezzo
                 const descrizione =
                     parts[1]?.trim() ||
                     parts[header.indexOf("nome")] ||
@@ -94,6 +95,7 @@ export function getProducts(req, res) {
 
                 const prezzo = normalizePrice(prezzoRaw);
 
+                // per i prodotti, a_peso di default "N"
                 let a_peso =
                     parts[3] ||
                     parts[header.indexOf("a_peso")] ||
@@ -101,6 +103,7 @@ export function getProducts(req, res) {
 
                 a_peso = a_peso.trim().toUpperCase() === "S" ? "S" : "N";
 
+                // immagine opzionale: se non c'è, logo
                 const immagine = normalizeImage(parts[4]);
 
                 return {
@@ -133,6 +136,7 @@ export function uploadProducts(req, res) {
         const csv = fs.readFileSync(req.file.path, "utf8");
         fs.writeFileSync(productsFile, csv);
 
+        // cancello SOLO il file temporaneo di multer in /tmp
         fs.unlinkSync(req.file.path);
 
         return res.json({ message: "Prodotti caricati correttamente" });

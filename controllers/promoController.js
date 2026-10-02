@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-// Cartella sicura che Railway crea automaticamente
-const dataDir = "/tmp/uploads/promo";
+// Cartella PERSISTENTE su Railway
+const dataDir = "/mnt/data/promo";
 const promoFile = path.join(dataDir, "promo.csv");
 const promoDatesFile = path.join(dataDir, "promo-dates.json");
 
@@ -37,6 +37,7 @@ function normalizePrice(value) {
     const num = Number(cleaned.replace(",", "."));
     if (isNaN(num)) return 0;
 
+    // CSV promo: prezzo in centesimi → divido per 100
     return num / 100;
 }
 
@@ -44,7 +45,10 @@ function ensurePromoFiles() {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     if (!fs.existsSync(promoFile)) fs.writeFileSync(promoFile, "");
     if (!fs.existsSync(promoDatesFile))
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start: "", end: "" }, null, 2));
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start: "", end: "" }, null, 2)
+        );
 }
 
 function smartSplit(row) {
@@ -65,7 +69,7 @@ export const getPromo = (req, res) => {
             .map(r => r.trim())
             .filter(r => r !== "");
 
-        const dataRows = rows.slice(1);
+        const dataRows = rows.slice(1); // salta header
 
         const promo = dataRows
             .map(row => {
@@ -74,7 +78,8 @@ export const getPromo = (req, res) => {
                 const codice = (parts[0] || "").trim();
                 const nome = (parts[1] || "").trim();
                 const prezzo = normalizePrice(parts[2] || "0");
-                const a_peso = (parts[3] || "").trim().toUpperCase() === "S" ? "S" : "N";
+                const a_peso =
+                    (parts[3] || "").trim().toUpperCase() === "S" ? "S" : "N";
                 const immagine = normalizeImage(parts[4] || "");
 
                 if (!codice) return null;
@@ -101,11 +106,14 @@ export const uploadPromo = (req, res) => {
     try {
         ensurePromoFiles();
 
-        if (!req.file) return res.status(400).json({ error: "Nessun file caricato" });
+        if (!req.file) {
+            return res.status(400).json({ error: "Nessun file caricato" });
+        }
 
         const csv = fs.readFileSync(req.file.path, "utf8");
         fs.writeFileSync(promoFile, csv);
 
+        // cancello SOLO il file temporaneo di multer in /tmp
         fs.unlinkSync(req.file.path);
 
         return res.json({ message: "Promo caricate correttamente" });
@@ -131,7 +139,10 @@ export const savePromoDates = (req, res) => {
     try {
         ensurePromoFiles();
         const { start, end } = req.body;
-        fs.writeFileSync(promoDatesFile, JSON.stringify({ start, end }, null, 2));
+        fs.writeFileSync(
+            promoDatesFile,
+            JSON.stringify({ start, end }, null, 2)
+        );
         return res.json({ message: "Date promo salvate" });
     } catch (err) {
         console.error("Errore POST /promo/date:", err);
