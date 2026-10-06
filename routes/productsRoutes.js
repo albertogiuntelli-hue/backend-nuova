@@ -1,22 +1,24 @@
 import express from "express";
 import multer from "multer";
 
-// ❌ Disattiviamo completamente i prodotti
-// import {
-//     getProducts,
-//     uploadProducts,
-//     deleteProducts
-// } from "../controllers/productController.js";
+import {
+    getProducts,
+    uploadProducts,
+    deleteProducts
+} from "../controllers/productsController.js";
 
 const router = express.Router();
 
-// ❌ Disattiviamo multer per i prodotti
-// const upload = multer({ dest: "/tmp" });
+// multer salva i file temporanei in /tmp (compatibile con Railway)
+const upload = multer({ dest: "/tmp" });
 
-// ❌ Disattiviamo tutte le rotte
-// router.get("/", getProducts);
-// router.post("/upload", upload.single("file"), uploadProducts);
-// router.delete("/delete", deleteProducts);
+// GET /api/products
+router.get("/", getProducts);
 
-// ❌ Disattiviamo l’export del router
+// POST /api/products/upload
+router.post("/upload", upload.single("file"), uploadProducts);
+
+// DELETE /api/products/delete
+router.delete("/delete", deleteProducts);
+
 export default router;
