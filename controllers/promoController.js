@@ -34,11 +34,12 @@ function normalizePrice(value) {
         .replace(/\s+/g, "")
         .trim();
 
+    // Converte "0,12" → 0.12
     const num = Number(cleaned.replace(",", "."));
     if (isNaN(num)) return 0;
 
-    // CSV promo: prezzo in centesimi → divido per 100
-    return num / 100;
+    // CSV promo: prezzo già in euro → NON dividere per 100
+    return num;
 }
 
 function ensurePromoFiles() {
